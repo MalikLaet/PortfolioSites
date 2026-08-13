@@ -1,5 +1,9 @@
 # Handoff para a próxima IA — redesign do site DevSites
 
+## Protocolo rápido de continuidade
+
+Antes de editar: leia este arquivo, confira `git status --short` e consulte o README original apenas para a seção alterada. Não invente conteúdo, não reabra decisões fechadas e não implemente “O custo de não ter” sem confirmação do cliente. Após alterar: atualize testes, rode `npx tsc --noEmit`, valide visualmente em `http://localhost:5173` quando for UI e registre o commit neste documento.
+
 Este documento é o prompt de continuação. Leia inteiro antes de escrever código.
 
 ---
@@ -61,10 +65,27 @@ implementar uma interação.
 ## 3. Estado atual — verificado agora
 
 ```
-npx vitest run     ->  97 testes passando, 16 arquivos ✅
+npx vitest run     ->  98 testes passando, 16 arquivos ✅
 npx tsc --noEmit   ->  0 erros                          ✅
 npx vite build     ->  concluído                        ✅
 ```
+
+### Estado Git e publicação
+
+- Remoto: `https://github.com/MalikLaet/PortfolioSites.git`.
+- Branch de produção: `main`, conectada à Vercel.
+- Último commit publicado: `6baa396 fix: keep final contact step visible`.
+- Sempre conferir `git status --short` antes de alterar qualquer arquivo.
+- Não usar reset destrutivo nem sobrescrever alterações do usuário.
+
+### Ajustes recentes publicados
+
+- `bf9ffc3`: barra branca de progresso nas abas de Trabalho; autoplay de 6,5 s.
+- `e2d4534`: checklist de Sobre desacelerada para início em 280 ms e intervalo de 300 ms.
+- `c2d34d5`: erros do Contato vinculados à etapa que os gerou.
+- `6baa396`: trilho do wizard corrigido; painéis ocupam 100% e o último campo fica visível; prévia atualiza durante a digitação.
+
+Antes de afirmar que uma mudança está correta, testar o fluxo visual correspondente em `http://localhost:5173` e executar ao menos os testes do componente alterado.
 
 O typecheck foi zerado antes da continuação das seções. Faixa de tecnologias, Trabalho
 (3D no desktop e fallback responsivo), Processo, Sobre, CTA intermediário, Contato,
@@ -165,6 +186,7 @@ será incompatível com o TypeScript 7. **Não reabrir esta decisão.**
 | `whatsapp.ts` | `buildLeadMessage`, `buildLeadLink`, `buildPreviewLines`. |
 | `reveal.ts` | Observer **singleton** dos reveals. Ver seção 6. |
 | `accent.ts` | Lê `--accent` do CSS como inteiro para as cenas three.js, para não duplicar o hex no JS. |
+| `processProgress.ts` | Matemática pura da timeline de Processo, separada do componente para manter o Fast Refresh limpo. |
 
 ### Hooks (`src/hooks/`)
 

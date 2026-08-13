@@ -25,6 +25,7 @@ export function ContactSection(): React.JSX.Element {
   const [step, setStep] = useState(0);
   const [fields, setFields] = useState<LeadFields>(EMPTY_FIELDS);
   const [error, setError] = useState('');
+  const [errorStep, setErrorStep] = useState<number | null>(null);
   const [shaking, setShaking] = useState(false);
   const [success, setSuccess] = useState(false);
   const fieldRefs = useRef<Array<HTMLInputElement | HTMLTextAreaElement | null>>([]);
@@ -35,11 +36,15 @@ export function ContactSection(): React.JSX.Element {
 
   const updateField = (key: keyof LeadFields, value: string) => {
     setFields((current) => ({ ...current, [key]: value }));
-    if (error) setError('');
+    if (error) {
+      setError('');
+      setErrorStep(null);
+    }
   };
 
   const showError = (message: string) => {
     setError(message);
+    setErrorStep(step);
     setShaking(false);
     requestAnimationFrame(() => setShaking(true));
   };
@@ -61,6 +66,7 @@ export function ContactSection(): React.JSX.Element {
       return;
     }
     setError('');
+    setErrorStep(null);
     if (step === 3) submit();
     else setStep((current) => current + 1);
   };
@@ -69,6 +75,7 @@ export function ContactSection(): React.JSX.Element {
     setFields(EMPTY_FIELDS);
     setStep(0);
     setError('');
+    setErrorStep(null);
     setSuccess(false);
   };
 
@@ -192,11 +199,13 @@ export function ContactSection(): React.JSX.Element {
                 </div>
               </div>
 
-              <div className={styles.error} role={error ? 'alert' : undefined}>{error}</div>
+              <div className={styles.error} role={error && errorStep === step ? 'alert' : undefined}>
+                {error && errorStep === step ? error : ''}
+              </div>
 
               <div className={styles.controls}>
                 {step > 0 ? (
-                  <button className={styles.back} type="button" onClick={() => { setError(''); setStep((current) => current - 1); }} aria-label="Voltar uma etapa">
+                  <button className={styles.back} type="button" onClick={() => { setError(''); setErrorStep(null); setStep((current) => current - 1); }} aria-label="Voltar uma etapa">
                     <ArrowLeftIcon />
                   </button>
                 ) : <span />}

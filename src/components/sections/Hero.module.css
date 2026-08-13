@@ -170,3 +170,44 @@
   text-transform: uppercase;
   color: var(--muted);
 }
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: auto;
+    padding: 106px 0 54px;
+  }
+
+  .headline {
+    margin-bottom: 26px;
+    font-size: clamp(38px, 11.2vw, 48px);
+    line-height: 0.99;
+  }
+
+  .subtitle {
+    max-width: 34ch;
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 1.58;
+  }
+
+  .actions {
+    gap: 10px;
+    margin-bottom: 54px;
+  }
+
+  .primary,
+  .secondary {
+    min-height: 48px;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+
+  .statsRow {
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 24px;
+  }
+
+  .statValue { font-size: 30px; }
+  .statLabel { font-size: 8.5px; letter-spacing: 0.1em; }
+}

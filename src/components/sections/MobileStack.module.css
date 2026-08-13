@@ -15,6 +15,22 @@
   }
 }
 
+@media (max-width: 480px) {
+  .root {
+    max-width: 300px;
+    margin-top: 34px;
+  }
+
+  .plane { transform: rotateX(8deg) rotateY(-9deg); }
+  .layer:nth-child(2) { transform: translateZ(-34px) translateY(11px); }
+  .layer:nth-child(3) { transform: translateZ(-68px) translateY(22px); }
+  .layer:nth-child(4) { transform: translateZ(-102px) translateY(33px); }
+  .heroBand { padding: 28px 15px 0; }
+  .cardRow,
+  .footerGrid { padding-inline: 15px; }
+  .caption { margin-top: 20px; font-size: 8px; }
+}
+
 .plane {
   position: relative;
   width: 100%;

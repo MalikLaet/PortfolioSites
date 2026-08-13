@@ -205,6 +205,7 @@
   min-height: 64px;
   padding: 18px clamp(12px, 2vw, 24px);
   border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
   color: var(--muted);
   text-align: left;
   cursor: pointer;
@@ -229,7 +230,7 @@
 }
 
 .tabActive {
-  border-top-color: var(--text);
+  border-bottom-color: var(--text);
 }
 
 .autoplay {
@@ -238,7 +239,7 @@
   bottom: -1px;
   left: 0;
   height: 2px;
-  background: var(--accent);
+  background: var(--text);
   transform-origin: left center;
   animation: workAutoplay 6500ms linear forwards;
 }

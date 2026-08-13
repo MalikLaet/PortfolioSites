@@ -5,10 +5,10 @@
 
 .topRow {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: minmax(150px, 0.7fr) minmax(360px, 1.6fr) minmax(180px, 0.8fr);
   align-items: center;
-  gap: clamp(34px, 6vw, 96px);
-  padding: clamp(38px, 5vw, 58px) 0;
+  gap: clamp(42px, 7vw, 110px);
+  padding: 34px 0;
 }
 
 .brand { display: flex; align-items: center; gap: 10px; }
@@ -16,7 +16,7 @@
 .brand:hover > span { border-color: rgba(var(--accent-rgb), 0.5); color: var(--accent); transform: rotate(-90deg); }
 .brand strong { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
 
-.topRow nav { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 44px); }
+.topRow nav { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: clamp(22px, 3.5vw, 52px); }
 .topRow nav a { display: inline-flex; min-height: 44px; align-items: center; padding: 10px 6px; color: var(--muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
 
 .whatsapp { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; margin-left: auto; padding: 11px 18px; border: 1px solid rgba(var(--accent-rgb), 0.4); border-radius: var(--r-pill); background: rgba(var(--accent-rgb), 0.045); color: var(--accent); font-size: 12.5px; font-weight: 700; transition: background-color 0.3s ease, color 0.3s ease; }
@@ -27,8 +27,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 36px;
-  min-height: 86px;
-  padding: 16px 0;
+  min-height: 68px;
+  padding: 10px 0;
   border-top: 1px solid var(--line-07);
 }
 

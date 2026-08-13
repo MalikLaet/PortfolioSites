@@ -7,6 +7,9 @@ import { CheckIcon } from '@/components/ui/Icons';
 import { Reveal } from '@/components/ui/Reveal';
 import styles from './AboutSection.module.css';
 
+const CHECKLIST_START_MS = 280;
+const CHECKLIST_STEP_MS = 300;
+
 export function AboutSection(): React.JSX.Element {
   const reducedMotion = usePrefersReducedMotion();
   const [panelRef, inView] = useInView<HTMLDivElement>({ threshold: 0.3, enabled: !reducedMotion });
@@ -19,7 +22,7 @@ export function AboutSection(): React.JSX.Element {
     }
     if (!inView) return;
     const timers = DELIVERY_SPECS.map((_, index) =>
-      window.setTimeout(() => setApprovedCount(index + 1), 220 + index * 260),
+      window.setTimeout(() => setApprovedCount(index + 1), CHECKLIST_START_MS + index * CHECKLIST_STEP_MS),
     );
     return () => timers.forEach((timer) => window.clearTimeout(timer));
   }, [inView, reducedMotion]);

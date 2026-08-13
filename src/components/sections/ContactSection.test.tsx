@@ -44,6 +44,20 @@ describe('ContactSection', () => {
     expect(screen.queryByText('Mensagem pronta')).not.toBeInTheDocument();
   });
 
+  it('mantém o campo final visível e atualiza a prévia enquanto digita', async () => {
+    const user = userEvent.setup();
+    render(<ContactSection />);
+    await user.type(screen.getByRole('textbox', { name: 'Como podemos te chamar?' }), 'Malik');
+    await user.click(screen.getByRole('button', { name: /Continuar/ }));
+    await user.type(screen.getByRole('textbox', { name: /Qual seu/ }), '11999038780');
+    await user.click(screen.getByRole('button', { name: /Continuar/ }));
+    await user.click(screen.getByRole('button', { name: 'Pular' }));
+    const message = screen.getByRole('textbox', { name: 'Me conta rapidinho' });
+    expect(message).toHaveAttribute('tabindex', '0');
+    await user.type(message, 'Quero um site novo');
+    expect(screen.getByText('Mensagem: Quero um site novo')).toBeInTheDocument();
+  });
+
   it('abre o WhatsApp com os dados e permite preencher novamente', async () => {
     const open = vi.spyOn(window, 'open').mockImplementation(() => null);
     const user = userEvent.setup();

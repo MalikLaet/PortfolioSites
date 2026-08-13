@@ -141,7 +141,7 @@ export function ContactSection(): React.JSX.Element {
               <div className={styles.viewport}>
                 <div
                   className={`${styles.track} ${shaking ? styles.trackShaking : ''}`}
-                  style={{ transform: `translateX(-${step * 25}%)` }}
+                  style={{ transform: `translateX(-${step * 100}%)` }}
                   onAnimationEnd={() => setShaking(false)}
                 >
                   <div className={styles.fieldPanel} aria-hidden={step !== 0}>

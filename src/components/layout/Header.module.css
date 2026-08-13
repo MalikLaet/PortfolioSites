@@ -1,0 +1,242 @@
+/**
+ * O header tem dois estados e a transição entre eles é a assinatura do site.
+ *
+ * Expandido: invisível — sem fundo, sem borda, sem sombra. O header não tem
+ * padding externo e a cápsula carrega exatamente `--gutter`, de forma que a
+ * logo alinhe na MESMA coluna do H1 e das eyebrows de seção.
+ *
+ * Condensado: a cápsula se desprende da borda e vira uma ilha de vidro.
+ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  padding: 0;
+  transition: padding var(--d-header) var(--ease);
+}
+
+.shell {
+  position: relative;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 20px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(14px, 2.4vw, 30px);
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  transition:
+    padding var(--d-header) var(--ease),
+    max-width var(--d-header) var(--ease),
+    border-radius var(--d-header) var(--ease),
+    background 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow var(--d-el) ease;
+}
+
+.condensed {
+  padding: clamp(10px, 1.5vw, 16px) clamp(12px, 2.4vw, 28px) 0;
+}
+
+.condensed .shell {
+  max-width: 1060px;
+  padding: 11px clamp(14px, 1.8vw, 22px);
+  border-radius: var(--r-pill);
+  background: rgba(13, 13, 17, 0.7);
+  backdrop-filter: blur(22px) saturate(1.6);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  border-color: var(--line-09);
+  box-shadow: var(--sh-header);
+}
+
+/* --- marca --- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line-16);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text);
+  transition:
+    border-color 0.4s ease,
+    color 0.4s ease,
+    transform var(--d-el) var(--ease);
+}
+
+.brand:hover .mark {
+  border-color: rgba(var(--accent-rgb), 0.5);
+  color: var(--accent);
+  transform: rotate(-90deg);
+}
+
+.wordmark {
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+/* --- navegação --- */
+
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* pílula translúcida que desliza atrás do link da seção atual */
+.indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 31px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid var(--line-07);
+  transform: translateY(-50%);
+  transition:
+    transform var(--d-header) var(--ease),
+    width var(--d-header) var(--ease),
+    opacity var(--d-hover) ease;
+}
+
+.navLink {
+  position: relative;
+  padding: 9px 15px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color var(--d-hover) ease;
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: var(--text);
+}
+
+/* --- lado direito --- */
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 20px);
+  flex-shrink: 0;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  flex-shrink: 0;
+  animation: dotPulse 2.4s infinite;
+}
+
+.clockLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* CTA deliberadamente SECUNDÁRIO: vazado, não sólido. O botão branco do hero
+   é o primário — dois botões sólidos competiriam entre si. */
+.cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 19px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(var(--accent-rgb), 0.42);
+  background: rgba(var(--accent-rgb), 0.055);
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transition:
+    transform 0.2s ease-out,
+    background var(--d-hover) ease,
+    color var(--d-hover) ease,
+    border-color var(--d-hover) ease;
+}
+
+.cta:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-12);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* --- barra de progresso de leitura, ancorada DENTRO da cápsula --- */
+
+.progressTrack {
+  position: absolute;
+  left: clamp(20px, 2.6vw, 34px);
+  right: clamp(20px, 2.6vw, 34px);
+  bottom: 7px;
+  height: 1.5px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  opacity: 0.75;
+  transition: width 0.12s linear;
+}
+
+@media (max-width: 899.98px) {
+  .nav,
+  .cta {
+    display: none;
+  }
+  .menuButton {
+    display: inline-flex;
+  }
+}

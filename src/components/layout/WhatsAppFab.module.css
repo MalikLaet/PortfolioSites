@@ -1,0 +1,21 @@
+.fab {
+  position: fixed;
+  right: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  z-index: 70;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  box-shadow: var(--sh-fab);
+  transition: opacity 0.4s ease, transform 0.4s var(--ease);
+}
+
+.fab:hover { color: var(--bg); transform: scale(1.08); }
+.hidden { opacity: 0; pointer-events: none; transform: scale(0.6); }
+
+@media (max-width: 480px) {
+  .fab { right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+}

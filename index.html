@@ -1,655 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#08080A" />
 
-    <title>Criação de Sites Profissionais que Geram Clientes | Desenvolvedor Web</title>
-    <meta name="description" content="Desenvolvedor web freelancer especialista em criação de sites profissionais para negócios locais. Transformo empresas em máquinas de vendas online com sites modernos, otimizados e focados em conversão.">
-    <meta name="keywords" content="criação de sites profissionais, desenvolvedor web freelancer, criação de sites para empresas, sites para negócios locais, web design, sites otimizados">
-    <meta name="author" content="Desenvolvedor Web Freelancer">
-    <meta name="robots" content="index, follow">
+    <title>DevSites — Sites rápidos, feitos à mão, que trazem cliente</title>
+    <meta
+      name="description"
+      content="Estúdio de código em São Paulo. Sites escritos à mão, rápidos, otimizados para o Google e feitos para gerar contato no WhatsApp."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://devsites.com.br/" />
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Criação de Sites Profissionais que Geram Clientes">
-    <meta property="og:description" content="Transformo negócios locais em máquinas de vendas online. Sites modernos, otimizados e focados em conversão.">
-    <meta property="og:image" content="assets/neural-bots.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Criação de Sites Profissionais que Geram Clientes">
-    <meta name="twitter:description" content="Transformo negócios locais em máquinas de vendas online.">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="DevSites" />
+    <meta property="og:title" content="DevSites — Sites rápidos, feitos à mão, que trazem cliente" />
+    <meta
+      property="og:description"
+      content="Todo dia alguém procura o que você faz e acha outro. Um site próprio coloca seu nome na frente de quem já está decidido a comprar."
+    />
+    <meta property="og:image" content="https://devsites.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DevSites — estúdio de código, São Paulo" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DevSites — Sites rápidos, feitos à mão, que trazem cliente" />
+    <meta
+      name="twitter:description"
+      content="Todo dia alguém procura o que você faz e acha outro. Um site próprio coloca seu nome na frente de quem já está decidido a comprar."
+    />
+    <meta name="twitter:image" content="https://devsites.com.br/og-image.png" />
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Desenvolvedor Web Freelancer",
-      "description": "Criação de sites profissionais para negócios locais",
-      "areaServed": "Brasil",
-      "serviceType": "Criação de Sites"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "DevSites",
+        "description": "Estúdio de código freelance. Sites institucionais e landing pages escritos à mão para pequenos e médios negócios.",
+        "url": "https://devsites.com.br/",
+        "email": "isklikma@gmail.com",
+        "telephone": "+5511999038780",
+        "areaServed": { "@type": "Country", "name": "Brasil" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "serviceType": "Criação de sites e landing pages",
+        "knowsLanguage": "pt-BR"
+      }
     </script>
-</head>
-<body>
-
-    <header class="header" id="header">
-        <div class="container header-inner">
-            <a href="#hero" class="logo" aria-label="Início">
-                <span class="logo-mark">&lt;/&gt;</span>
-                <span class="logo-text">DevSites</span>
-            </a>
-            <nav class="nav" aria-label="Navegação principal">
-                <ul class="nav-list">
-                    <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="btn btn-primary btn-sm header-cta" target="_blank" rel="noopener">
-                <span class="btn-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                </span>
-                WhatsApp
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
-    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-        <div class="mobile-menu-bg" aria-hidden="true">
-            <div class="mobile-menu-glow"></div>
-        </div>
-
-        <div class="mobile-menu-inner">
-            <div class="mobile-menu-top">
-                <a href="#hero" class="logo mobile-menu-logo" aria-label="Início">
-                    <span class="logo-mark">&lt;/&gt;</span>
-                    <span class="logo-text">DevSites</span>
-                </a>
-                <button class="mobile-menu-close" aria-label="Fechar menu">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-
-            <nav class="mobile-nav" aria-label="Menu mobile">
-                <ul>
-                    <li>
-                        <a href="#projetos">
-                            <span class="mobile-nav-num">01</span>
-                            <span class="mobile-nav-label">Projetos</span>
-                            <svg class="mobile-nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#beneficios">
-                            <span class="mobile-nav-num">02</span>
-                            <span class="mobile-nav-label">Benefícios</span>
-                            <svg class="mobile-nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#sobre">
-                            <span class="mobile-nav-num">03</span>
-                            <span class="mobile-nav-label">Sobre</span>
-                            <svg class="mobile-nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contato">
-                            <span class="mobile-nav-num">04</span>
-                            <span class="mobile-nav-label">Contato</span>
-                            <svg class="mobile-nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="mobile-menu-footer">
-                <p class="mobile-menu-tagline">Pronto para começar?</p>
-                <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="btn btn-primary btn-lg btn-block" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Falar no WhatsApp
-                </a>
-                <a href="mailto:isklikma@gmail.com" class="mobile-menu-email">
-                    isklikma@gmail.com
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <main>
-
-        <section class="hero" id="hero">
-            <div class="hero-bg" aria-hidden="true">
-                <div class="grid-pattern"></div>
-                <div class="glow glow-1"></div>
-                <div class="glow glow-2"></div>
-            </div>
-
-            <div class="container hero-inner">
-                <div class="hero-badge reveal">
-                    <span class="pulse-dot"></span>
-                    Disponível para novos projetos
-                </div>
-
-                <h1 class="hero-title reveal">
-                    Criação de Sites Profissionais que
-                    <span class="text-gradient">Geram Clientes</span>
-                </h1>
-
-                <p class="hero-subtitle reveal">
-                    Transformo negócios locais em <strong>máquinas de vendas online</strong>. Sites modernos, rápidos e otimizados para gerar mais contatos no WhatsApp.
-                </p>
-
-                <div class="hero-actions reveal">
-                    <a href="#projetos" class="btn btn-primary btn-lg">
-                        Ver Projetos
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Falar no WhatsApp
-                    </a>
-                </div>
-
-                <div class="hero-stats reveal">
-                    <div class="stat">
-                        <div class="stat-value">
-                            <span class="stat-num" data-count="20">0</span><span class="stat-plus">+</span>
-                        </div>
-                        <span class="stat-label">Projetos entregues</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <div class="stat-value">
-                            <span class="stat-num" data-count="100">0</span><span class="stat-plus">%</span>
-                        </div>
-                        <span class="stat-label">Clientes satisfeitos</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <div class="stat-value">
-                            <span class="stat-num">24h</span>
-                        </div>
-                        <span class="stat-label">Vendendo por você</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="scroll-indicator" aria-hidden="true">
-                <span></span>
-            </div>
-        </section>
-
-        <section class="value-props" id="beneficios">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-tag">Por que ter um site?</span>
-                    <h2 class="section-title">O que <span class="text-gradient">um site profissional</span> entrega</h2>
-                    <p class="section-sub">Mais que aparência: resultado real para o seu negócio crescer todos os dias.</p>
-                </div>
-
-                <div class="values-grid">
-                    <article class="value-card reveal">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        </div>
-                        <h3>Mais visibilidade no Google</h3>
-                        <p>Apareça quando seus clientes procurarem pelos seus serviços na sua região.</p>
-                    </article>
-
-                    <article class="value-card reveal">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                        </div>
-                        <h3>Mais contatos no WhatsApp</h3>
-                        <p>Botões estratégicos que transformam visitantes em conversas e vendas.</p>
-                    </article>
-
-                    <article class="value-card reveal">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        </div>
-                        <h3>Mais credibilidade</h3>
-                        <p>Imagem profissional que passa confiança e diferencia você dos concorrentes.</p>
-                    </article>
-
-                    <article class="value-card reveal">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        </div>
-                        <h3>Vendendo 24h por dia</h3>
-                        <p>Seu site trabalha enquanto você dorme, captando clientes a qualquer hora.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="projects" id="projetos">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-tag">Projetos realizados</span>
-                    <h2 class="section-title">Sites que <span class="text-gradient">geram resultado</span></h2>
-                    <p class="section-sub">Cada projeto é pensado para gerar contatos, vendas e crescimento real.</p>
-                </div>
-
-                <div class="projects-grid">
-
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <div class="project-image-frame">
-                                <img src="assets/neural-bots.png" alt="Site da NeuralBot - plataforma de chatbots de IA" loading="lazy">
-                            </div>
-                            <div class="project-overlay">
-                                <span class="project-tag">Plataforma SaaS</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <header class="project-header">
-                                <h3>NeuralBot</h3>
-                                <span class="project-cat">Chatbots de IA</span>
-                            </header>
-                            <p class="project-desc">Site moderno para empresa de chatbots inteligentes que automatizam atendimento e vendas no WhatsApp.</p>
-
-                            <div class="project-info">
-                                <div class="info-row">
-                                    <span class="info-label">Problema</span>
-                                    <span class="info-text">Precisava de presença digital forte para captar leads automaticamente.</span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="info-label">Solução</span>
-                                    <span class="info-text">Site institucional + landing de conversão com foco em qualificação.</span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="info-label">Resultado</span>
-                                    <span class="info-text">Plataforma profissional pronta para escalar e captar 24h.</span>
-                                </div>
-                            </div>
-
-                            <div class="project-tags">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                                <span>Conversão</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <div class="project-image-frame">
-                                <img src="assets/outleteletro.png" alt="Site da OutletEletro - assistência técnica de eletrodomésticos em Guarulhos" loading="lazy">
-                            </div>
-                            <div class="project-overlay">
-                                <span class="project-tag">Negócio Local</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <header class="project-header">
-                                <h3>OutletEletro</h3>
-                                <span class="project-cat">Assistência Técnica</span>
-                            </header>
-                            <p class="project-desc">Site institucional para assistência técnica de eletrodomésticos com foco em SEO local e captação direta via WhatsApp.</p>
-
-                            <div class="project-info">
-                                <div class="info-row">
-                                    <span class="info-label">Problema</span>
-                                    <span class="info-text">Negócio local sem presença online, dependendo apenas de indicação.</span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="info-label">Solução</span>
-                                    <span class="info-text">Site otimizado com SEO local + formulário e WhatsApp integrados.</span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="info-label">Resultado</span>
-                                    <span class="info-text">Mais visibilidade no Google e contatos diretos pela região.</span>
-                                </div>
-                            </div>
-
-                            <div class="project-tags">
-                                <span>SEO Local</span>
-                                <span>Responsivo</span>
-                                <span>WhatsApp</span>
-                                <span>Google Maps</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <div class="project-image-frame">
-                                <img src="assets/site-trust.png" alt="Site da TrustDetail - estética automotiva premium" loading="lazy">
-                            </div>
-                            <div class="project-overlay">
-                                <span class="project-tag">Premium</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <header class="project-header">
-                                <h3>TrustDetail</h3>
-                                <span class="project-cat">Estética Automotiva</span>
-                            </header>
-                            <p class="project-desc">Site premium e luxuoso para estética automotiva, com galeria de resultados antes/depois e agendamento direto pelo WhatsApp.</p>
-
-                            <div class="project-info">
-                                <div class="info-row">
-                                    <span class="info-label">Problema</span>
-                                    <span class="info-text">Posicionamento premium do serviço não se refletia na imagem digital.</span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="info-label">Solução</span>
-                                    <span class="info-text">Identidade visual dark/luxury com galeria, depoimentos e CTAs estratégicos.</span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="info-label">Resultado</span>
-                                    <span class="info-text">Marca premium consolidada e geração de orçamentos qualificados.</span>
-                                </div>
-                            </div>
-
-                            <div class="project-tags">
-                                <span>Design Premium</span>
-                                <span>Galeria</span>
-                                <span>Agendamento</span>
-                                <span>Branding</span>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
-                <div class="projects-cta reveal">
-                    <p>Quer que o seu negócio seja o próximo case de sucesso?</p>
-                    <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-                        Quero um site assim
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="education">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-tag">Por que é importante</span>
-                    <h2 class="section-title">Como um site <span class="text-gradient">muda o seu negócio</span></h2>
-                    <p class="section-sub">Mais do que estética: um site bem feito é o seu melhor vendedor.</p>
-                </div>
-
-                <div class="education-grid">
-                    <div class="edu-card reveal">
-                        <div class="edu-num">01</div>
-                        <h3>Confiança imediata</h3>
-                        <p>Empresas com site profissional passam <strong>3x mais credibilidade</strong> que aquelas que usam só rede social.</p>
-                    </div>
-
-                    <div class="edu-card reveal">
-                        <div class="edu-num">02</div>
-                        <h3>Aparece no Google</h3>
-                        <p>Seus clientes procuram no Google. Sem site, eles encontram seu <strong>concorrente</strong> primeiro.</p>
-                    </div>
-
-                    <div class="edu-card reveal">
-                        <div class="edu-num">03</div>
-                        <h3>Mais WhatsApp</h3>
-                        <p>Botões estratégicos transformam visitantes em conversas e <strong>conversas viram vendas</strong>.</p>
-                    </div>
-
-                    <div class="edu-card reveal">
-                        <div class="edu-num">04</div>
-                        <h3>Vendedor 24h</h3>
-                        <p>Seu site nunca dorme, nunca sai de férias e <strong>nunca perde uma venda</strong> por falta de atendimento.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about" id="sobre">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-content reveal">
-                        <span class="section-tag">Sobre mim</span>
-                        <h2 class="section-title section-title-left">Desenvolvedor focado em <span class="text-gradient">resultado real</span></h2>
-                        <p class="about-text">
-                            Sou desenvolvedor web especializado em criar sites <strong>modernos, rápidos e otimizados</strong> para negócios locais que querem crescer no online.
-                        </p>
-                        <p class="about-text">
-                            Meu trabalho não é só fazer o site bonito — é construir uma ferramenta que <strong>traz cliente todo dia</strong>, gera autoridade e funciona como o vendedor mais dedicado da sua empresa.
-                        </p>
-
-                        <ul class="about-list">
-                            <li>
-                                <span class="check-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                </span>
-                                Sites <strong>100% personalizados</strong> para sua necessidade
-                            </li>
-                            <li>
-                                <span class="check-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                </span>
-                                Otimização para <strong>Google e mobile</strong>
-                            </li>
-                            <li>
-                                <span class="check-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                </span>
-                                Foco em <strong>conversão e WhatsApp</strong>
-                            </li>
-                            <li>
-                                <span class="check-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                </span>
-                                Suporte completo após a entrega
-                            </li>
-                        </ul>
-
-                        <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-                            Vamos conversar
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
-                    </div>
-
-                    <div class="about-visual reveal">
-                        <div class="code-window">
-                            <div class="code-header">
-                                <span class="dot dot-r"></span>
-                                <span class="dot dot-y"></span>
-                                <span class="dot dot-g"></span>
-                                <span class="code-title">portfolio.js</span>
-                            </div>
-                            <pre class="code-body"><code><span class="c-key">const</span> <span class="c-var">desenvolvedor</span> = {
-  <span class="c-prop">foco</span>: <span class="c-str">'negócios locais'</span>,
-  <span class="c-prop">stack</span>: [<span class="c-str">'HTML'</span>, <span class="c-str">'CSS'</span>, <span class="c-str">'JS'</span>],
-  <span class="c-prop">objetivo</span>: <span class="c-str">'gerar clientes'</span>,
-  <span class="c-prop">resultado</span>: <span class="c-str">'sites que vendem'</span>,
-  <span class="c-prop">disponivel</span>: <span class="c-bool">true</span>
-};
-
-<span class="c-var">desenvolvedor</span>.<span class="c-fn">trabalhar</span>();
-<span class="c-com">// → mais clientes para você 🚀</span></code></pre>
-                        </div>
-
-                        <div class="badge-floating badge-1">
-                            <span class="badge-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            Entrega rápida
-                        </div>
-                        <div class="badge-floating badge-2">
-                            <span class="badge-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                            </span>
-                            Site veloz
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-card reveal">
-                    <div class="cta-bg" aria-hidden="true">
-                        <div class="cta-glow"></div>
-                    </div>
-                    <div class="cta-content">
-                        <span class="section-tag section-tag-light">Vamos começar</span>
-                        <h2 class="cta-title">Quer um site assim para o <span class="text-gradient">seu negócio?</span></h2>
-                        <p class="cta-text">Vamos conversar sobre o seu projeto. Orçamento sem compromisso e atendimento direto comigo.</p>
-                        <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="btn btn-primary btn-xl" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            Falar no WhatsApp
-                        </a>
-                        <p class="cta-small">Resposta em poucos minutos · Atendimento humano</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contato">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info reveal">
-                        <span class="section-tag">Entre em contato</span>
-                        <h2 class="section-title section-title-left">Vamos transformar seu negócio</h2>
-                        <p class="contact-text">Me chame no WhatsApp ou preencha o formulário. Te respondo o mais rápido possível para entender o seu projeto.</p>
-
-                        <div class="contact-channels">
-                            <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="contact-channel" target="_blank" rel="noopener">
-                                <span class="channel-icon">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                </span>
-                                <div>
-                                    <span class="channel-label">WhatsApp</span>
-                                    <span class="channel-value">Resposta rápida</span>
-                                </div>
-                            </a>
-
-                            <a href="mailto:isklikma@gmail.com" class="contact-channel">
-                                <span class="channel-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                </span>
-                                <div>
-                                    <span class="channel-label">E-mail</span>
-                                    <span class="channel-value">isklikma@gmail.com</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <form class="contact-form reveal" id="contactForm" novalidate>
-                        <h3 class="form-title">Conte sobre o seu projeto</h3>
-
-                        <div class="form-group">
-                            <label for="name">Seu nome</label>
-                            <input type="text" id="name" name="name" required placeholder="Como posso te chamar?">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">WhatsApp</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="(00) 00000-0000">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="business">Tipo de negócio</label>
-                            <input type="text" id="business" name="business" placeholder="Ex: clínica, loja, assistência…">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Como posso te ajudar?</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Conte um pouco sobre o que você precisa…"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">
-                            Enviar pelo WhatsApp
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                        </button>
-
-                        <p class="form-disclaimer">Ao enviar, você será redirecionado para o WhatsApp.</p>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <a href="#hero" class="logo">
-                    <span class="logo-mark">&lt;/&gt;</span>
-                    <span class="logo-text">DevSites</span>
-                </a>
-                <p>Sites profissionais para negócios que querem crescer.</p>
-            </div>
-
-            <div class="footer-cols">
-                <div class="footer-col">
-                    <h4>Navegação</h4>
-                    <ul>
-                        <li><a href="#projetos">Projetos</a></li>
-                        <li><a href="#beneficios">Benefícios</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Serviços</h4>
-                    <ul>
-                        <li>Sites institucionais</li>
-                        <li>Landing pages</li>
-                        <li>SEO local</li>
-                        <li>Manutenção</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href="https://wa.me/5511999038780" target="_blank" rel="noopener">WhatsApp</a></li>
-                        <li><a href="mailto:isklikma@gmail.com">isklikma@gmail.com</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; <span id="year">2026</span> DevSites. Criando sites que vendem.</p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" class="whatsapp-float" aria-label="Falar no WhatsApp" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span class="whatsapp-tooltip">Falar no WhatsApp</span>
-    </a>
-
-    <script src="js/script.js" defer></script>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

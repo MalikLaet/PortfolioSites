@@ -1,0 +1,46 @@
+.cue {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+  z-index: 60;
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s var(--ease);
+}
+
+.gone {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.track {
+  position: relative;
+  width: 1px;
+  height: 32px;
+  background: var(--line-12);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.dot {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  animation: scrollCue 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

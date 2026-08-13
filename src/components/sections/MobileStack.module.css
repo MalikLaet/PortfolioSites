@@ -1,0 +1,164 @@
+.root {
+  display: none;
+  width: 100%;
+  max-width: 340px;
+  margin: 44px auto 0;
+  position: relative;
+  perspective: 900px;
+  perspective-origin: 50% 40%;
+}
+
+/* só existe onde o WebGL não roda */
+@media (max-width: 899.98px) {
+  .root {
+    display: block;
+  }
+}
+
+.plane {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  transform-style: preserve-3d;
+  transform: rotateX(11deg) rotateY(-13deg);
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
+  background: rgba(12, 12, 16, 0.86);
+  backdrop-filter: blur(2px);
+  transition: transform 0.9s var(--ease);
+  animation-name: stackFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.layer:nth-child(1) {
+  transform: translateZ(0) translateY(0);
+}
+.layer:nth-child(2) {
+  transform: translateZ(-46px) translateY(15px);
+}
+.layer:nth-child(3) {
+  transform: translateZ(-92px) translateY(30px);
+}
+.layer:nth-child(4) {
+  transform: translateZ(-138px) translateY(45px);
+}
+
+/* --- 1 · cromo --- */
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--line-09);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.urlBar {
+  flex: 1;
+  height: 7px;
+  border-radius: var(--r-pill);
+  background: var(--line-07);
+  margin-left: 6px;
+}
+
+/* --- 2 · faixa de hero --- */
+
+.heroBand {
+  padding: 34px 18px 0;
+}
+
+.bar {
+  display: block;
+  border-radius: 3px;
+  background: #fff;
+}
+
+.accentPill {
+  display: block;
+  width: 64px;
+  height: 20px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  margin-top: 16px;
+}
+
+/* --- 3 · cards --- */
+
+.cardRow {
+  display: flex;
+  gap: 9px;
+  padding: 30px 18px 0;
+}
+
+.card {
+  flex: 1;
+  height: 58px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line-07);
+}
+
+.cardLit {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--line-09);
+}
+
+/* --- 4 · grade de rodapé --- */
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  padding: 30px 18px 0;
+}
+
+.cellAccent,
+.cell,
+.cellDim {
+  height: 6px;
+  border-radius: 3px;
+}
+
+.cellAccent {
+  background: var(--accent);
+}
+.cell {
+  background: var(--line-12);
+}
+.cellDim {
+  background: var(--line-09);
+}
+
+/* linha de acento varrendo por cima da pilha */
+.scan {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: stackScan 4.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform: translateZ(30px);
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 26px;
+}

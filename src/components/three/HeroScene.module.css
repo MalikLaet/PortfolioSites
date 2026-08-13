@@ -1,0 +1,11 @@
+.canvas {
+  position: absolute;
+  top: 50%;
+  right: -3%;
+  transform: translateY(-50%);
+  width: min(760px, 60vw);
+  height: min(760px, 60vw);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}

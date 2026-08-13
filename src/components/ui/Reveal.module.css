@@ -1,0 +1,39 @@
+.reveal {
+  opacity: 0;
+  transition:
+    opacity var(--d-reveal) var(--ease),
+    transform var(--d-reveal) var(--ease),
+    clip-path var(--d-reveal) var(--ease);
+}
+
+.up {
+  transform: translateY(26px);
+}
+
+.rise {
+  transform: translateY(40px);
+}
+
+.left {
+  transform: translateX(-34px);
+}
+
+.right {
+  transform: translateX(34px);
+}
+
+.scale {
+  transform: scale(0.965);
+  transition-duration: var(--d-panel);
+}
+
+.wipe {
+  transform: translateY(30px);
+  clip-path: inset(0 0 100% 0);
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+}

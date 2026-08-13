@@ -1,0 +1,86 @@
+.section {
+  padding: var(--section-pad-sm) 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(46px, 7vw, 96px) clamp(24px, 5vw, 72px);
+  border: 1px solid var(--line-10);
+  border-radius: var(--r-4xl);
+  background: var(--surface);
+  text-align: center;
+  isolation: isolate;
+}
+
+.card::before,
+.card::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  pointer-events: none;
+}
+
+.card::before {
+  background: radial-gradient(70% 75% at 50% 0%, rgba(var(--accent-rgb), 0.12), transparent 72%);
+}
+
+.card::after {
+  background-image:
+    linear-gradient(var(--line-07) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.26;
+  mask-image: radial-gradient(ellipse 72% 72% at 50% 35%, #000, transparent 78%);
+}
+
+.card :global(.eyebrow) { color: var(--accent); }
+
+.card h2 {
+  max-width: 940px;
+  margin: 22px auto 26px;
+  font-size: clamp(34px, 5.6vw, 66px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.card p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--text-5);
+  font-size: 15.5px;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.card > a {
+  display: inline-flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 34px;
+  padding: 16px 34px;
+  border-radius: var(--r-pill);
+  background: var(--text);
+  color: var(--bg);
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: var(--sh-btn);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s ease;
+}
+
+.card > a:hover {
+  color: var(--bg);
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.62);
+}
+
+.card > a svg { color: var(--whatsapp); }
+
+@media (max-width: 520px) {
+  .card > a { width: 100%; padding-inline: 20px; }
+}

@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DevSites (roxo) — Sites rápidos, feitos à mão, que trazem cliente</title>
+<meta name="description" content="Desenvolvedor web freelancer. Sites escritos à mão, rápidos, otimizados para o Google e feitos para gerar contato no WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+section[id],#topo{scroll-margin-top:88px}
+a,button{-webkit-tap-highlight-color:rgba(184,154,209,.12)}
+body{background:#08080A;color:#FAFAFA;font-family:'Manrope',system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+a{color:inherit;text-decoration:none;transition:color .25s ease}
+a:hover{color:#FFFFFF}
+ul{list-style:none}
+img{max-width:100%;display:block}
+input,textarea,button,select{font:inherit;color:inherit}
+::selection{background:#B89AD1;color:#08080A}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#08080A}
+::-webkit-scrollbar-thumb{background:#26262B;border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:#3A3A42}
+@keyframes marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes dotPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 10px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@keyframes menuIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes menuItem{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes stackScan{0%{transform:translateY(-10%);opacity:0}18%{opacity:1}82%{opacity:1}100%{transform:translateY(320%);opacity:0}}
+@keyframes stackFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes scrollCue{0%{transform:translateY(-120%)}100%{transform:translateY(240%)}}
+@keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-5px)}40%,60%{transform:translateX(5px)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module">window.__three = import('three');</script>
+</helmet>
+
+<div style="background:#08080A;min-height:100vh;position:relative;overflow-x:clip">
+
+<header id="siteHeader" style="position:fixed;top:0;left:0;right:0;z-index:80;padding:0;transition:padding .6s cubic-bezier(.16,1,.3,1)">
+  <div id="headerShell" style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:20px clamp(20px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:clamp(14px,2.4vw,30px);border:1px solid rgba(255,255,255,0);border-radius:0;background:transparent;transition:padding .6s cubic-bezier(.16,1,.3,1),max-width .6s cubic-bezier(.16,1,.3,1),border-radius .6s cubic-bezier(.16,1,.3,1),background .45s ease,border-color .45s ease,box-shadow .5s ease">
+    <a href="#topo" style="display:flex;align-items:center;gap:11px;flex-shrink:0">
+      <span id="logoMark" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.16);border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#FAFAFA;transition:border-color .4s ease,color .4s ease,transform .5s cubic-bezier(.16,1,.3,1)" style-hover="border-color:rgba(184,154,209,.5);color:#B89AD1;transform:rotate(-90deg)">&lt;/&gt;</span>
+      <span style="font-weight:800;font-size:16px;letter-spacing:-.02em">DevSites</span>
+    </a>
+    <nav id="mainNav" style="position:relative;display:flex;align-items:center;gap:2px" data-desk>
+      <span id="navIndicator" aria-hidden="true" style="position:absolute;left:0;top:50%;width:0;height:31px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.07);transform:translateY(-50%);transition:transform .6s cubic-bezier(.16,1,.3,1),width .6s cubic-bezier(.16,1,.3,1),opacity .35s ease;opacity:0"></span>
+      <a href="#trabalho" data-nav-link="trabalho" style="position:relative;padding:9px 15px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94;white-space:nowrap;transition:color .35s ease" style-hover="color:#FAFAFA">Trabalho</a>
+      <a href="#processo" data-nav-link="processo" style="position:relative;padding:9px 15px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94;white-space:nowrap;transition:color .35s ease" style-hover="color:#FAFAFA">Processo</a>
+      <a href="#sobre" data-nav-link="sobre" style="position:relative;padding:9px 15px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94;white-space:nowrap;transition:color .35s ease" style-hover="color:#FAFAFA">Sobre</a>
+      <a href="#contato" data-nav-link="contato" style="position:relative;padding:9px 15px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94;white-space:nowrap;transition:color .35s ease" style-hover="color:#FAFAFA">Contato</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:clamp(12px,1.6vw,20px);flex-shrink:0">
+      <div data-clock style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+        <span style="width:5px;height:5px;border-radius:50%;background:#25D366;flex-shrink:0;animation:dotPulse 2.4s infinite"></span>
+        <span id="headerClock" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B8B94;white-space:nowrap">São Paulo · --:--</span>
+      </div>
+      <a id="ctaMagnetic" href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" data-desk style="position:relative;display:inline-flex;align-items:center;gap:9px;padding:11px 19px;border-radius:999px;border:1px solid rgba(184,154,209,.42);background:rgba(184,154,209,.055);color:#B89AD1;font-size:12.5px;font-weight:700;letter-spacing:-.005em;white-space:nowrap;transition:transform .2s ease-out,background .35s ease,color .35s ease,border-color .35s ease" style-hover="background:#B89AD1;color:#08080A;border-color:#B89AD1">
+        Começar um projeto
+      </a>
+      <button aria-label="Abrir menu" onClick="{{ openMenu }}" data-mob style="display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(255,255,255,.03);cursor:pointer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="18" height="18"><line x1="3" y1="8" x2="21" y2="8"></line><line x1="3" y1="16" x2="21" y2="16"></line></svg>
+      </button>
+    </div>
+    <div aria-hidden="true" style="position:absolute;left:clamp(20px,2.6vw,34px);right:clamp(20px,2.6vw,34px);bottom:7px;height:1.5px;border-radius:999px;background:rgba(255,255,255,.04);overflow:hidden">
+      <div id="scrollProgress" style="height:100%;width:0;border-radius:999px;background:#B89AD1;opacity:.75;transition:width .12s linear"></div>
+    </div>
+  </div>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:120;background:#08080A;animation:menuIn .35s cubic-bezier(.16,1,.3,1) both;display:flex;flex-direction:column;overflow-y:auto;padding:18px clamp(20px,5vw,40px) calc(40px + env(safe-area-inset-bottom,0px))">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08)">
+      <span style="font-weight:800;font-size:16px;letter-spacing:-.02em">DevSites</span>
+      <button aria-label="Fechar menu" onClick="{{ closeMenu }}" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(255,255,255,.03);cursor:pointer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="18" height="18"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav style="display:flex;flex-direction:column;padding-top:14px">
+      <a href="#trabalho" onClick="{{ closeMenu }}" style="display:flex;align-items:baseline;gap:18px;padding:22px 0;animation:menuItem .5s cubic-bezier(.16,1,.3,1) 0.06s both;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">01</span><span style="font-size:30px;font-weight:700;letter-spacing:-.03em">Trabalho</span></a>
+      <a href="#processo" onClick="{{ closeMenu }}" style="display:flex;align-items:baseline;gap:18px;padding:22px 0;animation:menuItem .5s cubic-bezier(.16,1,.3,1) 0.13s both;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">02</span><span style="font-size:30px;font-weight:700;letter-spacing:-.03em">Processo</span></a>
+      <a href="#sobre" onClick="{{ closeMenu }}" style="display:flex;align-items:baseline;gap:18px;padding:22px 0;animation:menuItem .5s cubic-bezier(.16,1,.3,1) 0.2s both;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">03</span><span style="font-size:30px;font-weight:700;letter-spacing:-.03em">Sobre</span></a>
+      <a href="#contato" onClick="{{ closeMenu }}" style="display:flex;align-items:baseline;gap:18px;padding:22px 0;animation:menuItem .5s cubic-bezier(.16,1,.3,1) 0.27s both;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">04</span><span style="font-size:30px;font-weight:700;letter-spacing:-.03em">Contato</span></a>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:14px;padding-top:32px">
+      <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:17px;border-radius:999px;background:#FAFAFA;color:#08080A;font-weight:700;font-size:15px">Falar no WhatsApp</a>
+      <a href="mailto:isklikma@gmail.com" style="display:flex;align-items:center;justify-content:center;min-height:46px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:#8B8B94">isklikma@gmail.com</a>
+    </div>
+  </div>
+</sc-if>
+
+<section id="topo" style="position:relative;min-height:100svh;display:flex;align-items:center;padding:132px 0 72px;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 80% at 78% 42%, rgba(255,255,255,.055), transparent 60%)"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:88px 88px;mask-image:radial-gradient(ellipse 70% 60% at 50% 45%, black, transparent 78%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 45%, black, transparent 78%)"></div>
+  <canvas id="heroCanvas" aria-hidden="true" style="position:absolute;top:50%;right:-3%;transform:translateY(-50%);width:min(760px,60vw);height:min(760px,60vw);pointer-events:none;opacity:0;transition:opacity 1.4s ease"></canvas>
+
+  <div id="scrollCue" aria-hidden="true" style="position:fixed;left:0;right:0;bottom:26px;z-index:60;pointer-events:none;transition:opacity .45s ease,transform .45s cubic-bezier(.16,1,.3,1)">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px);display:flex;align-items:center;gap:13px">
+      <span style="position:relative;width:1px;height:32px;background:rgba(255,255,255,.12);overflow:hidden;flex-shrink:0">
+        <span style="position:absolute;inset:0;background:#B89AD1;animation:scrollCue 2.2s cubic-bezier(.65,0,.35,1) infinite"></span>
+      </span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94">Role para ver</span>
+    </div>
+  </div>
+
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px);position:relative;z-index:2">
+    <div style="max-width:720px">
+
+            <h1 style="font-size:clamp(42px,7.4vw,94px);font-weight:800;letter-spacing:-.045em;line-height:.98;margin-bottom:34px">
+        <span style="display:block;overflow:hidden;padding-bottom:.06em"><span data-line style="display:block">Todo dia alguém</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.06em"><span data-line style="display:block">procura o que você faz</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.06em"><span data-line style="display:block;color:#8B8B94">e acha outro.</span></span>
+      </h1>
+
+      <p data-reveal style="font-size:clamp(16px,1.6vw,19px);color:#9A9AA4;max-width:530px;line-height:1.65;margin-bottom:44px;text-wrap:pretty">
+        Quem vive de indicação e de Instagram depende da sorte para ser encontrado. Um site próprio coloca seu nome na frente de quem já está decidido a comprar — e joga a conversa direto no seu WhatsApp.
+      </p>
+
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:13px;margin-bottom:88px">
+        <a href="#trabalho" style="display:inline-flex;align-items:center;gap:11px;padding:16px 28px;border-radius:999px;background:#FAFAFA;color:#08080A;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease;box-shadow:0 0 0 0 rgba(255,255,255,0)" style-hover="transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.55)">
+          Ver o que já fizemos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;padding:16px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.02);color:#FAFAFA;font-size:15px;font-weight:600;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,background .35s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.06)">
+          <svg viewBox="0 0 24 24" fill="#25D366" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+
+
+  <div id="mobileStack" aria-hidden="true" style="display:none;width:100%;max-width:340px;margin:44px auto 0;position:relative;perspective:900px;perspective-origin:50% 40%">
+    <div style="position:relative;width:100%;aspect-ratio:4/3;transform-style:preserve-3d;transform:rotateX(11deg) rotateY(-13deg)">
+      <div data-stack-layer="0" style="position:absolute;inset:0;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(12,12,16,.86);backdrop-filter:blur(2px);transform:translateZ(0px) translateY(0px);transition:transform .9s cubic-bezier(.16,1,.3,1);animation:stackFloat 5s ease-in-out 0s infinite">
+      <div style="display:flex;align-items:center;gap:5px;padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.09)">
+        <span style="width:6px;height:6px;border-radius:50%;background:#D65F5A"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#D9A34A"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#5BA86B"></span>
+        <span style="flex:1;height:7px;border-radius:999px;background:rgba(255,255,255,.07);margin-left:6px"></span>
+      </div></div>
+      <div data-stack-layer="1" style="position:absolute;inset:0;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(12,12,16,.86);backdrop-filter:blur(2px);transform:translateZ(-46px) translateY(15px);transition:transform .9s cubic-bezier(.16,1,.3,1);animation:stackFloat 5.6s ease-in-out 0.9s infinite">
+      <div style="padding:34px 18px 0">
+        <span style="display:block;width:72%;height:11px;border-radius:3px;background:rgba(255,255,255,.22)"></span>
+        <span style="display:block;width:54%;height:11px;border-radius:3px;background:rgba(255,255,255,.16);margin-top:8px"></span>
+        <span style="display:block;width:38%;height:7px;border-radius:3px;background:rgba(255,255,255,.1);margin-top:12px"></span>
+        <span style="display:block;width:64px;height:20px;border-radius:999px;background:#B89AD1;margin-top:16px"></span>
+      </div></div>
+      <div data-stack-layer="2" style="position:absolute;inset:0;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(12,12,16,.86);backdrop-filter:blur(2px);transform:translateZ(-92px) translateY(30px);transition:transform .9s cubic-bezier(.16,1,.3,1);animation:stackFloat 6.2s ease-in-out 1.8s infinite">
+      <div style="display:flex;gap:9px;padding:30px 18px 0">
+        <span style="flex:1;height:58px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07)"></span>
+        <span style="flex:1;height:58px;border-radius:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.09)"></span>
+        <span style="flex:1;height:58px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07)"></span>
+      </div></div>
+      <div data-stack-layer="3" style="position:absolute;inset:0;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(12,12,16,.86);backdrop-filter:blur(2px);transform:translateZ(-138px) translateY(45px);transition:transform .9s cubic-bezier(.16,1,.3,1);animation:stackFloat 6.8s ease-in-out 2.6s infinite">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:30px 18px 0">
+        <span style="height:6px;border-radius:3px;background:#B89AD1"></span>
+        <span style="height:6px;border-radius:3px;background:rgba(255,255,255,.12)"></span>
+        <span style="height:6px;border-radius:3px;background:rgba(255,255,255,.12)"></span>
+        <span style="height:6px;border-radius:3px;background:rgba(255,255,255,.09)"></span>
+        <span style="height:6px;border-radius:3px;background:rgba(255,255,255,.09)"></span>
+        <span style="height:6px;border-radius:3px;background:rgba(255,255,255,.09)"></span>
+      </div></div>
+      <span aria-hidden="true" style="position:absolute;left:6%;right:6%;top:0;height:1.5px;background:linear-gradient(90deg,transparent,#B89AD1,transparent);animation:stackScan 4.2s cubic-bezier(.5,0,.5,1) infinite;transform:translateZ(30px)"></span>
+    </div>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;text-align:center;margin-top:26px">Cada camada escrita &agrave; m&atilde;o</p>
+  </div>
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:clamp(28px,6vw,72px);padding-top:34px;border-top:1px solid rgba(255,255,255,.08)">
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;align-items:baseline;font-size:clamp(30px,3.6vw,42px);font-weight:800;letter-spacing:-.04em;line-height:1"><span data-count="20">0</span><span style="color:#B89AD1">+</span></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">Projetos entregues</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;align-items:baseline;font-size:clamp(30px,3.6vw,42px);font-weight:800;letter-spacing:-.04em;line-height:1"><span data-count="100">0</span><span style="color:#B89AD1">%</span></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">Clientes satisfeitos</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;align-items:baseline;font-size:clamp(30px,3.6vw,42px);font-weight:800;letter-spacing:-.04em;line-height:1">24<span style="color:#B89AD1">h</span></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">No ar, todo dia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);padding:22px 0;overflow:hidden;background:#0A0A0C">
+  <div style="display:flex;width:max-content;animation:marquee 38s linear infinite;will-change:transform">
+    <div style="display:flex;align-items:center;gap:46px;padding-right:46px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;white-space:nowrap">
+      <span>HTML5</span><span>·</span><span>CSS3</span><span>·</span><span>JavaScript</span><span>·</span><span>SEO local</span><span>·</span><span>Core Web Vitals</span><span>·</span><span>Mobile first</span><span>·</span><span>Acessibilidade</span><span>·</span><span>WhatsApp API</span><span>·</span><span>Google Business</span><span>·</span><span>Analytics</span><span>·</span>
+    </div>
+    <div aria-hidden="true" style="display:flex;align-items:center;gap:46px;padding-right:46px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;white-space:nowrap">
+      <span>HTML5</span><span>·</span><span>CSS3</span><span>·</span><span>JavaScript</span><span>·</span><span>SEO local</span><span>·</span><span>Core Web Vitals</span><span>·</span><span>Mobile first</span><span>·</span><span>Acessibilidade</span><span>·</span><span>WhatsApp API</span><span>·</span><span>Google Business</span><span>·</span><span>Analytics</span><span>·</span>
+    </div>
+  </div>
+</div>
+
+<section id="trabalho" style="padding:clamp(88px,11vw,150px) 0;position:relative">
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+    <div data-reveal="rise" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px;margin-bottom:52px">
+      <div style="max-width:640px">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;margin-bottom:22px">01 — Trabalho selecionado</span>
+        <h2 style="font-size:clamp(32px,5vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1.02;text-wrap:balance">Três negócios que pararam de esperar a indicação chegar.</h2>
+      </div>
+      <p style="font-size:15px;color:#8B8B94;max-width:290px;line-height:1.65">Clique numa tela ao lado para trazê-la à frente. Clique na da frente para abrir o site.</p>
+    </div>
+  </div>
+
+  <div id="workStage" style="position:relative;width:100%;height:clamp(320px,42vw,520px);margin-bottom:clamp(24px,3vw,40px);cursor:grab;touch-action:pan-y;user-select:none">
+    <div id="workFallback" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2vw,22px);transition:opacity .6s ease">
+      <a id="fallbackLink" href="https://neural-bots.vercel.app/" target="_blank" rel="noopener" style="position:relative;height:100%;width:auto;aspect-ratio:16/10;max-width:min(640px,88%);border:1px solid rgba(255,255,255,.12);border-radius:14px;background:#101014;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.6);display:block;transition:border-color .4s ease,transform .4s cubic-bezier(.16,1,.3,1)" style-hover="border-color:rgba(184,154,209,.5);transform:translateY(-4px)">
+        <div style="display:flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-bottom:1px solid rgba(255,255,255,.07);background:#16161B"><span style="width:7px;height:7px;border-radius:50%;background:#D65F5A"></span><span style="width:7px;height:7px;border-radius:50%;background:#D9A34A"></span><span style="width:7px;height:7px;border-radius:50%;background:#5BA86B"></span></div>
+        <div style="position:absolute;top:28px;left:0;right:0;bottom:0;overflow:hidden">
+        <img data-shot="0" src="assets/neural-bots.png" alt="Site institucional da NeuralBot" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:1;transition:opacity .6s ease">
+        <img data-shot="1" src="assets/outleteletro.png" alt="Site da OutletEletro, assistência técnica" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transition:opacity .6s ease">
+        <img data-shot="2" src="assets/site-trust.png" alt="Site da TrustDetail, estética automotiva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transition:opacity .6s ease">
+        </div>
+        <span data-open-hint style="position:absolute;right:10px;bottom:10px;display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:rgba(8,8,10,.82);border:1px solid rgba(184,154,209,.35);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#B89AD1">
+          Abrir site
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </span>
+      </a>
+    </div>
+    <canvas id="workCanvas" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1.2s ease"></canvas>
+    <span id="openHint" aria-hidden="true" style="position:absolute;left:50%;bottom:14px;transform:translate(-50%,8px);display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(8,8,10,.85);border:1px solid rgba(184,154,209,.35);font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#B89AD1;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s cubic-bezier(.16,1,.3,1)">
+      Clique para abrir o site
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+    </span>
+    <button id="workPrev" type="button" aria-label="Projeto anterior" style="position:absolute;left:clamp(12px,3vw,40px);top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(10,10,12,.55);backdrop-filter:blur(10px);color:#FAFAFA;cursor:pointer;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,background .35s ease" style-hover="transform:translateY(-50%) scale(1.08);border-color:rgba(255,255,255,.34);background:rgba(20,20,24,.8)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button id="workNext" type="button" aria-label="Próximo projeto" style="position:absolute;right:clamp(12px,3vw,40px);top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(10,10,12,.55);backdrop-filter:blur(10px);color:#FAFAFA;cursor:pointer;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,background .35s ease" style-hover="transform:translateY(-50%) scale(1.08);border-color:rgba(255,255,255,.34);background:rgba(20,20,24,.8)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+    <p id="swipeHint" style="display:none;align-items:center;justify-content:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#8B8B94;margin:0 0 20px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      Arraste para ver os outros
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </p>
+    <div id="workTabs" style="display:flex;gap:clamp(8px,2vw,28px);border-top:1px solid rgba(255,255,255,.1);margin-bottom:clamp(34px,4.5vw,54px)">
+        <button data-tab="0" type="button" style="position:relative;flex:1;min-width:0;text-align:left;background:none;border:none;border-top:2px solid transparent;margin-top:-1px;padding:20px 14px 20px 0;cursor:pointer;display:flex;flex-direction:column;gap:7px;transition:border-color .45s ease">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8B8B94">01</span>
+          <span data-tabname style="font-size:16px;font-weight:700;letter-spacing:-.02em;color:#8B8B94;transition:color .45s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">NeuralBot</span>
+          <span data-tabbar style="position:absolute;top:-2px;left:0;height:2px;width:0;background:#B89AD1"></span>
+        </button>
+        <button data-tab="1" type="button" style="position:relative;flex:1;min-width:0;text-align:left;background:none;border:none;border-top:2px solid transparent;margin-top:-1px;padding:20px 14px 20px 0;cursor:pointer;display:flex;flex-direction:column;gap:7px;transition:border-color .45s ease">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8B8B94">02</span>
+          <span data-tabname style="font-size:16px;font-weight:700;letter-spacing:-.02em;color:#8B8B94;transition:color .45s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">OutletEletro</span>
+          <span data-tabbar style="position:absolute;top:-2px;left:0;height:2px;width:0;background:#B89AD1"></span>
+        </button>
+        <button data-tab="2" type="button" style="position:relative;flex:1;min-width:0;text-align:left;background:none;border:none;border-top:2px solid transparent;margin-top:-1px;padding:20px 14px 20px 0;cursor:pointer;display:flex;flex-direction:column;gap:7px;transition:border-color .45s ease">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8B8B94">03</span>
+          <span data-tabname style="font-size:16px;font-weight:700;letter-spacing:-.02em;color:#8B8B94;transition:color .45s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">TrustDetail</span>
+          <span data-tabbar style="position:absolute;top:-2px;left:0;height:2px;width:0;background:#B89AD1"></span>
+        </button>
+    </div>
+
+    <div id="workDetails" style="display:grid;align-items:start">
+      <article data-detail="0" style="grid-area:1/1;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(26px,4vw,64px);align-items:start;transition:opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1)">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <span style="padding:5px 11px;border:1px solid rgba(255,255,255,.14);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#C9C9D2">SaaS</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8B8B94">Chatbots de IA</span>
+          </div>
+          <h3 style="font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-.038em;line-height:1.02;margin-bottom:16px">NeuralBot</h3>
+          <p style="font-size:16.5px;color:#9A9AA4;line-height:1.68;max-width:540px;text-wrap:pretty">Tinham um produto bom e nenhum lugar para explic&aacute;-lo. Montamos o site institucional e a p&aacute;gina de captura que qualifica o lead antes de virar conversa.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="padding:22px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:#0C0C0F">
+            <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#B89AD1;margin-bottom:9px">Resultado</span>
+            <p style="font-size:14.5px;color:#B9B9C2;line-height:1.6">Base pronta para escalar campanhas sem refazer o site.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">HTML</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">CSS</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">JavaScript</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">Convers&atilde;o</span></div>
+          <a href="https://neural-bots.vercel.app/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border:1px solid rgba(184,154,209,.3);border-radius:14px;background:rgba(184,154,209,.045);color:#B89AD1;transition:background .35s ease,border-color .35s ease,transform .35s cubic-bezier(.16,1,.3,1)" style-hover="background:rgba(184,154,209,.1);border-color:rgba(184,154,209,.55);transform:translateY(-2px)">
+            <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;opacity:.75">Ver ao vivo</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">neural-bots.vercel.app</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+      <article data-detail="1" style="grid-area:1/1;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(26px,4vw,64px);align-items:start;transition:opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1)">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <span style="padding:5px 11px;border:1px solid rgba(255,255,255,.14);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#C9C9D2">Local</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8B8B94">Assist&ecirc;ncia t&eacute;cnica</span>
+          </div>
+          <h3 style="font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-.038em;line-height:1.02;margin-bottom:16px">OutletEletro</h3>
+          <p style="font-size:16.5px;color:#9A9AA4;line-height:1.68;max-width:540px;text-wrap:pretty">Vivia de indica&ccedil;&atilde;o e sumia da busca. Estruturamos as p&aacute;ginas por servi&ccedil;o e por bairro, com o WhatsApp a um toque de qualquer ponto da tela.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="padding:22px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:#0C0C0F">
+            <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#B89AD1;margin-bottom:9px">Resultado</span>
+            <p style="font-size:14.5px;color:#B9B9C2;line-height:1.6">Passou a ser encontrado no Google pela pr&oacute;pria regi&atilde;o.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">SEO local</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">Responsivo</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">WhatsApp</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">Maps</span></div>
+          <a href="https://outleteletro.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border:1px solid rgba(184,154,209,.3);border-radius:14px;background:rgba(184,154,209,.045);color:#B89AD1;transition:background .35s ease,border-color .35s ease,transform .35s cubic-bezier(.16,1,.3,1)" style-hover="background:rgba(184,154,209,.1);border-color:rgba(184,154,209,.55);transform:translateY(-2px)">
+            <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;opacity:.75">Ver ao vivo</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">outleteletro.com</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+      <article data-detail="2" style="grid-area:1/1;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(26px,4vw,64px);align-items:start;transition:opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1)">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <span style="padding:5px 11px;border:1px solid rgba(255,255,255,.14);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#C9C9D2">Premium</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8B8B94">Est&eacute;tica automotiva</span>
+          </div>
+          <h3 style="font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-.038em;line-height:1.02;margin-bottom:16px">TrustDetail</h3>
+          <p style="font-size:16.5px;color:#9A9AA4;line-height:1.68;max-width:540px;text-wrap:pretty">Servi&ccedil;o caro com cara de barato na internet. Refizemos a imagem digital em torno das fotos de antes e depois, e o or&ccedil;amento virou um bot&atilde;o s&oacute;.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="padding:22px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:#0C0C0F">
+            <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#B89AD1;margin-bottom:9px">Resultado</span>
+            <p style="font-size:14.5px;color:#B9B9C2;line-height:1.6">Pre&ccedil;o deixou de ser a primeira pergunta do cliente.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">Galeria</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">Agendamento</span><span style="padding:5px 11px;border:1px solid rgba(255,255,255,.09);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#8B8B94">Branding</span></div>
+          <a href="https://trust-detail-three.vercel.app/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border:1px solid rgba(184,154,209,.3);border-radius:14px;background:rgba(184,154,209,.045);color:#B89AD1;transition:background .35s ease,border-color .35s ease,transform .35s cubic-bezier(.16,1,.3,1)" style-hover="background:rgba(184,154,209,.1);border-color:rgba(184,154,209,.55);transform:translateY(-2px)">
+            <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;opacity:.75">Ver ao vivo</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">trust-detail-three.vercel.app</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(72px,9vw,120px) 0;border-top:1px solid rgba(255,255,255,.07);background:#0A0A0C">
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+    <div data-reveal="left" style="margin-bottom:52px;max-width:620px">
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;margin-bottom:22px">02 — O custo de não ter</span>
+      <h2 style="font-size:clamp(30px,4.4vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.04;text-wrap:balance">O cliente não desistiu de comprar. Ele só comprou de quem ele achou.</h2>
+    </div>
+    <div id="quadWrap" style="position:relative;border-radius:20px">
+    <div data-quad style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden">
+      <div data-reveal="wipe" style="padding:34px 26px 38px;background:#0A0A0C;transition:background .4s ease" style-hover="background:#101014">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;margin-bottom:44px">01</span>
+        <h3 style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Você não aparece na busca</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6">Quem digita o seu serviço na sua cidade vê uma lista. Sem site, você não está nela.</p>
+      </div>
+      <div data-reveal="wipe" style="padding:34px 26px 38px;background:#0A0A0C;transition:background .4s ease" style-hover="background:#101014">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;margin-bottom:44px">02</span>
+        <h3 style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Você repete preço o dia todo</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6">Sem uma página que explique o serviço, cada cliente começa a conversa do zero com você.</p>
+      </div>
+      <div data-reveal="wipe" style="padding:34px 26px 38px;background:#0A0A0C;transition:background .4s ease" style-hover="background:#101014">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;margin-bottom:44px">03</span>
+        <h3 style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Parece menor do que é</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6">Só com perfil no Instagram, o cliente te compara com amador — e pechincha o seu preço.</p>
+      </div>
+      <div data-reveal="wipe" style="padding:34px 26px 38px;background:#0A0A0C;transition:background .4s ease" style-hover="background:#101014">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;margin-bottom:44px">04</span>
+        <h3 style="font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Perde quem decide de noite</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6">Quem resolve às 23h não manda DM esperando resposta. Ele procura e fecha com quem já está lá.</p>
+      </div>
+    </div>
+    <div id="quadGlow" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;border-radius:20px;opacity:0;transition:opacity .5s ease"></div>
+    </div>
+  </div>
+</section>
+
+<section id="processo" style="padding:clamp(88px,11vw,150px) 0">
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+    <div data-reveal="left" style="margin-bottom:56px;max-width:620px">
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;margin-bottom:22px">03 — Como funciona</span>
+      <h2 style="font-size:clamp(30px,4.4vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.04;text-wrap:balance">Do primeiro "oi" ao site no ar em cerca de duas semanas.</h2>
+    </div>
+    <div data-reveal style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:22px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8B8B94">Linha do tempo</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8B8B94">Dia <span id="procDay" style="color:#B89AD1;font-variant-numeric:tabular-nums">01</span> de 11</span>
+    </div>
+    <div id="procRail" style="position:relative;height:2px;background:rgba(255,255,255,.1);display:none">
+      <div id="procFill" style="position:absolute;left:0;top:0;height:100%;width:0;background:#B89AD1;transition:width .2s linear"></div>
+      <span data-proc-node="0" style="position:absolute;left:12.5%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span><span data-proc-node="1" style="position:absolute;left:37.5%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span><span data-proc-node="2" style="position:absolute;left:62.5%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span><span data-proc-node="3" style="position:absolute;left:87.5%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span>
+    </div>
+    <div data-steps style="position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <span id="procVRail" aria-hidden="true" style="display:none;position:absolute;left:6px;top:36px;bottom:36px;width:1px;background:rgba(255,255,255,.1)"></span>
+      <span id="procVFill" aria-hidden="true" style="display:none;position:absolute;left:6px;top:36px;width:1px;height:0;background:#B89AD1;transition:height .25s linear"></span>
+      <div data-step="0" style="position:relative;padding:28px 24px 30px 0;border-top:1px solid rgba(255,255,255,.14);opacity:.42;transition:opacity .6s ease"><span data-vnode="0" style="display:none;position:absolute;left:0;top:30px;width:13px;height:13px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);z-index:1;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">ETAPA 01</span>
+          <span style="flex:1;height:1px;background:rgba(255,255,255,.08)"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;white-space:nowrap">1 dia</span>
+        </div>
+        <h3 data-step-title style="font-size:19px;font-weight:700;letter-spacing:-.025em;margin-bottom:10px;transition:color .5s ease">Conversa</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6;max-width:250px">Meia hora no WhatsApp ou na chamada para entender o neg&oacute;cio, o cliente e o que trava hoje.</p>
+      </div>
+      <div data-step="1" style="position:relative;padding:28px 24px 30px 0;border-top:1px solid rgba(255,255,255,.14);opacity:.42;transition:opacity .6s ease"><span data-vnode="1" style="display:none;position:absolute;left:0;top:30px;width:13px;height:13px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);z-index:1;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">ETAPA 02</span>
+          <span style="flex:1;height:1px;background:rgba(255,255,255,.08)"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;white-space:nowrap">2 dias</span>
+        </div>
+        <h3 data-step-title style="font-size:19px;font-weight:700;letter-spacing:-.025em;margin-bottom:10px;transition:color .5s ease">Estrutura</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6;max-width:250px">Definimos as se&ccedil;&otilde;es, o texto e o caminho at&eacute; o bot&atilde;o. Voc&ecirc; aprova antes de existir design.</p>
+      </div>
+      <div data-step="2" style="position:relative;padding:28px 24px 30px 0;border-top:1px solid rgba(255,255,255,.14);opacity:.42;transition:opacity .6s ease"><span data-vnode="2" style="display:none;position:absolute;left:0;top:30px;width:13px;height:13px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);z-index:1;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">ETAPA 03</span>
+          <span style="flex:1;height:1px;background:rgba(255,255,255,.08)"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;white-space:nowrap">7 dias</span>
+        </div>
+        <h3 data-step-title style="font-size:19px;font-weight:700;letter-spacing:-.025em;margin-bottom:10px;transition:color .5s ease">Constru&ccedil;&atilde;o</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6;max-width:250px">C&oacute;digo escrito &agrave; m&atilde;o, link de pr&eacute;via atualizado todo dia. Voc&ecirc; acompanha e comenta.</p>
+      </div>
+      <div data-step="3" style="position:relative;padding:28px 0 30px 0;border-top:1px solid rgba(255,255,255,.14);opacity:.42;transition:opacity .6s ease"><span data-vnode="3" style="display:none;position:absolute;left:0;top:30px;width:13px;height:13px;border-radius:50%;background:#08080A;border:1px solid rgba(255,255,255,.22);z-index:1;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease"></span>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8B8B94">ETAPA 04</span>
+          <span style="flex:1;height:1px;background:rgba(255,255,255,.08)"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#B89AD1;white-space:nowrap">1 dia</span>
+        </div>
+        <h3 data-step-title style="font-size:19px;font-weight:700;letter-spacing:-.025em;margin-bottom:10px;transition:color .5s ease">No ar</h3>
+        <p style="font-size:14px;color:#8B8B94;line-height:1.6;max-width:250px">Dom&iacute;nio, Google, Analytics e WhatsApp configurados. Depois, suporte quando precisar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" style="padding:clamp(88px,11vw,150px) 0;border-top:1px solid rgba(255,255,255,.07);background:#0A0A0C">
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+    <div data-about style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,86px);align-items:center">
+      <div data-reveal="left">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;margin-bottom:22px">04 — Sobre</span>
+        <h2 style="font-size:clamp(30px,4.2vw,50px);font-weight:800;letter-spacing:-.04em;line-height:1.04;margin-bottom:28px;text-wrap:balance">Um est&uacute;dio de c&oacute;digo, n&atilde;o uma f&aacute;brica de sites.</h2>
+        <p style="font-size:16.5px;color:#9A9AA4;line-height:1.7;margin-bottom:18px">A DevSites trabalha direto com quem decide. Sem intermedi&aacute;rio, sem gerente de conta, sem reuni&atilde;o que podia ser mensagem &mdash; quem escreve o c&oacute;digo &eacute; quem entendeu o seu neg&oacute;cio.</p>
+        <p style="font-size:16.5px;color:#9A9AA4;line-height:1.7;margin-bottom:34px">Aceitamos poucos projetos por m&ecirc;s de prop&oacute;sito. Preferimos entregar tr&ecirc;s sites que funcionam a dez que apenas existem.</p>
+        <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;padding:15px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.15);font-size:14.5px;font-weight:600;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,background .35s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.05)">
+          Falar com a gente
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:22px">
+          <span style="width:7px;height:7px;border-radius:50%;background:#25D366;flex-shrink:0;animation:dotPulse 2.4s infinite"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8B94">Resposta em minutos</span>
+        </div>
+      </div>
+      <div data-reveal="scale" style="position:relative">
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:22px;background:#0C0C0F;overflow:hidden">
+          <div style="display:flex;align-items:center;gap:12px;padding:15px clamp(20px,2.4vw,26px);border-bottom:1px solid rgba(255,255,255,.07);background:#101014">
+            <span style="display:flex;gap:6px;flex-shrink:0">
+              <span style="width:9px;height:9px;border-radius:50%;background:#D65F5A"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#D9A34A"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#5BA86B"></span>
+            </span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B8B94;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">devsites / padr&atilde;o-de-entrega</span>
+            <span data-spec-count style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:#8B8B94;margin-left:auto;flex-shrink:0;transition:color .5s ease,border-color .5s ease,background .5s ease">0/6</span>
+          </div>
+          <div style="padding:clamp(22px,2.6vw,28px) clamp(20px,2.4vw,26px)">
+          <div data-spec-row style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:26px">
+              <span data-spec-node style="position:relative;display:flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:#0C0C0F;transition:border-color .5s ease,background .5s ease,box-shadow .5s ease">
+                <span data-spec-num style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:#8B8B94;transition:opacity .35s ease,transform .35s ease">01</span>
+                <span data-spec-check style="position:absolute;display:flex;opacity:0;transform:scale(.5);transition:opacity .4s ease,transform .45s cubic-bezier(.16,1,.3,1)"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              </span>
+              <span data-spec-line style="flex:1;width:1px;min-height:20px;margin:6px 0;background:rgba(255,255,255,.08);transition:background .6s ease"></span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:20px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">Velocidade</span>
+              <span data-spec-val style="font-size:14.5px;color:#8B8B94;line-height:1.5;transition:color .6s ease">Abre em menos de 1,5s no 4G. Medimos antes de publicar.</span>
+            </div>
+          </div>
+          <div data-spec-row style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:26px">
+              <span data-spec-node style="position:relative;display:flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:#0C0C0F;transition:border-color .5s ease,background .5s ease,box-shadow .5s ease">
+                <span data-spec-num style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:#8B8B94;transition:opacity .35s ease,transform .35s ease">02</span>
+                <span data-spec-check style="position:absolute;display:flex;opacity:0;transform:scale(.5);transition:opacity .4s ease,transform .45s cubic-bezier(.16,1,.3,1)"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              </span>
+              <span data-spec-line style="flex:1;width:1px;min-height:20px;margin:6px 0;background:rgba(255,255,255,.08);transition:background .6s ease"></span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:20px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">C&oacute;digo</span>
+              <span data-spec-val style="font-size:14.5px;color:#8B8B94;line-height:1.5;transition:color .6s ease">Escrito do zero. Sem tema, sem construtor, sem plugin pago.</span>
+            </div>
+          </div>
+          <div data-spec-row style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:26px">
+              <span data-spec-node style="position:relative;display:flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:#0C0C0F;transition:border-color .5s ease,background .5s ease,box-shadow .5s ease">
+                <span data-spec-num style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:#8B8B94;transition:opacity .35s ease,transform .35s ease">03</span>
+                <span data-spec-check style="position:absolute;display:flex;opacity:0;transform:scale(.5);transition:opacity .4s ease,transform .45s cubic-bezier(.16,1,.3,1)"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              </span>
+              <span data-spec-line style="flex:1;width:1px;min-height:20px;margin:6px 0;background:rgba(255,255,255,.08);transition:background .6s ease"></span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:20px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">Teste</span>
+              <span data-spec-val style="font-size:14.5px;color:#8B8B94;line-height:1.5;transition:color .6s ease">Aparelho real na m&atilde;o &mdash; n&atilde;o s&oacute; a janelinha do navegador.</span>
+            </div>
+          </div>
+          <div data-spec-row style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:26px">
+              <span data-spec-node style="position:relative;display:flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:#0C0C0F;transition:border-color .5s ease,background .5s ease,box-shadow .5s ease">
+                <span data-spec-num style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:#8B8B94;transition:opacity .35s ease,transform .35s ease">04</span>
+                <span data-spec-check style="position:absolute;display:flex;opacity:0;transform:scale(.5);transition:opacity .4s ease,transform .45s cubic-bezier(.16,1,.3,1)"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              </span>
+              <span data-spec-line style="flex:1;width:1px;min-height:20px;margin:6px 0;background:rgba(255,255,255,.08);transition:background .6s ease"></span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:20px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">Propriedade</span>
+              <span data-spec-val style="font-size:14.5px;color:#8B8B94;line-height:1.5;transition:color .6s ease">C&oacute;digo e dom&iacute;nio no nome da sua empresa, sempre.</span>
+            </div>
+          </div>
+          <div data-spec-row style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:26px">
+              <span data-spec-node style="position:relative;display:flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:#0C0C0F;transition:border-color .5s ease,background .5s ease,box-shadow .5s ease">
+                <span data-spec-num style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:#8B8B94;transition:opacity .35s ease,transform .35s ease">05</span>
+                <span data-spec-check style="position:absolute;display:flex;opacity:0;transform:scale(.5);transition:opacity .4s ease,transform .45s cubic-bezier(.16,1,.3,1)"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              </span>
+              <span data-spec-line style="flex:1;width:1px;min-height:20px;margin:6px 0;background:rgba(255,255,255,.08);transition:background .6s ease"></span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:20px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">Busca</span>
+              <span data-spec-val style="font-size:14.5px;color:#8B8B94;line-height:1.5;transition:color .6s ease">Estrutura de SEO e Google Business configurados na entrega.</span>
+            </div>
+          </div>
+          <div data-spec-row style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:26px">
+              <span data-spec-node style="position:relative;display:flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:#0C0C0F;transition:border-color .5s ease,background .5s ease,box-shadow .5s ease">
+                <span data-spec-num style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:#8B8B94;transition:opacity .35s ease,transform .35s ease">06</span>
+                <span data-spec-check style="position:absolute;display:flex;opacity:0;transform:scale(.5);transition:opacity .4s ease,transform .45s cubic-bezier(.16,1,.3,1)"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+              </span>
+              
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:0">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">Suporte</span>
+              <span data-spec-val style="font-size:14.5px;color:#8B8B94;line-height:1.5;transition:color .6s ease">30 dias inclusos. Depois, sem contrato amarrado.</span>
+            </div>
+          </div>
+          </div>
+          <div data-spec-footer style="display:flex;align-items:center;gap:10px;padding:15px clamp(20px,2.4vw,26px);border-top:1px solid rgba(255,255,255,.07);background:rgba(37,211,102,.035);opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B9B9C2">Aprovado &mdash; pronto para publicar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(88px,11vw,140px) 0">
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+    <div data-reveal="scale" style="position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:#0C0C0F;padding:clamp(46px,7vw,96px) clamp(24px,5vw,72px);text-align:center">
+      <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(75% 120% at 50% 0%, rgba(255,255,255,.08), transparent 62%)"></div>
+      <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 60% 70% at 50% 40%, black, transparent 75%);-webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 40%, black, transparent 75%)"></div>
+      <div style="position:relative;z-index:1;max-width:720px;margin:0 auto">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;margin-bottom:26px">Diagn&oacute;stico gratuito</span>
+        <h2 style="font-size:clamp(34px,5.6vw,66px);font-weight:800;letter-spacing:-.045em;line-height:1;margin-bottom:22px;text-wrap:balance">Em 10 minutos você descobre quanto cliente está passando batido.</h2>
+        <p style="font-size:17px;color:#9A9AA4;line-height:1.65;margin-bottom:38px">Conta o que seu negócio faz e a gente aponta onde está o vazamento — de graça, sem proposta genérica. Se você não precisar de site agora, falamos isso na cara.</p>
+        <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;padding:19px 34px;border-radius:999px;background:#FAFAFA;color:#08080A;font-size:16px;font-weight:700;letter-spacing:-.01em;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease" style-hover="transform:translateY(-3px);box-shadow:0 22px 50px rgba(0,0,0,.6)">
+          <svg viewBox="0 0 24 24" fill="#08080A" width="19" height="19"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp agora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" style="padding:0 0 clamp(88px,11vw,140px)">
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+    <div data-contact style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:start">
+      <div data-reveal="left">
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B94;margin-bottom:22px">05 — Contato</span>
+        <h2 style="font-size:clamp(28px,3.8vw,44px);font-weight:800;letter-spacing:-.04em;line-height:1.06;margin-bottom:22px;text-wrap:balance">Prefere escrever? Também funciona.</h2>
+        <p style="font-size:16px;color:#8B8B94;line-height:1.7;margin-bottom:38px">Preencha ao lado e a mensagem chega no nosso WhatsApp já organizada. Ou use um dos canais abaixo.</p>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#0C0C0F;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s ease" style-hover="transform:translateX(5px);border-color:rgba(255,255,255,.22)">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:13px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.22);flex-shrink:0">
+              <svg viewBox="0 0 24 24" fill="#25D366" width="19" height="19"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">WhatsApp</span>
+              <span style="font-size:15px;font-weight:600">(11) 99903-8780</span>
+            </span>
+          </a>
+          <a href="mailto:isklikma@gmail.com" style="display:flex;align-items:center;gap:16px;padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#0C0C0F;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s ease" style-hover="transform:translateX(5px);border-color:rgba(255,255,255,.22)">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);flex-shrink:0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#C9C9D2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="19" height="19"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B94">E-mail</span>
+              <span style="font-size:15px;font-weight:600">isklikma@gmail.com</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div data-reveal="right" style="position:relative;padding:clamp(26px,3.4vw,40px);border:1px solid rgba(255,255,255,.09);border-radius:24px;background:#0C0C0F;overflow:hidden">
+
+        <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 6px 18px;animation:popIn .5s cubic-bezier(.16,1,.3,1) both">
+            <span style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.32);margin-bottom:22px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <h3 style="font-size:21px;font-weight:800;letter-spacing:-.025em;margin-bottom:10px">Mensagem pronta</h3>
+            <p style="font-size:14.5px;color:#9A9AA4;line-height:1.6;max-width:320px;margin-bottom:26px">Abrimos o WhatsApp em outra aba com tudo preenchido. É só apertar enviar.</p>
+            <button type="button" onClick="{{ resetForm }}" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:transparent;color:#FAFAFA;font-size:13.5px;font-weight:600;cursor:pointer;transition:border-color .3s ease,background .3s ease" style-hover="border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.05)">
+              Preencher de novo
+            </button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ formActive }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px">
+            <h3 style="font-size:20px;font-weight:700;letter-spacing:-.025em">Conta rápido o seu projeto</h3>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8B8B94;white-space:nowrap">Passo {{ formStepNum }}/4</span>
+          </div>
+
+          <div style="height:3px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:26px">
+            <div style="height:100%;border-radius:999px;background:linear-gradient(90deg,#25D366,#B89AD1);width:{{ formProgressPct }}%;transition:width .5s cubic-bezier(.16,1,.3,1)"></div>
+          </div>
+
+          <div style="border:1px solid rgba(37,211,102,.16);border-radius:16px;background:#0A0A0C;padding:16px 18px;margin-bottom:28px;min-height:96px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px">
+              <svg viewBox="0 0 24 24" fill="#25D366" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8B94">Prévia da mensagem</span>
+            </div>
+            <sc-if value="{{ formPreviewEmpty }}" hint-placeholder-val="{{ true }}">
+              <p style="font-size:13.5px;color:#8B8B94;line-height:1.6;font-style:italic">Vai aparecer aqui conforme você preenche…</p>
+            </sc-if>
+            <sc-if value="{{ formPreviewLines }}" hint-placeholder-count="0">
+              <p style="font-size:13.5px;color:#C9C9D2;line-height:1.7;white-space:pre-wrap;word-break:break-word">{{ formPreviewText }}<span style="display:inline-block;width:2px;height:14px;background:#25D366;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite"></span></p>
+            </sc-if>
+          </div>
+
+          <div style="overflow:hidden;border-radius:2px;animation:{{ formShakeAnim }}">
+            <div style="display:flex;width:400%;transform:translateX({{ formTrackOffset }}%);transition:transform .5s cubic-bezier(.16,1,.3,1)">
+
+              <div style="width:25%;flex-shrink:0;box-sizing:border-box;padding:2px 14px 2px 2px;min-height:118px">
+                <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#B89AD1;margin-bottom:10px">Nome</span>
+                <label style="display:block;font-size:clamp(17px,2vw,21px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px">Como podemos te chamar?</label>
+                <input type="text" id="f_name" value="{{ formValues.name }}" onInput="{{ onName }}" onKeyDown="{{ onKeyDown }}" placeholder="Seu nome" style="width:100%;padding:10px 2px;border:none;border-bottom:2px solid rgba(255,255,255,.14);background:transparent;color:#FAFAFA;font-size:18px;outline:none;transition:border-color .25s ease" style-focus="border-color:#25D366">
+              </div>
+
+              <div style="width:25%;flex-shrink:0;box-sizing:border-box;padding:2px 14px 2px 2px;min-height:118px">
+                <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#B89AD1;margin-bottom:10px">WhatsApp</span>
+                <label style="display:block;font-size:clamp(17px,2vw,21px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px">Qual seu número?</label>
+                <input type="tel" id="f_phone" value="{{ formValues.phone }}" onInput="{{ onPhone }}" onKeyDown="{{ onKeyDown }}" placeholder="(11) 90000-0000" style="width:100%;padding:10px 2px;border:none;border-bottom:2px solid rgba(255,255,255,.14);background:transparent;color:#FAFAFA;font-size:18px;outline:none;transition:border-color .25s ease" style-focus="border-color:#25D366">
+              </div>
+
+              <div style="width:25%;flex-shrink:0;box-sizing:border-box;padding:2px 14px 2px 2px;min-height:118px">
+                <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#B89AD1;margin-bottom:10px">Negócio · opcional</span>
+                <label style="display:block;font-size:clamp(17px,2vw,21px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px">O que você vende ou faz?</label>
+                <input type="text" id="f_business" value="{{ formValues.business }}" onInput="{{ onBusiness }}" onKeyDown="{{ onKeyDown }}" placeholder="Clínica, oficina, loja…" style="width:100%;padding:10px 2px;border:none;border-bottom:2px solid rgba(255,255,255,.14);background:transparent;color:#FAFAFA;font-size:18px;outline:none;transition:border-color .25s ease" style-focus="border-color:#25D366">
+              </div>
+
+              <div style="width:25%;flex-shrink:0;box-sizing:border-box;padding:2px 14px 2px 2px;min-height:118px">
+                <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#B89AD1;margin-bottom:10px">O que você precisa</span>
+                <label style="display:block;font-size:clamp(17px,2vw,21px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px">Me conta rapidinho</label>
+                <textarea id="f_message" rows="2" value="{{ formValues.message }}" onInput="{{ onMessage }}" onKeyDown="{{ onKeyDown }}" placeholder="Ex: tenho uma barbearia e só vendo por indicação…" style="width:100%;padding:10px 2px;border:none;border-bottom:2px solid rgba(255,255,255,.14);background:transparent;color:#FAFAFA;font-size:16.5px;outline:none;resize:none;font-family:inherit;line-height:1.5;transition:border-color .25s ease" style-focus="border-color:#25D366"></textarea>
+              </div>
+
+            </div>
+          </div>
+
+          <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+            <p style="font-size:12.5px;color:#F08A8A;margin-top:10px">{{ formErrorMsg }}</p>
+          </sc-if>
+
+          <div style="display:flex;align-items:center;gap:10px;margin-top:26px">
+            <sc-if value="{{ formShowBack }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ goBack }}" aria-label="Voltar" style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;flex-shrink:0;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:transparent;color:#FAFAFA;cursor:pointer;transition:border-color .3s ease,background .3s ease" style-hover="border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.05)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              </button>
+            </sc-if>
+            <sc-if value="{{ formShowSkip }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ skipStep }}" style="display:flex;align-items:center;min-height:46px;font-size:13.5px;color:#8B8B94;background:none;border:none;cursor:pointer;padding:0 14px">Pular</button>
+            </sc-if>
+            <button type="button" onClick="{{ primaryAction }}" style="display:flex;align-items:center;justify-content:center;gap:10px;flex:1;padding:16px;border:none;border-radius:999px;background:#FAFAFA;color:#08080A;font-size:15px;font-weight:700;cursor:pointer;transition:transform .3s cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-2px)">
+              {{ formPrimaryLabel }}
+              <sc-if value="{{ formIsLast }}" hint-placeholder-val="{{ false }}">
+                <svg viewBox="0 0 24 24" fill="#08080A" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </sc-if>
+              <sc-if value="{{ formShowArrow }}" hint-placeholder-val="{{ true }}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </sc-if>
+            </button>
+          </div>
+          <p style="font-size:11.5px;color:#8B8B94;text-align:center;margin-top:16px">Abre o WhatsApp com a mensagem já escrita. Nada é armazenado aqui.</p>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid rgba(255,255,255,.08);background:#0A0A0C">
+  <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+
+    <div data-footrow style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,3vw,32px);padding:clamp(26px,3vw,34px) 0">
+      <a href="#topo" style="display:flex;align-items:center;gap:11px;flex-shrink:0">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid rgba(255,255,255,.16);border-radius:9px;font-family:'JetBrains Mono',monospace;font-size:11px">&lt;/&gt;</span>
+        <span style="font-weight:800;font-size:15px;letter-spacing:-.02em">DevSites</span>
+      </a>
+      <nav style="display:flex;flex-wrap:wrap;gap:clamp(14px,2vw,24px);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase">
+        <a href="#trabalho" style="display:flex;align-items:center;min-height:44px;padding:0 2px;color:#8B8B94" style-hover="color:#FAFAFA">Trabalho</a>
+        <a href="#processo" style="display:flex;align-items:center;min-height:44px;padding:0 2px;color:#8B8B94" style-hover="color:#FAFAFA">Processo</a>
+        <a href="#sobre" style="display:flex;align-items:center;min-height:44px;padding:0 2px;color:#8B8B94" style-hover="color:#FAFAFA">Sobre</a>
+        <a href="#contato" style="display:flex;align-items:center;min-height:44px;padding:0 2px;color:#8B8B94" style-hover="color:#FAFAFA">Contato</a>
+      </nav>
+      <a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" id="footerCta" style="display:inline-flex;align-items:center;gap:9px;margin-left:auto;flex-shrink:0;padding:11px 19px;border-radius:999px;border:1px solid rgba(184,154,209,.42);background:rgba(184,154,209,.055);color:#B89AD1;font-size:12.5px;font-weight:700;white-space:nowrap;transition:background .35s ease,color .35s ease,border-color .35s ease" style-hover="background:#B89AD1;color:#08080A;border-color:#B89AD1">
+        Falar no WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+
+    <div data-footbar style="display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(18px,3vw,30px);padding:16px 0 20px;border-top:1px solid rgba(255,255,255,.07)">
+      <p style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:#8B8B94;margin:0">
+        <span style="width:5px;height:5px;border-radius:50%;background:#25D366;flex-shrink:0;animation:dotPulse 2.4s infinite"></span>
+        <span style="white-space:nowrap">abriu em <span id="statLoad" style="color:#B89AD1">--</span>s</span>
+        <span style="color:#6E6E78">/</span>
+        <span style="white-space:nowrap">voc&ecirc; est&aacute; aqui h&aacute; <span id="statTime" style="color:#B89AD1">--</span></span>
+        <span style="color:#6E6E78">/</span>
+        <span style="white-space:nowrap">leu <span id="statRead" style="color:#B89AD1">--</span> de 5 se&ccedil;&otilde;es</span>
+      </p>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8B8B94;margin:0 0 0 auto">&copy; {{ year }} DEVSITES &middot; S&Atilde;O PAULO</p>
+      <a href="#topo" aria-label="Voltar ao topo" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex-shrink:0;border-radius:50%;border:1px solid rgba(255,255,255,.12);color:#8B8B94;transition:color .3s ease,border-color .3s ease,transform .35s cubic-bezier(.16,1,.3,1)" style-hover="color:#FAFAFA;border-color:rgba(255,255,255,.3);transform:translateY(-3px)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511999038780?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" id="waFab" style="position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:#25D366;color:#08080A;box-shadow:0 14px 34px rgba(37,211,102,.32);transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .4s ease" style-hover="transform:scale(1.08)">
+  <svg viewBox="0 0 24 24" fill="#08080A" width="25" height="25"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = {
+    menuOpen: false,
+    formStep: 0,
+    formValues: { name: '', phone: '', business: '', message: '' },
+    formError: '',
+    formShake: false,
+    formSent: false
+  };
+
+  maskPhoneVal(raw) {
+    let v = raw.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) v = v.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+    else if (v.length > 2) v = v.replace(/^(\d{2})(\d{0,5}).*/, '($1) $2');
+    else if (v.length > 0) v = v.replace(/^(\d{0,2}).*/, '($1');
+    return v;
+  }
+
+  setField(key, val) {
+    this.setState(s => ({ formValues: { ...s.formValues, [key]: val }, formError: '' }));
+  }
+
+  validateStep(step, v) {
+    if (step === 0 && !v.name.trim()) return 'Me conta seu nome antes de continuar.';
+    if (step === 1 && v.phone.replace(/\D/g, '').length < 10) return 'Falta um número válido de WhatsApp.';
+    if (step === 3 && !v.message.trim()) return 'Escreve rapidinho o que você precisa.';
+    return '';
+  }
+
+  shake() {
+    this.setState({ formShake: true });
+    setTimeout(() => this.setState({ formShake: false }), 420);
+  }
+
+  advance() {
+    const { formStep, formValues } = this.state;
+    if (formStep < 3) { this.setState({ formStep: formStep + 1, formError: '' }); return; }
+    const text = `Ol%C3%A1! Vim pelo site.%0A%0A*Nome:* ${encodeURIComponent(formValues.name.trim())}` +
+      `%0A*WhatsApp:* ${encodeURIComponent(formValues.phone.trim())}` +
+      (formValues.business.trim() ? `%0A*Neg%C3%B3cio:* ${encodeURIComponent(formValues.business.trim())}` : '') +
+      `%0A%0A*Mensagem:*%0A${encodeURIComponent(formValues.message.trim())}`;
+    window.open(`https://wa.me/5511999038780?text=${text}`, '_blank');
+    this.setState({ formSent: true });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const v = s.formValues;
+    const lines = [];
+    if (s.formStep >= 0 && v.name.trim()) lines.push('Nome: ' + v.name.trim());
+    if (s.formStep >= 1 && v.phone.trim()) lines.push('WhatsApp: ' + v.phone.trim());
+    if (s.formStep >= 2 && v.business.trim()) lines.push('Negócio: ' + v.business.trim());
+    if (s.formStep >= 3 && v.message.trim()) lines.push('Mensagem: ' + v.message.trim());
+
+    return {
+      year: new Date().getFullYear(),
+      menuOpen: s.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+
+      formActive: !s.formSent,
+      formSent: s.formSent,
+      formValues: v,
+      formStepNum: s.formStep + 1,
+      formProgressPct: ((s.formStep + 1) / 4) * 100,
+      formTrackOffset: -s.formStep * 25,
+      formShakeAnim: s.formShake ? 'shake .42s ease' : 'none',
+      formError: !!s.formError,
+      formErrorMsg: s.formError,
+      formShowBack: s.formStep > 0,
+      formShowSkip: s.formStep === 2,
+      formIsLast: s.formStep === 3,
+      formShowArrow: s.formStep !== 3,
+      formPrimaryLabel: s.formStep === 3 ? 'Enviar pelo WhatsApp' : 'Continuar',
+      formPreviewEmpty: lines.length === 0,
+      formPreviewLines: lines,
+      formPreviewText: lines.join('\n'),
+
+      onName: (e) => this.setField('name', e.target.value),
+      onPhone: (e) => this.setField('phone', this.maskPhoneVal(e.target.value)),
+      onBusiness: (e) => this.setField('business', e.target.value),
+      onMessage: (e) => this.setField('message', e.target.value),
+
+      onKeyDown: (e) => {
+        if (e.key === 'Enter' && !(e.target.tagName === 'TEXTAREA' && e.shiftKey)) {
+          e.preventDefault();
+          this.primaryActionFn();
+        }
+      },
+      primaryAction: () => this.primaryActionFn(),
+      goBack: () => this.setState(st => ({ formStep: Math.max(0, st.formStep - 1), formError: '' })),
+      skipStep: () => this.setState(st => ({ formStep: st.formStep + 1, formError: '' })),
+      resetForm: () => this.setState({
+        formStep: 0, formSent: false, formError: '',
+        formValues: { name: '', phone: '', business: '', message: '' }
+      })
+    };
+  }
+
+  primaryActionFn() {
+    const err = this.validateStep(this.state.formStep, this.state.formValues);
+    if (err) { this.setState({ formError: err }); this.shake(); return; }
+    this.advance();
+  }
+
+  componentDidMount() {
+    this._reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._cleanup = [];
+    this.initResponsive();
+    this.initHeader();
+    this.initHeroLines();
+    this.initReveals();
+    this.initCounters();
+    this.initWorkUI();
+    this.initSpecPanel();
+    this.initFooterStats();
+    this.initProcess();
+    this.initQuadGlow();
+    this.initScrollCue();
+    this.initMobileStack();
+    if (!this._reduce) this.init3D();
+  }
+
+  componentWillUnmount() {
+    (this._cleanup || []).forEach(fn => { try { fn(); } catch (e) {} });
+  }
+
+  /* ---- responsive without stylesheets ---- */
+  initResponsive() {
+    const apply = () => {
+      const w = window.innerWidth;
+      document.querySelectorAll('[data-desk]').forEach(el => {
+        el.style.display = w < 900 ? 'none' : (el.tagName === 'NAV' ? 'flex' : 'inline-flex');
+      });
+      document.querySelectorAll('[data-mob]').forEach(el => {
+        el.style.display = w < 900 ? 'inline-flex' : 'none';
+      });
+      document.querySelectorAll('[data-clock]').forEach(el => {
+        el.style.display = w < 1180 ? 'none' : 'flex';
+      });
+      const set = (sel, cols) => {
+        const el = document.querySelector(sel);
+        if (el) el.style.gridTemplateColumns = cols;
+      };
+      document.querySelectorAll('[data-detail]').forEach(el => {
+        el.style.gridTemplateColumns = w < 900 ? '1fr' : '1.3fr 1fr';
+      });
+      set('[data-quad]', w < 640 ? '1fr' : (w < 1024 ? 'repeat(2,1fr)' : 'repeat(4,1fr)'));
+      set('[data-steps]', w < 640 ? '1fr' : (w < 1024 ? 'repeat(2,1fr)' : 'repeat(4,1fr)'));
+      const rail = document.getElementById('procRail');
+      if (rail) rail.style.display = w < 1024 ? 'none' : 'block';
+
+      // single column -> the timeline turns vertical and keeps its scroll story
+      const vertical = w < 640;
+      ['procVRail', 'procVFill'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = vertical ? 'block' : 'none';
+      });
+      document.querySelectorAll('[data-vnode]').forEach(el => {
+        el.style.display = vertical ? 'block' : 'none';
+      });
+      document.querySelectorAll('[data-step]').forEach(el => {
+        el.style.borderTopColor = (w < 1024 && !vertical) ? 'rgba(255,255,255,.14)' : 'transparent';
+        el.style.paddingLeft = vertical ? '34px' : '0';
+        el.style.paddingTop = vertical ? '22px' : '28px';
+        el.style.paddingBottom = vertical ? '26px' : '30px';
+      });
+
+      const stack = document.getElementById('mobileStack');
+      if (stack) stack.style.display = w < 900 ? 'block' : 'none';
+
+      const phone = w < 760;
+      const hint = document.getElementById('swipeHint');
+      if (hint) hint.style.display = phone ? 'flex' : 'none';
+
+      // give the arrows room instead of letting them sit on top of the shot
+      const fbCard = document.getElementById('fallbackLink');
+      if (fbCard) fbCard.style.maxWidth = phone ? '74%' : 'min(640px,88%)';
+
+      // arrows shrink but stay above the 44px touch floor
+      ['workPrev', 'workNext'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.width = phone ? '44px' : '46px';
+        el.style.height = phone ? '44px' : '46px';
+      });
+
+      // tabs: three labels never fit one row on a narrow phone
+      const tabsWrap = document.getElementById('workTabs');
+      if (tabsWrap) {
+        tabsWrap.style.gap = w < 420 ? '4px' : 'clamp(8px,2vw,28px)';
+        tabsWrap.querySelectorAll('[data-tabname]').forEach(el => {
+          el.style.fontSize = w < 420 ? '13px' : '16px';
+        });
+        tabsWrap.querySelectorAll('[data-tab]').forEach(el => {
+          el.style.padding = w < 420 ? '16px 6px 16px 0' : '20px 14px 20px 0';
+        });
+      }
+      set('[data-about]', w < 900 ? '1fr' : '1fr 1fr');
+      set('[data-contact]', w < 900 ? '1fr' : '1fr 1fr');
+      document.querySelectorAll('[data-footrow]').forEach(el => {
+        el.style.flexWrap = w < 760 ? 'wrap' : 'nowrap';
+      });
+    };
+    apply();
+    window.addEventListener('resize', apply);
+    this._cleanup.push(() => window.removeEventListener('resize', apply));
+  }
+
+  initHeader() {
+    const h = document.getElementById('siteHeader');
+    if (!h) return;
+    const bar = document.getElementById('scrollProgress');
+    const shell = document.getElementById('headerShell');
+    let condensed = null;
+
+    const onScroll = () => {
+      const s = window.scrollY > 40;
+      if (s !== condensed) {
+        condensed = s;
+        // expanded: no outer inset, shell carries the exact page gutter so the
+        // wordmark sits on the same line as the H1. condensed: the island insets.
+        h.style.padding = s ? 'clamp(10px,1.5vw,16px) clamp(12px,2.4vw,28px) 0' : '0';
+        if (shell) {
+          shell.style.maxWidth = s ? '1060px' : '1240px';
+          shell.style.padding = s ? '11px clamp(14px,1.8vw,22px)' : '20px clamp(20px,4vw,40px)';
+          shell.style.borderRadius = s ? '999px' : '0px';
+          shell.style.background = s ? 'rgba(13,13,17,.7)' : 'transparent';
+          shell.style.backdropFilter = s ? 'blur(22px) saturate(1.6)' : 'none';
+          shell.style.webkitBackdropFilter = s ? 'blur(22px) saturate(1.6)' : 'none';
+          shell.style.borderColor = s ? 'rgba(255,255,255,.09)' : 'rgba(255,255,255,0)';
+          shell.style.boxShadow = s ? '0 20px 54px rgba(0,0,0,.6)' : 'none';
+        }
+        // the capsule resize moves the links — re-place the pill once it settles
+        setTimeout(() => { if (this._navPaint) this._navPaint(); }, 620);
+      }
+      if (bar) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (max > 0 ? Math.min(window.scrollY / max, 1) * 100 : 0) + '%';
+      }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    this._cleanup.push(() => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); });
+
+    // scrollspy: slide the nav indicator under whichever section is on screen
+    const nav = document.getElementById('mainNav');
+    const indicator = document.getElementById('navIndicator');
+    const links = Array.from(document.querySelectorAll('[data-nav-link]'));
+    if (nav && indicator && links.length) {
+      const paint = (id) => {
+        const link = links.find(l => l.getAttribute('data-nav-link') === id);
+        links.forEach(l => { l.style.color = l === link ? '#FAFAFA' : '#8B8B94'; });
+        if (!link) { indicator.style.opacity = '0'; return; }
+        const navRect = nav.getBoundingClientRect();
+        const r = link.getBoundingClientRect();
+        indicator.style.opacity = '1';
+        indicator.style.transform = 'translate(' + Math.round(r.left - navRect.left) + 'px,-50%)';
+        indicator.style.width = Math.round(r.width) + 'px';
+      };
+      const ids = ['trabalho', 'processo', 'sobre', 'contato'];
+      const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+      let current = null;
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(en => { if (en.isIntersecting) current = en.target.id; });
+          paint(current);
+        }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+        sections.forEach(s => io.observe(s));
+        this._cleanup.push(() => io.disconnect());
+      }
+      this._navPaint = () => paint(current);
+      window.addEventListener('resize', () => paint(current));
+    }
+
+    // a small live-clock chip — cheap, premium detail; ticks once a minute is enough
+    const clock = document.getElementById('headerClock');
+    if (clock) {
+      const tick = () => {
+        const t = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' });
+        clock.textContent = 'São Paulo · ' + t;
+      };
+      tick();
+      const iv = setInterval(tick, 15000);
+      this._cleanup.push(() => clearInterval(iv));
+    }
+
+    // magnetic CTA — nudges toward the cursor within its own bounds
+    const cta = document.getElementById('ctaMagnetic');
+    if (cta && !this._reduce) {
+      const onMove = (e) => {
+        const r = cta.getBoundingClientRect();
+        const x = (e.clientX - (r.left + r.width / 2)) * 0.22;
+        const y = (e.clientY - (r.top + r.height / 2)) * 0.22;
+        cta.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+      };
+      const onLeave = () => { cta.style.transform = 'translate(0,0)'; };
+      cta.addEventListener('pointermove', onMove);
+      cta.addEventListener('pointerleave', onLeave);
+      this._cleanup.push(() => { cta.removeEventListener('pointermove', onMove); cta.removeEventListener('pointerleave', onLeave); });
+    }
+  }
+
+  initHeroLines() {
+    const lines = document.querySelectorAll('[data-line]');
+    lines.forEach((el, i) => {
+      el.style.transform = 'translateY(112%)';
+      el.style.transition = 'transform 1.05s cubic-bezier(.16,1,.3,1) ' + (0.12 + i * 0.11) + 's';
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      lines.forEach(el => { el.style.transform = 'translateY(0)'; });
+    }));
+  }
+
+  initReveals() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!els.length) return;
+    if (this._reduce || !('IntersectionObserver' in window)) return;
+    const FROM = {
+      rise: 'translateY(40px)',
+      left: 'translateX(-34px)',
+      right: 'translateX(34px)',
+      scale: 'scale(.965)',
+      wipe: 'translateY(30px)',
+      '': 'translateY(26px)'
+    };
+    els.forEach(el => {
+      const v = el.getAttribute('data-reveal') || '';
+      const dur = v === 'scale' ? '1.1s' : '.95s';
+      el.style.opacity = '0';
+      el.style.transform = FROM[v] || FROM[''];
+      el.style.transition = 'opacity ' + dur + ' cubic-bezier(.16,1,.3,1), transform ' + dur + ' cubic-bezier(.16,1,.3,1), clip-path ' + dur + ' cubic-bezier(.16,1,.3,1)';
+      el.style.willChange = 'opacity, transform';
+      if (v === 'wipe') el.style.clipPath = 'inset(0 0 100% 0)';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en, i) => {
+        const el = en.target;
+        const passed = !en.isIntersecting && en.boundingClientRect.top < 0;
+        if (!en.isIntersecting && !passed) return;
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          if (el.getAttribute('data-reveal') === 'wipe') el.style.clipPath = 'inset(0 0 0 0)';
+          setTimeout(() => { el.style.willChange = 'auto'; }, 1200);
+        }, passed ? 0 : i * 70);
+        io.unobserve(el);
+      });
+    }, { threshold: [0, 0.12], rootMargin: '0px 0px -70px 0px' });
+    els.forEach(el => io.observe(el));
+
+    // Safety net: a fast jump can skip an element past the viewport without
+    // ever producing an intersecting entry — sweep anything already above.
+    let pending = els.slice();
+    const sweep = () => {
+      if (!pending.length) { window.removeEventListener('scroll', sweep); return; }
+      pending = pending.filter(el => {
+        if (el.style.opacity === '1') return false;
+        if (el.getBoundingClientRect().bottom > 0) return true;
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.clipPath = 'none';
+        io.unobserve(el);
+        return false;
+      });
+    };
+    window.addEventListener('scroll', sweep, { passive: true });
+    this._cleanup.push(() => { io.disconnect(); window.removeEventListener('scroll', sweep); });
+  }
+
+  initCounters() {
+    const els = Array.from(document.querySelectorAll('[data-count]'));
+    if (!els.length) return;
+    const run = (el) => {
+      const target = parseInt(el.getAttribute('data-count'), 10);
+      if (this._reduce) { el.textContent = String(target); return; }
+      const t0 = performance.now(), dur = 1500;
+      const step = (t) => {
+        const p = Math.min((t - t0) / dur, 1);
+        el.textContent = String(Math.floor((1 - Math.pow(1 - p, 3)) * target));
+        if (p < 1) requestAnimationFrame(step); else el.textContent = String(target);
+      };
+      requestAnimationFrame(step);
+    };
+    if (!('IntersectionObserver' in window)) { els.forEach(run); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    els.forEach(el => io.observe(el));
+    this._cleanup.push(() => io.disconnect());
+  }
+
+  async init3D() {
+    let THREE, RoomEnvironment, RoundedBoxGeometry;
+    try {
+      THREE = await window.__three;
+      RoomEnvironment = (await import('three/addons/environments/RoomEnvironment.js')).RoomEnvironment;
+      RoundedBoxGeometry = (await import('three/addons/geometries/RoundedBoxGeometry.js')).RoundedBoxGeometry;
+    } catch (e) { return; }
+
+    const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+    const onMove = (e) => {
+      pointer.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+      pointer.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
+    this._cleanup.push(() => window.removeEventListener('pointermove', onMove));
+
+    const w = window.innerWidth;
+    if (w >= 900) this.buildHero(THREE, RoomEnvironment, RoundedBoxGeometry, pointer);
+    if (w >= 760) this.buildWork(THREE, RoomEnvironment, RoundedBoxGeometry, pointer);
+  }
+
+  buildHero(THREE, RoomEnvironment, RoundedBoxGeometry, pointer) {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+    } catch (e) { return; }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+    camera.position.set(0, 0, 9.6);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
+
+    /* An exploded website: the interface taken apart into the layers a
+       browser actually stacks — chrome, hero, cards, grid. */
+    const group = new THREE.Group();
+    const W = 3.3, H = 2.25, GAP = 0.92;
+
+    const steel = new THREE.MeshPhysicalMaterial({
+      color: 0x2B2B33, metalness: 1, roughness: 0.15,
+      clearcoat: 1, clearcoatRoughness: 0.08, envMapIntensity: 1.9
+    });
+    const light = new THREE.MeshPhysicalMaterial({
+      color: 0x5C5C6A, metalness: 1, roughness: 0.2, envMapIntensity: 1.9
+    });
+    const gold = new THREE.MeshPhysicalMaterial({
+      color: 0xB89AD1, metalness: 1, roughness: 0.18, envMapIntensity: 2.4
+    });
+    const wire = new THREE.MeshPhysicalMaterial({
+      color: 0x76767F, metalness: 1, roughness: 0.28, envMapIntensity: 1.6
+    });
+
+    const block = (w, h, m, x, y, d) => {
+      const mesh = new THREE.Mesh(
+        new RoundedBoxGeometry(w, h, d || 0.055, 3, Math.min(0.026, h / 2.6)), m);
+      mesh.position.set(x, y, 0);
+      return mesh;
+    };
+
+    const frame = () => {
+      const g = new THREE.Group(), t = 0.032;
+      g.add(block(W, t, wire, 0, H / 2, 0.05), block(W, t, wire, 0, -H / 2, 0.05),
+            block(t, H, wire, -W / 2, 0, 0.05), block(t, H, wire, W / 2, 0, 0.05));
+      return g;
+    };
+
+    const layers = [];
+    const addLayer = (build) => {
+      const L = new THREE.Group();
+      L.add(frame());
+      build(L);
+      L.position.z = -(layers.length) * GAP;
+      L.userData.baseZ = L.position.z;
+      L.userData.phase = layers.length * 1.4;
+      group.add(L);
+      layers.push(L);
+    };
+
+    // Front: browser chrome
+    addLayer((L) => {
+      L.add(block(W - 0.14, 0.26, light, 0, H / 2 - 0.24));
+      [-1.44, -1.3, -1.16].forEach(x => L.add(block(0.06, 0.06, wire, x, H / 2 - 0.24)));
+      L.add(block(1.5, 0.13, steel, 0.05, H / 2 - 0.24));
+    });
+
+    // Hero band
+    addLayer((L) => {
+      L.add(block(1.85, 0.3, light, -0.62, 0.52));
+      L.add(block(1.45, 0.3, light, -0.82, 0.14));
+      L.add(block(1.15, 0.13, steel, -0.97, -0.22));
+      L.add(block(0.62, 0.24, gold, -1.24, -0.66));
+      L.add(block(0.48, 0.24, wire, -0.5, -0.66));
+    });
+
+    // Card row
+    addLayer((L) => {
+      [-1.02, 0, 1.02].forEach((x, i) => {
+        L.add(block(0.9, 1.12, i === 1 ? light : steel, x, 0.1));
+        L.add(block(0.56, 0.1, wire, x - 0.16, -0.62));
+      });
+    });
+
+    // Footer grid
+    addLayer((L) => {
+      for (let r = 0; r < 3; r++)
+        for (let c = 0; c < 4; c++)
+          L.add(block(0.62, 0.1, c === 0 && r === 0 ? gold : wire, -1.16 + c * 0.78, 0.62 - r * 0.36));
+      L.add(block(W - 0.3, 0.075, steel, 0, -0.72));
+    });
+
+    // Loading sweep travelling through the stack
+    const sweep = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.1, 0.02),
+      new THREE.MeshBasicMaterial({ color: 0xB89AD1, transparent: true, opacity: 0.85 }));
+    group.add(sweep);
+
+    group.rotation.set(0.24, -0.62, 0.06);
+    group.position.set(-0.1, 0, 0);
+    scene.add(group);
+
+    const key = new THREE.DirectionalLight(0xffffff, 3.4); key.position.set(4, 6, 5); scene.add(key);
+    const fill = new THREE.DirectionalLight(0xffffff, 1.5); fill.position.set(-3, 2, 6); scene.add(fill);
+    const rim = new THREE.DirectionalLight(0xB89AD1, 1.8); rim.position.set(-6, -2, -4); scene.add(rim);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+
+    const resize = () => {
+      const w = canvas.clientWidth || 1, h = canvas.clientHeight || 1;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.position.z = 11;
+      camera.updateProjectionMatrix();
+    };
+    resize();
+    const ro = new ResizeObserver(resize); ro.observe(canvas);
+
+    let visible = true;
+    const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0 });
+    io.observe(canvas);
+
+    let raf = 0, t = 0;
+    const loop = () => {
+      raf = requestAnimationFrame(loop);
+      if (!visible) return;
+      t += 0.006;
+      pointer.x += (pointer.tx - pointer.x) * 0.045;
+      pointer.y += (pointer.ty - pointer.y) * 0.045;
+      const sp = Math.min(window.scrollY / (window.innerHeight || 1), 1.6);
+
+      group.rotation.y = -0.62 + Math.sin(t * 0.55) * 0.18 + pointer.x * 0.38;
+      group.rotation.x = 0.24 + pointer.y * 0.2 + sp * 0.34;
+      group.rotation.z = 0.06 + pointer.x * 0.05;
+      group.position.y = Math.sin(t) * 0.09 - sp * 0.5;
+
+      // layers drift apart on hover-away and pull together as you scroll in
+      const spread = 1 + Math.abs(pointer.x) * 0.55 - sp * 0.42;
+      layers.forEach((L, i) => {
+        L.position.z = L.userData.baseZ * Math.max(spread, 0.25);
+        L.position.y = Math.sin(t * 1.3 + L.userData.phase) * 0.045;
+      });
+
+      const cyc = (t * 0.42) % 1.6;
+      sweep.position.set(0, H / 2 - cyc * H, 0.09);
+      sweep.material.opacity = cyc < 1 ? 0.85 * (1 - Math.abs(cyc - 0.5) * 0.7) : 0;
+
+      camera.position.x = pointer.x * 0.5;
+      camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+    };
+    loop();
+    requestAnimationFrame(() => { canvas.style.opacity = '1'; });
+
+    this._cleanup.push(() => { cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); renderer.dispose(); });
+  }
+
+  initProcess() {
+    const steps = Array.from(document.querySelectorAll('[data-step]'));
+    const rail = document.getElementById('procRail');
+    const fill = document.getElementById('procFill');
+    const dayEl = document.getElementById('procDay');
+    const section = document.getElementById('processo');
+    if (!steps.length || !section) return;
+
+    const activate = (i, on) => {
+      const el = steps[i];
+      if (!el) return;
+      el.style.opacity = on ? '1' : '.42';
+      const title = el.querySelector('[data-step-title]');
+      if (title) title.style.color = on ? '#FAFAFA' : '#B9B9C2';
+      const n = document.querySelector('[data-proc-node="' + i + '"]');
+      if (n) {
+        n.style.background = on ? '#B89AD1' : '#08080A';
+        n.style.borderColor = on ? '#B89AD1' : 'rgba(255,255,255,.22)';
+        n.style.boxShadow = on ? '0 0 0 5px rgba(184,154,209,.12)' : 'none';
+      }
+    };
+
+    if (this._reduce) {
+      steps.forEach((_, i) => { activate(i, true); });
+      document.querySelectorAll('[data-vnode]').forEach(n => {
+        n.style.background = '#B89AD1'; n.style.borderColor = '#B89AD1';
+      });
+      if (fill) fill.style.width = '100%';
+      const vf = document.getElementById('procVFill'), vr = document.getElementById('procVRail');
+      if (vf && vr) vf.style.height = vr.getBoundingClientRect().height + 'px';
+      if (dayEl) dayEl.textContent = '11';
+      return;
+    }
+
+    const vFill = document.getElementById('procVFill');
+    const vRail = document.getElementById('procVRail');
+
+    const activateV = (i, on) => {
+      const n = document.querySelector('[data-vnode="' + i + '"]');
+      if (!n) return;
+      n.style.background = on ? '#B89AD1' : '#08080A';
+      n.style.borderColor = on ? '#B89AD1' : 'rgba(255,255,255,.22)';
+      n.style.boxShadow = on ? '0 0 0 5px rgba(184,154,209,.12)' : 'none';
+    };
+
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const w = window.innerWidth;
+
+      if (w < 640) {
+        // vertical rail: fill tracks the reading line down the stacked steps
+        const r = section.getBoundingClientRect();
+        const vh = window.innerHeight || 1;
+        const p = Math.max(0, Math.min(1, (vh * 0.62 - r.top) / Math.max(r.height * 0.68, 1)));
+        if (vFill && vRail) vFill.style.height = (p * vRail.getBoundingClientRect().height).toFixed(1) + 'px';
+        if (dayEl) dayEl.textContent = String(1 + Math.round(p * 10)).padStart(2, '0');
+        steps.forEach((_, i) => {
+          const on = p >= (i + 0.35) / steps.length - 0.1;
+          activate(i, on);
+          activateV(i, on);
+        });
+        return;
+      }
+
+      if (w < 1024) {
+        steps.forEach((_, i) => activate(i, true));
+        if (dayEl) dayEl.textContent = '11';
+        return;
+      }
+      const r = section.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      // 0 when the section is still low on screen, 1 once it has been read
+      const p = Math.max(0, Math.min(1, (vh * 0.78 - r.top) / Math.max(r.height * 0.72, 1)));
+      if (fill) fill.style.width = (p * 100).toFixed(1) + '%';
+      if (dayEl) dayEl.textContent = String(1 + Math.round(p * 10)).padStart(2, '0');
+      steps.forEach((_, i) => activate(i, p >= (i + 0.5) / steps.length - 0.12));
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    this._cleanup.push(() => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(raf);
+    });
+  }
+
+  initQuadGlow() {
+    const wrap = document.getElementById('quadWrap');
+    const glow = document.getElementById('quadGlow');
+    if (!wrap || !glow || this._reduce || window.innerWidth < 900) return;
+    let raf = 0, mx = 0, my = 0;
+    const draw = () => {
+      raf = 0;
+      glow.style.background = 'radial-gradient(260px circle at ' + mx + 'px ' + my + 'px, rgba(184,154,209,.09), transparent 70%)';
+    };
+    const onMove = (e) => {
+      const r = wrap.getBoundingClientRect();
+      mx = e.clientX - r.left; my = e.clientY - r.top;
+      if (!raf) raf = requestAnimationFrame(draw);
+    };
+    const enter = () => { glow.style.opacity = '1'; };
+    const leave = () => { glow.style.opacity = '0'; };
+    wrap.addEventListener('pointermove', onMove);
+    wrap.addEventListener('pointerenter', enter);
+    wrap.addEventListener('pointerleave', leave);
+    this._cleanup.push(() => {
+      wrap.removeEventListener('pointermove', onMove);
+      wrap.removeEventListener('pointerenter', enter);
+      wrap.removeEventListener('pointerleave', leave);
+      cancelAnimationFrame(raf);
+    });
+  }
+
+  initMobileStack() {
+    const stack = document.getElementById('mobileStack');
+    if (!stack || this._reduce) return;
+    const plane = stack.firstElementChild;
+    const layers = Array.from(stack.querySelectorAll('[data-stack-layer]'));
+    if (!plane) return;
+
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      if (stack.style.display === 'none') return;
+      const r = stack.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const p = Math.max(-1, Math.min(1, ((r.top + r.height / 2) / vh - 0.5) * 2));
+      plane.style.transform = 'rotateX(' + (11 + p * 6).toFixed(2) + 'deg) rotateY(' + (-13 + p * 5).toFixed(2) + 'deg)';
+      // layers draw together as the stack reaches the middle of the screen
+      const pull = 1 - Math.min(Math.abs(p), 1) * 0.45;
+      layers.forEach((el, i) => {
+        el.style.transform = 'translateZ(' + (i * -46 * pull).toFixed(1) + 'px) translateY(' + (i * 15 * pull).toFixed(1) + 'px)';
+      });
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    this._cleanup.push(() => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(raf);
+    });
+  }
+
+  initScrollCue() {
+    const cue = document.getElementById('scrollCue');
+    const hero = document.getElementById('topo');
+    if (!cue || !hero) return;
+
+    // the cue is only meaningful when the hero actually FITS the screen. when the
+    // hero overflows, the page is already visibly cut off (and a viewport-anchored
+    // cue would land on top of the hero copy), so there is nothing to hint at.
+    let fits = false;
+    const measure = () => {
+      fits = hero.getBoundingClientRect().height <= window.innerHeight - 8;
+      cue.style.display = fits ? 'block' : 'none';
+    };
+
+    const onScroll = () => {
+      if (!fits) return;
+      const gone = window.scrollY > 90;
+      cue.style.opacity = gone ? '0' : '1';
+      cue.style.transform = gone ? 'translateY(14px)' : 'translateY(0)';
+    };
+
+    const onResize = () => { measure(); onScroll(); };
+    measure();
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    // fonts/3D settling can change the hero height after first paint
+    const t = setTimeout(onResize, 900);
+    this._cleanup.push(() => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+      clearTimeout(t);
+    });
+  }
+
+  initFooterStats() {
+    const elLoad = document.getElementById('statLoad');
+    const elTime = document.getElementById('statTime');
+    const elRead = document.getElementById('statRead');
+
+    if (elLoad) {
+      const show = () => {
+        let ms = 0;
+        try {
+          const nav = performance.getEntriesByType('navigation')[0];
+          ms = nav ? (nav.domContentLoadedEventEnd || nav.responseEnd) - nav.startTime : 0;
+        } catch (e) {}
+        if (!ms && performance.timing) {
+          ms = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+        }
+        if (!ms || ms < 0) { elLoad.textContent = '<1'; return; }
+        const sec = ms / 1000;
+        elLoad.textContent = sec < 10 ? sec.toFixed(1).replace('.', ',') : Math.round(sec);
+      };
+      if (document.readyState === 'complete') show();
+      else window.addEventListener('load', () => setTimeout(show, 60), { once: true });
+    }
+
+    if (elTime) {
+      const t0 = Date.now();
+      const tick = () => {
+        const m = Math.floor((Date.now() - t0) / 60000);
+        const sc = Math.floor(((Date.now() - t0) % 60000) / 1000);
+        elTime.textContent = m + ':' + String(sc).padStart(2, '0');
+      };
+      tick();
+      const iv = setInterval(tick, 1000);
+      this._cleanup.push(() => clearInterval(iv));
+    }
+
+    if (elRead) {
+      const ids = ['topo', 'trabalho', 'processo', 'sobre', 'contato'];
+      const seen = new Set();
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(en => {
+            if (!en.isIntersecting) return;
+            seen.add(en.target.id);
+            elRead.textContent = String(seen.size);
+          });
+        }, { threshold: 0.3 });
+        ids.forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
+        this._cleanup.push(() => io.disconnect());
+      } else {
+        elRead.textContent = '5';
+      }
+      elRead.textContent = '1';
+    }
+
+    // the floating WhatsApp button is redundant (and overlaps) once the footer
+    // CTA is on screen — retire it there instead of stacking z-index
+    const fab = document.getElementById('waFab');
+    const ctaEl = document.getElementById('footerCta');
+    if (fab && ctaEl && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(([en]) => {
+        const hide = en.isIntersecting;
+        fab.style.opacity = hide ? '0' : '1';
+        fab.style.transform = hide ? 'scale(.6)' : 'scale(1)';
+        fab.style.pointerEvents = hide ? 'none' : 'auto';
+        fab.setAttribute('aria-hidden', hide ? 'true' : 'false');
+      }, { threshold: 0.12 });
+      io.observe(ctaEl);
+      this._cleanup.push(() => io.disconnect());
+    }
+
+  }
+
+  initSpecPanel() {
+    const rows = Array.from(document.querySelectorAll('[data-spec-row]'));
+    const count = document.querySelector('[data-spec-count]');
+    const footer = document.querySelector('[data-spec-footer]');
+    if (!rows.length) return;
+
+    const approve = (row) => {
+      const node = row.querySelector('[data-spec-node]');
+      const num = row.querySelector('[data-spec-num]');
+      const chk = row.querySelector('[data-spec-check]');
+      const line = row.querySelector('[data-spec-line]');
+      const val = row.querySelector('[data-spec-val]');
+      if (node) {
+        node.style.borderColor = 'rgba(37,211,102,.45)';
+        node.style.background = 'rgba(37,211,102,.1)';
+        node.style.boxShadow = '0 0 0 4px rgba(37,211,102,.06)';
+      }
+      if (num) { num.style.opacity = '0'; num.style.transform = 'scale(.7)'; }
+      if (chk) { chk.style.opacity = '1'; chk.style.transform = 'scale(1)'; }
+      if (val) val.style.color = '#DEDEE4';
+      if (line) line.style.background = 'rgba(37,211,102,.3)';
+    };
+
+    const finish = () => {
+      const count = document.querySelector('[data-spec-count]');
+      const footer = document.querySelector('[data-spec-footer]');
+      if (count) {
+        count.textContent = rows.length + '/' + rows.length;
+        count.style.color = '#25D366';
+        count.style.borderColor = 'rgba(37,211,102,.4)';
+        count.style.background = 'rgba(37,211,102,.08)';
+      }
+      if (footer) { footer.style.opacity = '1'; footer.style.transform = 'translateY(0)'; }
+    };
+
+    if (this._reduce) { rows.forEach(approve); finish(); return; }
+
+    const run = () => {
+      rows.forEach((row, i) => {
+        const id = setTimeout(() => {
+          approve(row);
+          const c = document.querySelector('[data-spec-count]');
+          if (c) c.textContent = (i + 1) + '/' + rows.length;
+        }, 220 + i * 260);
+        this._cleanup.push(() => clearTimeout(id));
+      });
+      const fin = setTimeout(finish, 220 + rows.length * 260 + 260);
+      this._cleanup.push(() => clearTimeout(fin));
+    };
+
+    if (!('IntersectionObserver' in window)) { run(); return; }
+    const io = new IntersectionObserver(([en]) => {
+      if (en.isIntersecting) { run(); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(rows[0].closest('[data-reveal]'));
+    this._cleanup.push(() => io.disconnect());
+  }
+
+  initWorkUI() {
+    const tabs = Array.from(document.querySelectorAll('[data-tab]'));
+    const panels = Array.from(document.querySelectorAll('[data-detail]'));
+    if (!panels.length) return;
+    const DUR = 6500;
+    this.workIndex = 0;
+
+    const paint = (i) => {
+      panels.forEach((p, k) => {
+        const on = k === i;
+        p.style.opacity = on ? '1' : '0';
+        p.style.transform = on ? 'translateY(0)' : 'translateY(14px)';
+        p.style.pointerEvents = on ? 'auto' : 'none';
+        p.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      document.querySelectorAll('[data-shot]').forEach((img, k) => {
+        img.style.opacity = k === i ? '1' : '0';
+      });
+      const fbLink = document.getElementById('fallbackLink');
+      if (fbLink) {
+        const urls = ['https://neural-bots.vercel.app/', 'https://outleteletro.com/', 'https://trust-detail-three.vercel.app/'];
+        if (urls[i]) fbLink.href = urls[i];
+      }
+      tabs.forEach((t, k) => {
+        const on = k === i;
+        t.style.borderTopColor = on ? '#FAFAFA' : 'transparent';
+        const nm = t.querySelector('[data-tabname]');
+        if (nm) nm.style.color = on ? '#FAFAFA' : '#8B8B94';
+        const bar = t.querySelector('[data-tabbar]');
+        if (bar) {
+          bar.style.transition = 'none';
+          bar.style.width = '0';
+          if (on && this._workAuto) {
+            void bar.offsetWidth;
+            bar.style.transition = 'width ' + DUR + 'ms linear';
+            bar.style.width = '100%';
+          }
+        }
+      });
+    };
+
+    this.workGo = (i, byUser) => {
+      const n = panels.length;
+      this.workIndex = ((i % n) + n) % n;
+      if (byUser) this.stopWorkAuto();
+      paint(this.workIndex);
+      if (this._work3d) this._work3d(this.workIndex);
+    };
+
+    this.stopWorkAuto = () => {
+      this._workAuto = false;
+      clearInterval(this._workTimer);
+      tabs.forEach(t => {
+        const bar = t.querySelector('[data-tabbar]');
+        if (bar) { bar.style.transition = 'width .3s ease'; bar.style.width = '0'; }
+      });
+    };
+
+    tabs.forEach((t, k) => t.addEventListener('click', () => this.workGo(k, true)));
+
+    // touch swipe on the image card — the drag gesture the 3D scene offers,
+    // available where the 3D scene does not run
+    const fb = document.getElementById('workFallback');
+    if (fb) {
+      let sx = 0, sy = 0, tracking = false, moved = false;
+      fb.addEventListener('touchstart', (e) => {
+        const t = e.changedTouches[0];
+        sx = t.clientX; sy = t.clientY; tracking = true; moved = false;
+      }, { passive: true });
+      fb.addEventListener('touchmove', (e) => {
+        if (!tracking) return;
+        const t = e.changedTouches[0];
+        if (Math.abs(t.clientX - sx) > 12 && Math.abs(t.clientX - sx) > Math.abs(t.clientY - sy)) moved = true;
+      }, { passive: true });
+      fb.addEventListener('touchend', (e) => {
+        if (!tracking) return;
+        tracking = false;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - sx, dy = t.clientY - sy;
+        if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+          e.preventDefault();
+          this.workGo(this.workIndex + (dx < 0 ? 1 : -1), true);
+        }
+      });
+      // a horizontal swipe must not also fire the link
+      const link = document.getElementById('fallbackLink');
+      if (link) link.addEventListener('click', (e) => { if (moved) { e.preventDefault(); moved = false; } });
+    }
+    const prev = document.getElementById('workPrev');
+    const next = document.getElementById('workNext');
+    if (prev) prev.addEventListener('click', () => this.workGo(this.workIndex - 1, true));
+    if (next) next.addEventListener('click', () => this.workGo(this.workIndex + 1, true));
+
+    const onKey = (e) => {
+      const sec = document.getElementById('trabalho');
+      if (!sec) return;
+      const r = sec.getBoundingClientRect();
+      if (r.top > window.innerHeight * 0.5 || r.bottom < window.innerHeight * 0.5) return;
+      if (e.key === 'ArrowRight') this.workGo(this.workIndex + 1, true);
+      if (e.key === 'ArrowLeft') this.workGo(this.workIndex - 1, true);
+    };
+    window.addEventListener('keydown', onKey);
+    this._cleanup.push(() => { window.removeEventListener('keydown', onKey); clearInterval(this._workTimer); });
+
+    paint(0);
+
+    // autoplay only starts once the section is actually on screen
+    if (!this._reduce && 'IntersectionObserver' in window) {
+      const sec = document.getElementById('trabalho');
+      const io = new IntersectionObserver(([en]) => {
+        if (en.isIntersecting && this._workAuto === undefined) {
+          this._workAuto = true;
+          paint(this.workIndex);
+          this._workTimer = setInterval(() => this.workGo(this.workIndex + 1), DUR);
+        }
+      }, { threshold: 0.25 });
+      if (sec) io.observe(sec);
+      this._cleanup.push(() => io.disconnect());
+    }
+  }
+
+  buildWork(THREE, RoomEnvironment, RoundedBoxGeometry, pointer) {
+    const stage = document.getElementById('workStage');
+    const canvas = document.getElementById('workCanvas');
+    if (!stage || !canvas) return;
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+    } catch (e) { return; }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.5));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+    camera.position.set(0, 0.3, 9.4);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
+    const key = new THREE.DirectionalLight(0xffffff, 2.1); key.position.set(3, 5, 6); scene.add(key);
+    const rim = new THREE.DirectionalLight(0xB89AD1, 0.9); rim.position.set(-5, 1, -3); scene.add(rim);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.45));
+
+    // gradient alpha used to fade the floor reflection out
+    const gc = document.createElement('canvas'); gc.width = 4; gc.height = 128;
+    const gx = gc.getContext('2d');
+    const gg = gx.createLinearGradient(0, 0, 0, 128);
+    gg.addColorStop(0, 'rgba(255,255,255,0)');
+    gg.addColorStop(1, 'rgba(255,255,255,0.55)');
+    gx.fillStyle = gg; gx.fillRect(0, 0, 4, 128);
+    const alphaTex = new THREE.CanvasTexture(gc);
+
+    const loader = new THREE.TextureLoader();
+    const files = ['assets/neural-bots.png', 'assets/outleteletro.png', 'assets/site-trust.png'];
+    const urls = ['https://neural-bots.vercel.app/', 'https://outleteletro.com/', 'https://trust-detail-three.vercel.app/'];
+    const W = 3.15, H = 2.0, BODY_H = H + 0.5;
+    const group = new THREE.Group();
+    const cards = [], hits = [];
+
+    const bodyMat = new THREE.MeshPhysicalMaterial({
+      color: 0x1A1A20, metalness: 0.95, roughness: 0.24, clearcoat: 0.7, envMapIntensity: 1.3
+    });
+    const edgeMat = new THREE.MeshPhysicalMaterial({
+      color: 0x3A3A44, metalness: 1, roughness: 0.2, envMapIntensity: 1.6
+    });
+
+    files.forEach((src, i) => {
+      const card = new THREE.Group();
+      const body = new THREE.Mesh(new RoundedBoxGeometry(W + 0.2, BODY_H, 0.13, 5, 0.085), bodyMat);
+      body.userData.index = i;
+      card.add(body);
+      hits.push(body);
+
+      const bar = new THREE.Mesh(new THREE.PlaneGeometry(W, 0.28), new THREE.MeshBasicMaterial({ color: 0x24242C }));
+      bar.position.set(0, H / 2 + 0.1, 0.07);
+      card.add(bar);
+      [0, 1, 2].forEach((k) => {
+        const dot = new THREE.Mesh(new THREE.CircleGeometry(0.021, 16),
+          new THREE.MeshBasicMaterial({ color: 0x585863 }));
+        dot.position.set(-W / 2 + 0.13 + k * 0.11, H / 2 + 0.1, 0.074);
+        card.add(dot);
+      });
+      const url = new THREE.Mesh(new THREE.PlaneGeometry(1.15, 0.1),
+        new THREE.MeshBasicMaterial({ color: 0x14141A }));
+      url.position.set(0.1, H / 2 + 0.1, 0.074);
+      card.add(url);
+
+      // cover-crop the screenshot to the screen's aspect: no squashing,
+      // far less downscale = visibly sharper texture
+      const planeAspect = W / H;
+      const tex = loader.load(src, (t) => {
+        t.colorSpace = THREE.SRGBColorSpace;
+        t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+        const ia = t.image.width / t.image.height;
+        if (ia < planeAspect) {
+          const rep = ia / planeAspect;           // fraction of the page height shown
+          t.repeat.set(1, rep);
+          t.offset.set(0, 1 - rep);               // start at the top of the page
+          card.userData.panRange = 1 - rep;       // how far it can scroll down
+        } else {
+          const rep = planeAspect / ia;
+          t.repeat.set(rep, 1);
+          t.offset.set((1 - rep) / 2, 0);
+        }
+        t.needsUpdate = true;
+      });
+      tex.colorSpace = THREE.SRGBColorSpace;
+      card.userData.tex = tex;
+
+      const screenGeo = new THREE.PlaneGeometry(W, H);
+      const screen = new THREE.Mesh(screenGeo, new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }));
+      screen.position.set(0, -0.11, 0.071);
+      card.add(screen);
+
+      const refl = new THREE.Mesh(screenGeo, new THREE.MeshBasicMaterial({
+        map: tex, alphaMap: alphaTex, transparent: true, opacity: 0.22,
+        depthWrite: false, toneMapped: false
+      }));
+      refl.scale.y = -1;
+      refl.position.set(0, -BODY_H / 2 - H / 2 - 0.14, 0.071);
+      card.add(refl);
+
+      const glow = new THREE.Mesh(new RoundedBoxGeometry(W + 0.28, BODY_H + 0.08, 0.02, 4, 0.09), edgeMat);
+      glow.position.z = -0.09;
+      glow.visible = false;
+      card.add(glow);
+
+      card.userData = Object.assign(card.userData, { i, phase: i * 1.7, glow, hover: 0, pan: 0, cur: { x: 0, z: 0, ry: 0, s: 1 } });
+      group.add(card);
+      cards.push(card);
+    });
+
+    group.position.y = 0.35;
+    scene.add(group);
+
+    const SLOT = { x: 3.35, z: -1.25, ry: 0.6, s: 0.86 };
+    const targetFor = (d) => d === 0
+      ? { x: 0, z: 1.15, ry: 0, s: 1 }
+      : { x: SLOT.x * d, z: SLOT.z, ry: -SLOT.ry * d, s: SLOT.s };
+
+    let active = 0, hovered = -1;
+    this._work3d = (i) => { active = i; };
+
+    const ray = new THREE.Raycaster();
+    const nd = new THREE.Vector2();
+    const toNdc = (e) => {
+      const r = canvas.getBoundingClientRect();
+      nd.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+      nd.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+    };
+
+    let dragging = false, startX = 0, moved = 0;
+    const onDown = (e) => { dragging = true; startX = e.clientX; moved = 0; stage.style.cursor = 'grabbing'; };
+    const onUp = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      stage.style.cursor = 'grab';
+      if (Math.abs(moved) > 55) {
+        this.workGo(this.workIndex + (moved < 0 ? 1 : -1), true);
+      } else if (hovered >= 0 && hovered !== this.workIndex) {
+        this.workGo(hovered, true);
+      } else if (hovered === this.workIndex && urls[hovered]) {
+        // the front card is already selected — a click there means "open it"
+        window.open(urls[hovered], '_blank', 'noopener');
+      }
+    };
+    const onMove = (e) => {
+      toNdc(e);
+      if (dragging) moved = e.clientX - startX;
+      ray.setFromCamera(nd, camera);
+      const hit = ray.intersectObjects(hits, false)[0];
+      hovered = hit ? hit.object.userData.index : -1;
+      stage.style.cursor = dragging ? 'grabbing' : (hovered >= 0 ? 'pointer' : 'grab');
+      const hint = document.getElementById('openHint');
+      if (hint) {
+        const show = !dragging && hovered === this.workIndex;
+        hint.style.opacity = show ? '1' : '0';
+        hint.style.transform = show ? 'translate(-50%,0)' : 'translate(-50%,8px)';
+      }
+    };
+    canvas.addEventListener('pointerdown', onDown);
+    window.addEventListener('pointerup', onUp);
+    canvas.addEventListener('pointermove', onMove);
+    const onLeave = () => { hovered = -1; };
+    canvas.addEventListener('pointerleave', onLeave);
+
+    const resize = () => {
+      const w = stage.clientWidth || 1, h = stage.clientHeight || 1;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.position.z = w < 1080 ? 11.2 : 9.4;
+      camera.updateProjectionMatrix();
+    };
+    resize();
+    const ro = new ResizeObserver(resize); ro.observe(stage);
+
+    let visible = false;
+    const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0 });
+    io.observe(stage);
+
+    let raf = 0, t = 0;
+    const lerp = (a, b, n) => a + (b - a) * n;
+    const loop = () => {
+      raf = requestAnimationFrame(loop);
+      if (!visible) return;
+      t += 0.01;
+      const r = stage.getBoundingClientRect();
+      const prog = 1 - (r.top + r.height / 2) / (window.innerHeight || 1);
+
+      group.rotation.y = pointer.x * 0.1 + (dragging ? moved * 0.0004 : 0);
+      group.rotation.x = -pointer.y * 0.05 + (prog - 0.5) * -0.1;
+
+      cards.forEach((c) => {
+        const n = cards.length;
+        let d = c.userData.i - active;
+        if (d > n / 2) d -= n;
+        if (d < -n / 2) d += n;
+        const tg = targetFor(d);
+        const u = c.userData;
+        const vx = (tg.x - u.cur.x);           // horizontal velocity → lean into the move
+        u.cur.x = lerp(u.cur.x, tg.x, 0.085);
+        u.cur.z = lerp(u.cur.z, tg.z, 0.085);
+        u.cur.ry = lerp(u.cur.ry, tg.ry, 0.085);
+        const isHover = hovered === u.i;
+        u.hover = lerp(u.hover, isHover ? 1 : 0, 0.12);
+        u.cur.s = lerp(u.cur.s, tg.s + u.hover * 0.035, 0.1);
+
+        c.position.set(u.cur.x, Math.sin(t * 1.1 + u.phase) * 0.07 + u.hover * 0.1, u.cur.z);
+        c.rotation.y = u.cur.ry + vx * 0.045;
+        c.rotation.z = d * 0.012 - vx * 0.02;
+        c.scale.setScalar(u.cur.s);
+
+        // the front site slowly scrolls itself; side cards rewind to the top
+        if (u.panRange && u.tex) {
+          const goal = d === 0 ? (Math.sin(t * 0.35 - Math.PI / 2) * 0.5 + 0.5) : 0;
+          u.pan = lerp(u.pan, goal, d === 0 ? 0.02 : 0.05);
+          u.tex.offset.y = (1 - u.tex.repeat.y) * (1 - u.pan);
+        }
+        u.glow.visible = u.hover > 0.02;
+        u.glow.scale.setScalar(1 + u.hover * 0.004);
+      });
+
+      renderer.render(scene, camera);
+    };
+    loop();
+    setTimeout(() => {
+      canvas.style.opacity = '1';
+      const fb = document.getElementById('workFallback');
+      if (fb) {
+        fb.style.opacity = '0';
+        fb.style.pointerEvents = 'none';
+        setTimeout(() => { fb.style.visibility = 'hidden'; }, 700);
+      }
+    }, 220);
+
+    this._cleanup.push(() => {
+      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
+      canvas.removeEventListener('pointerdown', onDown);
+      window.removeEventListener('pointerup', onUp);
+      canvas.removeEventListener('pointermove', onMove);
+      canvas.removeEventListener('pointerleave', onLeave);
+      renderer.dispose();
+    });
+  }
+}
+
+</script>
+</body>
+</html>

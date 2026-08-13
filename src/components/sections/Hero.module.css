@@ -1,0 +1,172 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 132px 0 72px;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 80% at 78% 42%, rgba(255, 255, 255, 0.055), transparent 60%);
+}
+
+/* grade técnica, apagando nas bordas para não virar papel de parede */
+.grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, black, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, black, transparent 78%);
+}
+
+.column {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+/* --- H1: revelação por máscara, uma linha de cada vez --- */
+
+.headline {
+  font-size: clamp(42px, 7.4vw, 94px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  margin-bottom: 34px;
+  text-wrap: balance;
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+  /* descendentes (g, ç, y) precisam de folga, senão a máscara os corta */
+  padding-bottom: 0.06em;
+}
+
+.line {
+  display: block;
+  animation: lineUp 1.05s var(--ease) both;
+}
+
+.lineMuted {
+  color: var(--muted);
+}
+
+@keyframes lineUp {
+  from {
+    transform: translateY(112%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.subtitle {
+  font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--text-5);
+  max-width: 530px;
+  line-height: 1.65;
+  margin-bottom: 44px;
+  text-wrap: pretty;
+}
+
+/* --- botões --- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-bottom: 88px;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 16px 28px;
+  border-radius: var(--r-pill);
+  background: var(--text);
+  color: var(--bg);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition:
+    transform var(--d-hover) var(--ease),
+    box-shadow var(--d-hover) ease;
+}
+
+.primary:hover {
+  color: var(--bg);
+  transform: translateY(-3px);
+  box-shadow: var(--sh-btn);
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 16px 28px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  transition:
+    transform var(--d-hover) var(--ease),
+    border-color var(--d-hover) ease,
+    background var(--d-hover) ease;
+}
+
+.secondary:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* --- estatísticas --- */
+
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 6vw, 72px);
+  padding-top: 34px;
+  border-top: 1px solid var(--line-08);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.statValue {
+  display: flex;
+  align-items: baseline;
+  font-size: clamp(30px, 3.6vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  /* o número muda de largura enquanto conta; tabular evita o texto pulando */
+  font-variant-numeric: tabular-nums;
+}
+
+.statSuffix {
+  color: var(--accent);
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

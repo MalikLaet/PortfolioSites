@@ -1,0 +1,232 @@
+.section {
+  padding: var(--section-pad) 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line-08);
+  border-bottom: 1px solid var(--line-08);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(40px, 6vw, 86px);
+}
+
+.copy h2 {
+  margin: 20px 0 28px;
+  font-size: clamp(30px, 4.4vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.copy > p {
+  max-width: 570px;
+  color: var(--text-5);
+  font-size: 15px;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.copy > p + p { margin-top: 18px; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 22px;
+  margin-top: 34px;
+}
+
+.actions > a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  padding: 12px 21px;
+  border: 1px solid var(--line-12);
+  border-radius: var(--r-pill);
+  font-size: 14px;
+  font-weight: 700;
+  transition: border-color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.actions > a:hover {
+  border-color: rgba(var(--accent-rgb), 0.5);
+  transform: translateY(-2px);
+}
+
+.actions > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.actions > span i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  animation: dotPulse 2s infinite;
+}
+
+.panel > div {
+  overflow: hidden;
+  border: 1px solid var(--line-10);
+  border-radius: var(--r-3xl);
+  background: var(--surface);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+}
+
+.panelBar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--line-07);
+  background: var(--surface-hover);
+}
+
+.dots { display: flex; gap: 6px; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; }
+.dots i:nth-child(1) { background: var(--tl-red); }
+.dots i:nth-child(2) { background: var(--tl-amber); }
+.dots i:nth-child(3) { background: var(--tl-green); }
+
+.path {
+  overflow: hidden;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.panelBar > strong {
+  padding: 5px 8px;
+  border: 1px solid var(--line-09);
+  border-radius: var(--r-pill);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.panelBar > .counterComplete {
+  border-color: rgba(var(--whatsapp-rgb), 0.35);
+  background: rgba(var(--whatsapp-rgb), 0.07);
+  color: var(--whatsapp);
+}
+
+.checklist { padding: 16px 20px 12px; }
+
+.checklist li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 14px;
+  padding: 13px 0;
+}
+
+.checklist li:not(:last-child)::after {
+  position: absolute;
+  top: 39px;
+  bottom: -13px;
+  left: 12.5px;
+  width: 1px;
+  background: var(--line-07);
+  content: '';
+  transition: background-color 0.45s ease;
+}
+
+.checklist li.approved:not(:last-child)::after { background: rgba(var(--whatsapp-rgb), 0.3); }
+
+.node {
+  position: relative;
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 1px solid var(--line-12);
+  border-radius: 50%;
+  background: var(--bg);
+  transition: border-color 0.45s ease, background-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+.node b {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 400;
+  transition: opacity 0.35s ease, transform 0.35s var(--ease);
+}
+
+.node svg {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.45s ease, transform 0.45s var(--ease);
+}
+
+.approved .node {
+  border-color: rgba(var(--whatsapp-rgb), 0.45);
+  background: rgba(var(--whatsapp-rgb), 0.1);
+  box-shadow: 0 0 0 4px rgba(var(--whatsapp-rgb), 0.06);
+}
+
+.approved .node b { opacity: 0; transform: scale(0.7); }
+.approved .node svg { opacity: 1; transform: scale(1); }
+
+.specCopy { min-width: 0; }
+.specCopy strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-3);
+  font-size: 13px;
+  font-weight: 700;
+}
+.specCopy > span {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+  transition: color 0.45s ease;
+}
+.approved .specCopy > span { color: var(--text-2); }
+
+.panelFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px;
+  border-top: 1px solid rgba(var(--whatsapp-rgb), 0.1);
+  background: rgba(var(--whatsapp-rgb), 0.035);
+  color: var(--text-2);
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease);
+}
+
+.panelFooterVisible { opacity: 1; transform: none; }
+
+@media (max-width: 899px) {
+  .layout { grid-template-columns: 1fr; }
+  .panel { max-width: 680px; width: 100%; }
+}
+
+@media (max-width: 479px) {
+  .panelBar { padding-inline: 14px; gap: 10px; }
+  .checklist { padding-inline: 15px; }
+  .specCopy > span { font-size: 12px; }
+}

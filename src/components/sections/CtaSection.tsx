@@ -14,7 +14,7 @@ export function CtaSection(): React.JSX.Element {
             Conta o que seu negócio faz e a gente aponta onde está o vazamento — de graça, sem
             proposta genérica. Se você não precisar de site agora, falamos isso na cara.
           </p>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" data-fab-target>
             <WhatsAppIcon size={21} />
             Falar no WhatsApp agora
           </a>

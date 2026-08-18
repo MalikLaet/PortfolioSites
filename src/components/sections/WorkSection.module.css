@@ -412,6 +412,8 @@
   .dragHint { bottom: 4px; }
   .tabs { margin-top: 42px; }
   .tab { gap: 7px; padding-inline: 8px; }
+  .meta span,
+  .tags li { font-size: 10px; letter-spacing: 0.1em; }
 }
 
 @media (max-width: 419px) {

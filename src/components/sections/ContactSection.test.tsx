@@ -6,6 +6,12 @@ import { ContactSection } from './ContactSection';
 describe('ContactSection', () => {
   afterEach(() => vi.restoreAllMocks());
 
+  it('não toma o foco nem desloca a página na carga inicial', () => {
+    render(<ContactSection />);
+
+    expect(document.activeElement).not.toBe(screen.getByRole('textbox', { name: 'Como podemos te chamar?' }));
+  });
+
   it('valida cada etapa sem usar alert', async () => {
     const user = userEvent.setup();
     render(<ContactSection />);

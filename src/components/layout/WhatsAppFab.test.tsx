@@ -5,7 +5,8 @@ import { WhatsAppFab } from './WhatsAppFab';
 
 describe('WhatsAppFab', () => {
   let footerCta: HTMLAnchorElement | null = null;
-  afterEach(() => { footerCta?.remove(); footerCta = null; });
+  let primaryCta: HTMLButtonElement | null = null;
+  afterEach(() => { footerCta?.remove(); primaryCta?.remove(); footerCta = null; primaryCta = null; });
 
   it('recolhe quando o CTA do rodapé entra em tela', () => {
     footerCta = document.createElement('a');
@@ -18,5 +19,17 @@ describe('WhatsAppFab', () => {
     act(() => observer!.trigger([{ target: footerCta!, isIntersecting: true }]));
     expect(fab).toHaveAttribute('aria-hidden', 'true');
     expect(fab).toHaveAttribute('tabindex', '-1');
+  });
+
+  it('recolhe ao encontrar outro CTA primário da página', () => {
+    primaryCta = document.createElement('button');
+    primaryCta.dataset.fabTarget = '';
+    document.body.append(primaryCta);
+    render(<WhatsAppFab />);
+    const fab = screen.getByRole('link', { name: 'Falar no WhatsApp' });
+    const observer = getIntersectionObservers().find((entry) => entry.elements.has(primaryCta!));
+
+    act(() => observer!.trigger([{ target: primaryCta!, isIntersecting: true }]));
+    expect(fab).toHaveAttribute('aria-hidden', 'true');
   });
 });

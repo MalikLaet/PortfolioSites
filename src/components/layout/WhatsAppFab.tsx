@@ -1,19 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { WHATSAPP_URL } from '@/data/site';
 import { WhatsAppIcon } from '@/components/ui/Icons';
 import styles from './WhatsAppFab.module.css';
 
 export function WhatsAppFab(): React.JSX.Element {
   const [hidden, setHidden] = useState(false);
+  const visibleTargets = useRef(new Set<Element>());
 
   useEffect(() => {
-    const footerCta = document.getElementById('footer-whatsapp');
-    if (!footerCta || typeof IntersectionObserver !== 'function') return;
-    const observer = new IntersectionObserver(([entry]) => {
-      setHidden(entry?.isIntersecting ?? false);
+    const targets = Array.from(document.querySelectorAll('[data-fab-target], #footer-whatsapp'));
+    if (targets.length === 0 || typeof IntersectionObserver !== 'function') return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleTargets.current.add(entry.target);
+        else visibleTargets.current.delete(entry.target);
+      });
+      setHidden(visibleTargets.current.size > 0);
     }, { threshold: 0.12 });
-    observer.observe(footerCta);
-    return () => observer.disconnect();
+    targets.forEach((target) => observer.observe(target));
+    return () => {
+      observer.disconnect();
+      visibleTargets.current.clear();
+    };
   }, []);
 
   return (

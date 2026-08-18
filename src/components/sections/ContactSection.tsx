@@ -29,9 +29,10 @@ export function ContactSection(): React.JSX.Element {
   const [shaking, setShaking] = useState(false);
   const [success, setSuccess] = useState(false);
   const fieldRefs = useRef<Array<HTMLInputElement | HTMLTextAreaElement | null>>([]);
+  const shouldFocusField = useRef(false);
 
   useEffect(() => {
-    if (!success) fieldRefs.current[step]?.focus();
+    if (!success && shouldFocusField.current) fieldRefs.current[step]?.focus();
   }, [step, success]);
 
   const updateField = (key: keyof LeadFields, value: string) => {
@@ -68,11 +69,15 @@ export function ContactSection(): React.JSX.Element {
     setError('');
     setErrorStep(null);
     if (step === 3) submit();
-    else setStep((current) => current + 1);
+    else {
+      shouldFocusField.current = true;
+      setStep((current) => current + 1);
+    }
   };
 
   const reset = () => {
     setFields(EMPTY_FIELDS);
+    shouldFocusField.current = true;
     setStep(0);
     setError('');
     setErrorStep(null);
@@ -205,13 +210,13 @@ export function ContactSection(): React.JSX.Element {
 
               <div className={styles.controls}>
                 {step > 0 ? (
-                  <button className={styles.back} type="button" onClick={() => { setError(''); setErrorStep(null); setStep((current) => current - 1); }} aria-label="Voltar uma etapa">
+                  <button className={styles.back} type="button" onClick={() => { setError(''); setErrorStep(null); shouldFocusField.current = true; setStep((current) => current - 1); }} aria-label="Voltar uma etapa">
                     <ArrowLeftIcon />
                   </button>
                 ) : <span />}
                 <div>
                   {step === 2 ? <button className={styles.skip} type="button" onClick={advance}>Pular</button> : null}
-                  <button className={styles.next} type="submit">
+                  <button className={styles.next} type="submit" data-fab-target>
                     {step === 3 ? <><WhatsAppIcon size={18} color="var(--whatsapp)" /> Enviar pelo WhatsApp</> : <>Continuar <ArrowRightIcon /></>}
                   </button>
                 </div>

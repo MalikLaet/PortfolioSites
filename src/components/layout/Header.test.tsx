@@ -31,7 +31,8 @@ async function scrollTo(y: number) {
 describe('Header', () => {
   it('mostra a marca, os quatro links e o CTA', () => {
     render(<Header onOpenMenu={() => {}} />);
-    expect(screen.getByText('DevSites')).toBeInTheDocument();
+    expect(screen.getByText('ZÊNITE')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'ZÊNITE — início' })).toHaveAttribute('href', '#topo');
 
     const nav = screen.getByRole('navigation', { name: 'Navegação principal' });
     for (const label of ['Trabalho', 'Processo', 'Sobre', 'Contato']) {

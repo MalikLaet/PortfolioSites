@@ -1,4 +1,4 @@
-# Handoff para a próxima IA — redesign do site DevSites
+# Handoff para a próxima IA — redesign do site ZÊNITE
 
 ## Protocolo rápido de continuidade
 
@@ -10,13 +10,16 @@ Este documento é o prompt de continuação. Leia inteiro antes de escrever cód
 
 ## 1. O que é este projeto
 
-`d:\Projetos\PortfolioSites` — landing page única da **DevSites**, estúdio de código
+`d:\Projetos\PortfolioSites` — landing page única da **ZÊNITE**, estúdio de código
 freelance brasileiro que vende sites institucionais e landing pages para pequenos e
 médios negócios. A conversão acontece no WhatsApp. O objetivo declarado do site é
 **provar autoridade técnica e impressionar**, não gerar volume de contato.
 
 A página é escura, tipográfica, com um único acento de cor e movimento presente mas
 contido. O eixo da copy é **o custo de não ter site**, não a lista de features.
+
+**Marca atual:** ZÊNITE. O domínio técnico, canonical e URLs de compartilhamento ainda
+usam `devsites.com.br` até confirmação explícita de um novo domínio.
 
 ### Fonte da verdade do design
 
@@ -65,7 +68,7 @@ implementar uma interação.
 ## 3. Estado atual — verificado agora
 
 ```
-npx vitest run     ->  98 testes passando, 16 arquivos ✅
+npx vitest run     ->  101 testes passando, 16 arquivos ✅
 npx tsc --noEmit   ->  0 erros                          ✅
 npx vite build     ->  concluído                        ✅
 ```
@@ -74,7 +77,7 @@ npx vite build     ->  concluído                        ✅
 
 - Remoto: `https://github.com/MalikLaet/PortfolioSites.git`.
 - Branch de produção: `main`, conectada à Vercel.
-- Último commit publicado: `6baa396 fix: keep final contact step visible`.
+- Último commit publicado: `1ac5e94 fix: scope marquee animation locally`.
 - Sempre conferir `git status --short` antes de alterar qualquer arquivo.
 - Não usar reset destrutivo nem sobrescrever alterações do usuário.
 
@@ -84,6 +87,17 @@ npx vite build     ->  concluído                        ✅
 - `e2d4534`: checklist de Sobre desacelerada para início em 280 ms e intervalo de 300 ms.
 - `c2d34d5`: erros do Contato vinculados à etapa que os gerou.
 - `6baa396`: trilho do wizard corrigido; painéis ocupam 100% e o último campo fica visível; prévia atualiza durante a digitação.
+
+### Lote UX em validação local — 18/08/2026
+
+Este lote está no working tree, validado, mas **ainda não foi commitado nem publicado**. Não o descarte:
+
+- Contato não toma foco na carga inicial, portanto a página abre no hero; depois de cada avanço ou retorno do wizard, o próximo campo continua recebendo foco.
+- FAB do WhatsApp se recolhe quando CTAs principais de Trabalho, Diagnóstico, Contato ou Rodapé entram na viewport, evitando bloquear ações no mobile.
+- Marca no Header e Footer agora tem alvo de toque de 44px; a marca do Header também tem `aria-label` explícito.
+- Faixa de tecnologias ganhou botão visível de pausar/retomar; o controle explícito evita depender de hover e funciona no toque.
+- Microtextos informativos do mobile foram elevados (formulário, privacidade, timeline e tags) sem alterar elementos somente decorativos.
+- Validação concluída: 101 testes / 16 arquivos, `npx tsc --noEmit` e `npx vite build` verdes. Checagem visual confirmou abertura no hero e recolhimento do FAB a 390px.
 
 Antes de afirmar que uma mudança está correta, testar o fluxo visual correspondente em `http://localhost:5173` e executar ao menos os testes do componente alterado.
 

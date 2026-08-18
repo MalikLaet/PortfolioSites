@@ -107,4 +107,8 @@
   .controls { align-items: flex-end; }
   .controls > div { flex-wrap: wrap; justify-content: flex-end; }
   .next { padding-inline: 16px; }
+  .formHeader span,
+  .preview > div,
+  .fieldPanel label span { font-size: 10px; }
+  .privacy { font-size: 9.5px; letter-spacing: 0.06em; }
 }

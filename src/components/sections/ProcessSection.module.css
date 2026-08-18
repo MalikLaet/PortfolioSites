@@ -177,6 +177,7 @@
     box-shadow: var(--sh-node);
   }
   .step p { max-width: 430px; }
+  .stepMeta { font-size: 10px; letter-spacing: 0.11em; }
 }
 
 @media (prefers-reduced-motion: reduce) {

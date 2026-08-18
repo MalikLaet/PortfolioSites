@@ -76,11 +76,11 @@ export function Header({ onOpenMenu }: HeaderProps): React.JSX.Element {
   return (
     <header className={`${styles.header} ${condensed ? styles.condensed : ''}`}>
       <div className={styles.shell}>
-        <a href="#topo" className={styles.brand}>
+        <a href="#topo" className={styles.brand} aria-label="ZÊNITE — início">
           <span className={styles.mark} aria-hidden="true">
             &lt;/&gt;
           </span>
-          <span className={styles.wordmark}>DevSites</span>
+          <span className={styles.wordmark}>ZÊNITE</span>
         </a>
 
         <nav className={styles.nav} ref={navRef} aria-label="Navegação principal">

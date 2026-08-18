@@ -54,7 +54,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps): React.JSX.Elemen
   return (
     <div className={styles.overlay} ref={panelRef} role="dialog" aria-modal="true" aria-label="Menu">
       <div className={styles.top}>
-        <span className={styles.wordmark}>DevSites</span>
+        <span className={styles.wordmark}>ZÊNITE</span>
         <button type="button" aria-label="Fechar menu" onClick={onClose} className={styles.close} ref={closeRef}>
           <CloseIcon />
         </button>

@@ -58,6 +58,7 @@
 
 .brand {
   display: flex;
+  min-height: 44px;
   align-items: center;
   gap: 11px;
   flex-shrink: 0;

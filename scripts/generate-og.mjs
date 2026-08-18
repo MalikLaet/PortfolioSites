@@ -67,7 +67,7 @@ function ogSvg() {
 
   ${logoMark(72, 64, 40)}
   <text x="126" y="93" font-family="${SANS}" font-size="26" font-weight="700"
-        letter-spacing="-0.5" fill="${TEXT}">DevSites</text>
+        letter-spacing="-0.5" fill="${TEXT}">ZÊNITE</text>
 
   <g font-family="${SANS}" font-size="76" font-weight="700" letter-spacing="-3.4">
     <text x="72" y="290" fill="${TEXT}">Todo dia alguém</text>

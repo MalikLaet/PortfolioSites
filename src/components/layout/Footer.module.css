@@ -11,7 +11,7 @@
   padding: 34px 0;
 }
 
-.brand { display: flex; align-items: center; gap: 10px; }
+.brand { display: flex; min-height: 44px; align-items: center; gap: 10px; }
 .brand > span { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid var(--line-16); border-radius: 10px; font-family: var(--font-mono); font-size: 12px; transition: color 0.4s ease, border-color 0.4s ease, transform 0.5s var(--ease); }
 .brand:hover > span { border-color: rgba(var(--accent-rgb), 0.5); color: var(--accent); transform: rotate(-90deg); }
 .brand strong { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }

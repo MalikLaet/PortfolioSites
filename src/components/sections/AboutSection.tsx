@@ -36,7 +36,7 @@ export function AboutSection(): React.JSX.Element {
           <span className="eyebrow">04 — Sobre</span>
           <h2>Um estúdio de código, não uma fábrica de sites.</h2>
           <p>
-            A DevSites trabalha direto com quem decide. Sem intermediário, sem gerente de conta,
+            A ZÊNITE trabalha direto com quem decide. Sem intermediário, sem gerente de conta,
             sem reunião que podia ser mensagem — quem escreve o código é quem entendeu o seu negócio.
           </p>
           <p>
@@ -53,7 +53,7 @@ export function AboutSection(): React.JSX.Element {
           <div ref={panelRef}>
             <div className={styles.panelBar}>
               <span className={styles.dots} aria-hidden="true"><i /><i /><i /></span>
-              <span className={styles.path}>devsites / padrão-de-entrega</span>
+              <span className={styles.path}>zenite / padrão-de-entrega</span>
               <strong className={complete ? styles.counterComplete : ''}>{approvedCount}/6</strong>
             </div>
 

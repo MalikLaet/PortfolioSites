@@ -212,7 +212,7 @@ export function WorkSection(): React.JSX.Element {
                       <span>Resultado</span>
                       <p>{project.result}</p>
                     </div>
-                    <a href={project.url} target="_blank" rel="noreferrer" tabIndex={active ? 0 : -1}>
+                    <a href={project.url} target="_blank" rel="noreferrer" tabIndex={active ? 0 : -1} data-fab-target={active || undefined}>
                       <span>Ver ao vivo</span>
                       <strong>{project.domain}</strong>
                       <ExternalLinkIcon size={15} />

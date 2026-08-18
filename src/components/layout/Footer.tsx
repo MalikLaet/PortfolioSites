@@ -42,9 +42,9 @@ export function Footer(): React.JSX.Element {
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.topRow}>
-          <a className={styles.brand} href="#topo" aria-label="DevSites — início">
+          <a className={styles.brand} href="#topo" aria-label="ZÊNITE — início">
             <span aria-hidden="true">&lt;/&gt;</span>
-            <strong>DevSites</strong>
+            <strong>ZÊNITE</strong>
           </a>
           <nav aria-label="Navegação do rodapé">
             {NAV_ITEMS.map((item) => <a href={`#${item.id}`} key={item.id}>{item.label}</a>)}
@@ -64,7 +64,7 @@ export function Footer(): React.JSX.Element {
             <span>leu <strong>{readCount}</strong> de {READABLE_SECTIONS.length} seções</span>
           </p>
           <div className={styles.signature}>
-            <span>© {new Date().getFullYear()} DevSites · São Paulo</span>
+            <span>© {new Date().getFullYear()} ZÊNITE · São Paulo</span>
             <a href="#topo" aria-label="Voltar ao topo"><ArrowUpIcon /></a>
           </div>
         </div>

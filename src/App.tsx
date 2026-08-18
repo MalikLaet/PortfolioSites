@@ -10,8 +10,11 @@ import { CtaSection } from '@/components/sections/CtaSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppFab } from '@/components/layout/WhatsAppFab';
+import { useCleanAnchors } from '@/hooks/useCleanAnchors';
 
 export function App(): React.JSX.Element {
+  useCleanAnchors();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   const openMenu = useCallback(() => setMenuOpen(true), []);

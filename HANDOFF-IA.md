@@ -65,7 +65,7 @@ implementar uma interação.
 
 ---
 
-## 3. Estado atual — verificado agora
+## 3. Estado atual — verificado agora (20/08/2026)
 
 ```
 npx vitest run     ->  101 testes passando, 16 arquivos ✅
@@ -77,36 +77,33 @@ npx vite build     ->  concluído                        ✅
 
 - Remoto: `https://github.com/MalikLaet/PortfolioSites.git`.
 - Branch de produção: `main`, conectada à Vercel.
-- Último commit publicado: `1ac5e94 fix: scope marquee animation locally`.
+- Último commit publicado: `4ad11a2 chore: typecheck sem emitir arquivos na arvore de fontes`.
+- Working tree limpo — nada pendente de commit.
 - Sempre conferir `git status --short` antes de alterar qualquer arquivo.
 - Não usar reset destrutivo nem sobrescrever alterações do usuário.
 
+### O site está funcionalmente completo
+
+Todas as seções descritas no handoff original estão implementadas, testadas e montadas
+em `App.tsx` — **exceto** a seção "O custo de não ter" (ver seção 5). Isto inclui Faixa
+de tecnologias, Trabalho (3D no desktop + fallback responsivo), Processo, Sobre, CTA
+intermediário, Contato, rodapé e FAB do WhatsApp. A revisão visual foi feita em 390px,
+768px e 1440px sem erros de runtime no navegador. Antes de afirmar que uma mudança está
+correta, testar o fluxo visual correspondente em `http://localhost:5173` e executar ao
+menos os testes do componente alterado.
+
 ### Ajustes recentes publicados
 
-- `bf9ffc3`: barra branca de progresso nas abas de Trabalho; autoplay de 6,5 s.
-- `e2d4534`: checklist de Sobre desacelerada para início em 280 ms e intervalo de 300 ms.
-- `c2d34d5`: erros do Contato vinculados à etapa que os gerou.
-- `6baa396`: trilho do wizard corrigido; painéis ocupam 100% e o último campo fica visível; prévia atualiza durante a digitação.
-
-### Lote UX em validação local — 18/08/2026
-
-Este lote está no working tree, validado, mas **ainda não foi commitado nem publicado**. Não o descarte:
-
-- Contato não toma foco na carga inicial, portanto a página abre no hero; depois de cada avanço ou retorno do wizard, o próximo campo continua recebendo foco.
-- FAB do WhatsApp se recolhe quando CTAs principais de Trabalho, Diagnóstico, Contato ou Rodapé entram na viewport, evitando bloquear ações no mobile.
-- Marca no Header e Footer agora tem alvo de toque de 44px; a marca do Header também tem `aria-label` explícito.
-- Faixa de tecnologias ganhou botão visível de pausar/retomar; o controle explícito evita depender de hover e funciona no toque.
-- Microtextos informativos do mobile foram elevados (formulário, privacidade, timeline e tags) sem alterar elementos somente decorativos.
-- Validação concluída: 101 testes / 16 arquivos, `npx tsc --noEmit` e `npx vite build` verdes. Checagem visual confirmou abertura no hero e recolhimento do FAB a 390px.
-
-Antes de afirmar que uma mudança está correta, testar o fluxo visual correspondente em `http://localhost:5173` e executar ao menos os testes do componente alterado.
-
-O typecheck foi zerado antes da continuação das seções. Faixa de tecnologias, Trabalho
-(3D no desktop e fallback responsivo), Processo, Sobre, CTA intermediário, Contato,
-rodapé e FAB do WhatsApp estão implementados, testados e integrados. A revisão visual
-foi feita em 390px, 768px e 1440px sem erros de runtime no navegador. A seção
-“O custo de não ter” continua deliberadamente fora da integração até o cliente confirmar
-se a execução final deve ser a SERP simulada ou as quatro células intermediárias.
+- `27e23c1` **feat: rebrand site as Zenite and polish ux** — rebranding de "DevSites"
+  para "ZÊNITE" em toda a UI e metadados; lote de polimento de UX que ficava pendente de
+  commit em versões anteriores deste documento: foco do Contato não é roubado na carga
+  inicial (mas volta a cada passo do wizard), FAB do WhatsApp recolhe perto dos CTAs
+  principais, alvo de toque de 44px na marca do Header/Footer, botão de pausar/retomar
+  na faixa de tecnologias, microtextos mobile elevados a texto legível.
+- `27f6e86` **fix: suaviza timeline e limpa âncoras** — ajuste fino da timeline de
+  Processo e limpeza de âncoras de URL (`useCleanAnchors`).
+- `4ad11a2` **chore: typecheck sem emitir arquivos na arvore de fontes** — ajuste de
+  configuração do `tsc -b` para não gerar `.js`/`.d.ts` dentro de `src/`.
 
 ### Erros que foram corrigidos
 
@@ -216,91 +213,49 @@ será incompatível com o TypeScript 7. **Não reabrir esta decisão.**
 | `ui/Reveal.tsx` + css | Wrapper de entrada. Variantes `up` `rise` `left` `right` `scale` `wipe`. |
 | `layout/Header.tsx` + css | Cápsula com dois estados (condensa em `scrollY > 40`), logo que gira −90° no hover, pílula de scrollspy que desliza, relógio ao vivo (≥1180px), CTA magnético, botão de menu, barra de progresso de leitura. |
 | `layout/MobileMenu.tsx` + css | Overlay full-screen, cascata dos itens, trava de scroll, **foco preso** e Escape para fechar. |
+| `layout/Footer.tsx` + css | Duas linhas; a segunda é a assinatura da visita com medições reais (`abriu em Xs`, `você está aqui há M:SS`, `leu N de 5 seções`). |
+| `layout/WhatsAppFab.tsx` + css | Círculo flutuante de 54px; recolhe quando o CTA do rodapé (ou outros CTAs principais) entra em tela. |
 | `sections/Hero.tsx` + css | H1 em três linhas com revelação por máscara, subtítulo, dois botões, stats com contador, monta a cena 3D só ≥900px e sem reduced-motion. |
 | `sections/MobileStack.tsx` + css | Peça CSS 3D exclusiva do mobile (<900px) — quatro camadas que inclinam e se juntam ao rolar. |
 | `sections/ScrollCue.tsx` + css | "Role para ver". Só aparece **se o hero couber na viewport**; remede 900ms depois do load. |
+| `sections/StackMarquee.tsx` + css | Faixa de tecnologias em marquee infinito e contínuo, com botão de pausar/retomar. |
+| `sections/WorkSection.tsx` + css | Seção "01 · Trabalho": fallback com card de navegador (screenshots reais, cross-fade), abas 01/02/03, autoplay de 6500ms que para no primeiro clique, setas/teclado/swipe, monta `three/WorkScene` (coverflow 3D) ≥760px. |
+| `three/WorkScene.tsx` + css | Galeria coverflow 3D do Trabalho — posições por distância ao ativo, lerp, inclinação, reflexo no chão. Carregado com `lazy`. |
+| `sections/ProcessSection.tsx` + css | Timeline "03 · Como funciona" dirigida pelo scroll, com três layouts (trilho horizontal ≥1024px, sem trilho 640–1024px, trilho vertical <640px). Matemática em `lib/processProgress.ts`. |
+| `sections/AboutSection.tsx` + css | Seção "04 · Sobre": duas colunas, sem foto; painel "padrão-de-entrega" com os seis itens de `DELIVERY_SPECS` aprovados um a um ao entrar em tela. |
+| `sections/CtaSection.tsx` + css | Bloco de CTA intermediário — brilho radial, grade mascarada, botão do WhatsApp. |
+| `sections/ContactSection.tsx` + css | Wizard "05 · Contato" de 4 passos, trilho deslizante, prévia ao vivo da mensagem, validação por passo, integra `lib/phone.ts` e `lib/whatsapp.ts`. |
 | `three/HeroScene.tsx` + css | Site explodido em 4 camadas de metal, varredura de acento, pointer suavizado, loop pausado fora da tela. Carregado com `lazy`. Cleanup do rAF corrigido. |
-| `App.tsx`, `main.tsx` | Shell. Hoje monta **apenas** Header + MobileMenu + Hero. |
+| `App.tsx`, `main.tsx` | Shell. Monta Header, MobileMenu, Hero, StackMarquee, WorkSection, ProcessSection, AboutSection, CtaSection, ContactSection, Footer e WhatsAppFab — **todo o site, exceto a seção "O custo de não ter" (ver seção 5)**. |
 
 ---
 
 ## 5. O que falta construir
 
-Em ordem sugerida. Cada item tem a seção correspondente do `README.md` do handoff, que
-traz medidas, cores e comportamento exatos. **Sempre confira também o bloco
-`<script type="text/x-dc">` do `DevSites Roxo.dc.html` para a matemática das interações.**
+**Só resta um item de construção real.** Tudo que a lista original desta seção descrevia
+(faixa da stack, Trabalho com coverflow 3D, Processo, Sobre, CTA, Contato, rodapé, FAB,
+`vercel.json` com headers de cache, verificação final) **já está implementado, testado e
+commitado** — ver tabela da seção 4 e commits da seção 3. Não reconstrua nada disso.
 
-0. ~~**Zerar o typecheck**~~ — concluído; seção 3 registra as correções.
+1. **Seção 02 · O custo de não ter** — a única seção do handoff original ainda não
+   integrada em `App.tsx`. `README.md` do handoff › "02 — O custo de não ter". Dados já
+   prontos em `COST_ITEMS` (`src/data/content.ts`), só falta o componente.
 
-1. **Faixa da stack** — marquee infinito, `README.md` › "Faixa da stack".
-   Duas listas idênticas (a segunda `aria-hidden`), `animation: marquee 38s linear infinite`.
-   Dados já em `STACK_ITEMS`.
+   **Não implemente sem confirmar com o cliente qual das duas versões construir** (ver
+   pendência 1 da seção 9): a versão intermediária de 4 células, ou a busca simulada do
+   Google (SERP falsa) que o cliente sinalizou preferir. Se for a versão de 4 células, a
+   especificação é:
+   - Grid de 4 células com `gap:1px` sobre fundo `rgba(255,255,255,.08)` (as linhas viram
+     divisores).
+   - **Holofote do cursor** (≥900px, desligado no mobile e com reduced-motion), um
+     `radial-gradient(260px circle at X Y)` seguindo o ponteiro via rAF.
+   - Reveal `wipe` em cascata, seguindo o padrão de `lib/reveal.ts` já usado nas outras
+     seções.
+   - Sempre confira também o bloco `<script type="text/x-dc">` do `DevSites Roxo.dc.html`
+     para a matemática de interações equivalentes já implementadas noutras seções.
 
-2. **Seção 02 · O custo de não ter** — `README.md` › "02 — O custo de não ter".
-   Grid de 4 células com `gap:1px` sobre fundo `rgba(255,255,255,.08)` (as linhas viram
-   divisores). **Holofote do cursor** (≥900px, desligado no mobile e com reduced-motion),
-   um `radial-gradient(260px circle at X Y)` seguindo o ponteiro via rAF.
-   Reveal `wipe` em cascata. Dados em `COST_ITEMS`.
-
-3. **Seção 01 · Trabalho** — a mais complexa. `README.md` › "01 — Trabalho".
-   - O **fallback é o estado padrão e contém conteúdo real**: card de navegador com os
-     três screenshots como `<img>` (use `card.srcSet` de `projects.ts`), cross-fade de
-     `.6s`, o card inteiro é um `<a>` para o projeto ativo. Isso cobre reduced-motion,
-     ausência de WebGL, telas <760px e o intervalo até o three.js carregar — e os `<img>`
-     contam para SEO.
-   - Abas 01/02/03, painéis de detalhe empilhados em `grid-area: 1/1` (altura estável),
-     cross-fade + `translateY(14px)`.
-   - **Autoplay** de 6500ms que só começa quando a seção entra em tela (threshold .25) e
-     **para de vez no primeiro clique — nunca retoma**. A aba ativa mostra uma barrinha
-     preenchendo em `width 6500ms linear`.
-   - Setas laterais, setas do teclado (só quando a seção está no centro da viewport),
-     swipe por toque (>45px horizontal; **um swipe não pode disparar o link**).
-   - Depois: `three/WorkScene.tsx`, galeria coverflow 3D (≥760px). Toda a matemática está
-     no protótipo em `buildWork()`: posições por distância `d` ao ativo, lerp a 8,5%/frame,
-     inclinação na direção do movimento, reflexo no chão, e o card da frente rolando
-     sozinho pela textura. O canvas só assume 220ms **depois de realmente pintar**.
-
-4. **Seção 03 · Processo** — `README.md` › "03 — Como funciona".
-   Timeline dirigida pelo scroll com **três layouts**: trilho horizontal ≥1024px, sem
-   trilho e tudo ativo entre 640–1024px, trilho **vertical** <640px. As fórmulas de
-   progresso, do contador "Dia X de 11" e de ativação por etapa estão no `README.md` e em
-   `initProcess()` no protótipo. Com reduced-motion: tudo ativo, preenchimento 100%, "Dia 11".
-   Dados em `PROCESS_STEPS` / `PROCESS_TOTAL_DAYS`.
-
-5. **Seção 04 · Sobre** — `README.md` › "04 — Sobre".
-   Duas colunas, **sem foto** (posicionamento de empresa, não de pessoa). À direita, o
-   painel "padrão-de-entrega": janela de terminal onde os seis itens são **aprovados um a
-   um** a cada `220 + i × 260ms` ao entrar em tela, com contador subindo até `6/6` e um
-   rodapé "Aprovado — pronto para publicar". Com reduced-motion, já nasce tudo aprovado.
-   Dados em `DELIVERY_SPECS`.
-
-6. **CTA** — `README.md` › "CTA". Bloco centralizado, raio 28px, brilho radial + grade
-   mascarada, botão branco grande com ícone do WhatsApp.
-
-7. **Seção 05 · Contato** — wizard de 4 passos. `README.md` › "05 — Contato".
-   Trilho de `width:400%` deslizando `translateX(-25% × passo)`. **Prévia ao vivo da
-   mensagem** com cursor piscando. Validação por passo com micro-shake e mensagem em
-   `--error` (**sem `alert()`**). Enter avança; Shift+Enter quebra linha no textarea.
-   Passo 3 é opcional e tem "Pular". Ao enviar, abre `wa.me` em nova aba e mostra a tela
-   de sucesso com "Preencher de novo".
-   **A lógica já existe e está testada** em `lib/phone.ts` e `lib/whatsapp.ts` — reutilize,
-   não reescreva. Nada é enviado a servidor; não há backend.
-
-8. **Rodapé** — `README.md` › "Rodapé". Duas linhas. A segunda é a assinatura da visita
-   com **medições reais do navegador**: `abriu em Xs` (Navigation Timing — se não houver
-   medida, exibir `<1`, **nunca inventar**), `você está aqui há M:SS` (`useElapsedTime` já
-   existe), `leu N de 5 seções` (IntersectionObserver, threshold .3, ids em
-   `READABLE_SECTIONS`). As barras `/` são decorativas e usam `--decor`.
-
-9. **FAB do WhatsApp** — `README.md` › "Botão flutuante". Círculo de 54px. **Recolhe
-   quando o CTA do rodapé entra em tela** (threshold .12): `scale(.6)`, `opacity 0`,
-   `pointer-events:none`, `aria-hidden="true"` — lá embaixo já existe um botão de
-   WhatsApp e o flutuante competiria com o CTA.
-
-10. **`vercel.json`** com headers de cache para `/assets/*` e os imutáveis do Vite.
-
-11. **Verificação final**: `npx tsc --noEmit`, `npx vitest run`, `npx vite build`, e
-    revisão visual em 390px / 768px / 1440px.
+Fora isso, o trabalho que resta é o da seção 9 (pendências combinadas com o cliente, mas
+não aprovadas) e manutenção/polimento geral.
 
 ---
 
@@ -388,8 +343,8 @@ versão LTS suportada (22 ou posterior), não baixar as ferramentas.
 
 **Git:** o site antigo (HTML/CSS/JS puro) foi removido e está preservado no commit
 `076d624`, recuperável com `git show 076d624:index.html`. A pasta `assets/` com os PNGs
-originais foi mantida como fonte para o script de otimização. Nada foi commitado ainda —
-todo o trabalho novo está no working tree.
+originais foi mantida como fonte para o script de otimização. Todo o trabalho está
+commitado na `main`; o working tree está limpo (ver seção 3).
 
 ---
 
@@ -398,8 +353,9 @@ todo o trabalho novo está no working tree.
 Combinadas com o cliente e **ainda não aprovadas** — não implemente sem perguntar:
 
 1. Seção "O custo de não ter" como **busca simulada do Google** (uma SERP falsa onde o
-   negócio do cliente não aparece). O cliente escolheu essa direção; as quatro células
-   atuais são a versão intermediária.
+   negócio do cliente não aparece). O cliente sinalizou preferência por essa direção; a
+   versão de quatro células descrita na seção 5 é a alternativa intermediária, ainda não
+   construída — a seção inteira segue fora de `App.tsx` até essa decisão.
 2. **Prova de cliente** — não há depoimentos hoje. Quando houver, entra entre Trabalho e
    "O custo de não ter".
 3. **Analytics** — não há nenhum instalado.

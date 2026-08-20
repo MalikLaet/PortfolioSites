@@ -127,7 +127,7 @@ export function ContactSection(): React.JSX.Element {
           ) : (
             <form onSubmit={(event) => { event.preventDefault(); advance(); }} noValidate>
               <div className={styles.formHeader}>
-                <strong>Conta rápido o seu projeto</strong>
+                <strong>Conte mais sobre o seu projeto</strong>
                 <span>Passo {step + 1}/4</span>
               </div>
               <div className={styles.progress} aria-hidden="true">

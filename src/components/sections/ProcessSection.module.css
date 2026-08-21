@@ -77,13 +77,14 @@
   min-width: 0;
   padding: 28px 24px 30px 0;
   border-top: 1px solid var(--line-14);
-  opacity: 0.42;
-  transition: opacity 0.7s ease-out;
+  /* O estado da etapa vive no nó, no título e nesta linha — nunca em `opacity`
+     no container: qualquer alpha sobre --muted o derruba abaixo de AA. */
+  transition: border-color 0.7s ease-out;
 }
 
 .step + .step { padding-left: 24px; }
 
-.stepActive { opacity: 1; }
+.stepActive { border-top-color: var(--line-22); }
 
 .stepMeta {
   display: flex;
@@ -129,7 +130,6 @@
     padding: 28px;
     border-top: 0;
     background: var(--bg);
-    opacity: 1;
   }
 }
 

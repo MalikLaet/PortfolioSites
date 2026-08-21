@@ -6,7 +6,7 @@
 
 export const WHATSAPP_NUMBER = '5511999038780';
 export const WHATSAPP_DISPLAY = '(11) 99903-8780';
-export const EMAIL = 'isklikma@gmail.com';
+export const EMAIL = 'zenite.enterprise@gmail.com';
 export const LOCATION = 'São Paulo';
 export const TIMEZONE = 'America/Sao_Paulo';
 

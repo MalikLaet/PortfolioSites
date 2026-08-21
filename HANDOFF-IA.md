@@ -61,7 +61,7 @@ implementar uma interação.
 - Voz: primeira pessoa do plural ("nós", "montamos", "a gente"). Sem jargão de marketing,
   sem emoji.
 - Contato exato: WhatsApp `+55 11 99903-8780` → `https://wa.me/5511999038780`,
-  e-mail `isklikma@gmail.com`, local exibido "São Paulo".
+  e-mail `zenite.enterprise@gmail.com`, local exibido "São Paulo".
 
 ---
 

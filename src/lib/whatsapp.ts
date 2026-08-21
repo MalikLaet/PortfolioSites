@@ -2,8 +2,7 @@ import { whatsappLink } from '@/data/site';
 
 export interface LeadFields {
   readonly name: string;
-  readonly phone: string;
-  /** Opcional — o passo 3 do wizard pode ser pulado. */
+  /** Opcional — o passo 2 do wizard pode ser pulado. */
   readonly business: string;
   readonly message: string;
 }
@@ -11,7 +10,9 @@ export interface LeadFields {
 /**
  * Monta a mensagem que o visitante vai enviar.
  *
- * Os asteriscos são a sintaxe de negrito do próprio WhatsApp. O campo de
+ * Os asteriscos são a sintaxe de negrito do próprio WhatsApp. O número do
+ * visitante não entra na mensagem: quem recebe já vê o contato de quem
+ * mandou, porque a conversa nasce dentro do próprio WhatsApp dele. O campo de
  * negócio some da mensagem quando fica vazio, em vez de virar uma linha solta.
  */
 export function buildLeadMessage(fields: LeadFields): string {
@@ -20,7 +21,6 @@ export function buildLeadMessage(fields: LeadFields): string {
     'Olá! Vim pelo site.',
     '',
     `*Nome:* ${fields.name.trim()}`,
-    `*WhatsApp:* ${fields.phone.trim()}`,
     ...(business ? [`*Negócio:* ${business}`] : []),
     '',
     '*Mensagem:*',
@@ -40,9 +40,8 @@ export function buildLeadLink(fields: LeadFields): string {
 export function buildPreviewLines(fields: LeadFields, step: number): string[] {
   const entries: Array<[number, string, string]> = [
     [0, 'Nome', fields.name],
-    [1, 'WhatsApp', fields.phone],
-    [2, 'Negócio', fields.business],
-    [3, 'Mensagem', fields.message],
+    [1, 'Negócio', fields.business],
+    [2, 'Mensagem', fields.message],
   ];
   return entries
     .filter(([atStep, , value]) => step >= atStep && value.trim() !== '')

@@ -642,7 +642,7 @@ Combinadas com o cliente e ainda em aberto:
 ## Dados de contato (usar exatamente estes)
 
 - WhatsApp: `+55 11 99903-8780` → `https://wa.me/5511999038780`
-- E-mail: `isklikma@gmail.com`
+ - E-mail: `zenite.enterprise@gmail.com`
 - Localização exibida: São Paulo
 
 Texto padrão dos links diretos de WhatsApp: `?text=Olá, quero um site para meu negócio` (URL-encoded).

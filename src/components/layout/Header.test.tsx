@@ -136,9 +136,9 @@ describe('MobileMenu', () => {
     expect(within(dialog).getByText('01')).toBeInTheDocument();
     expect(within(dialog).getByText('04')).toBeInTheDocument();
     expect(within(dialog).getByRole('link', { name: /Falar no WhatsApp/ })).toBeInTheDocument();
-    expect(within(dialog).getByRole('link', { name: 'isklikma@gmail.com' })).toHaveAttribute(
+    expect(within(dialog).getByRole('link', { name: 'zenite.enterprise@gmail.com' })).toHaveAttribute(
       'href',
-      'mailto:isklikma@gmail.com',
+      'mailto:zenite.enterprise@gmail.com',
     );
   });
 

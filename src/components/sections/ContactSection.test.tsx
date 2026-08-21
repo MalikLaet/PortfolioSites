@@ -12,7 +12,7 @@ describe('ContactSection', () => {
     expect(document.activeElement).not.toBe(screen.getByRole('textbox', { name: 'Como podemos te chamar?' }));
   });
 
-  it('valida cada etapa sem usar alert', async () => {
+  it('valida nome e mensagem sem usar alert, e deixa negócio opcional', async () => {
     const user = userEvent.setup();
     render(<ContactSection />);
 
@@ -21,21 +21,21 @@ describe('ContactSection', () => {
 
     await user.type(screen.getByRole('textbox', { name: 'Como podemos te chamar?' }), 'Ana');
     await user.click(screen.getByRole('button', { name: /Continuar/ }));
-    expect(screen.getByRole('textbox', { name: 'Qual seu número?' })).toHaveFocus();
+    expect(screen.getByRole('textbox', { name: 'O que você vende ou faz?' })).toHaveFocus();
 
-    await user.type(screen.getByRole('textbox', { name: 'Qual seu número?' }), '11999');
-    await user.click(screen.getByRole('button', { name: /Continuar/ }));
-    expect(screen.getByRole('alert')).toHaveTextContent('Falta um número válido de WhatsApp.');
+    await user.click(screen.getByRole('button', { name: 'Pular' }));
+    await user.click(screen.getByRole('button', { name: /Enviar pelo WhatsApp/ }));
+    expect(screen.getByRole('alert')).toHaveTextContent('Escreve rapidinho o que você precisa.');
   });
 
-  it('aplica a máscara e atualiza a prévia ao vivo', async () => {
+  it('atualiza a prévia ao vivo conforme o visitante preenche', async () => {
     const user = userEvent.setup();
     render(<ContactSection />);
     await user.type(screen.getByRole('textbox', { name: 'Como podemos te chamar?' }), 'Ana');
     expect(screen.getByText('Nome: Ana')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Continuar/ }));
-    await user.type(screen.getByRole('textbox', { name: 'Qual seu número?' }), '11999038780');
-    expect(screen.getByRole('textbox', { name: 'Qual seu número?' })).toHaveValue('(11) 99903-8780');
+    await user.type(screen.getByRole('textbox', { name: 'O que você vende ou faz?' }), 'Barbearia');
+    expect(screen.getByText('Negócio: Barbearia')).toBeInTheDocument();
   });
 
   it('aceita Enter para avançar e Shift+Enter para quebrar linha', async () => {
@@ -43,7 +43,6 @@ describe('ContactSection', () => {
     render(<ContactSection />);
     const name = screen.getByRole('textbox', { name: 'Como podemos te chamar?' });
     await user.type(name, 'Ana{Enter}');
-    await user.type(screen.getByRole('textbox', { name: 'Qual seu número?' }), '11999038780{Enter}');
     await user.click(screen.getByRole('button', { name: 'Pular' }));
     const message = screen.getByRole('textbox', { name: 'Me conta rapidinho' });
     fireEvent.keyDown(message, { key: 'Enter', shiftKey: true });
@@ -54,8 +53,6 @@ describe('ContactSection', () => {
     const user = userEvent.setup();
     render(<ContactSection />);
     await user.type(screen.getByRole('textbox', { name: 'Como podemos te chamar?' }), 'Malik');
-    await user.click(screen.getByRole('button', { name: /Continuar/ }));
-    await user.type(screen.getByRole('textbox', { name: /Qual seu/ }), '11999038780');
     await user.click(screen.getByRole('button', { name: /Continuar/ }));
     await user.click(screen.getByRole('button', { name: 'Pular' }));
     const message = screen.getByRole('textbox', { name: 'Me conta rapidinho' });
@@ -69,8 +66,6 @@ describe('ContactSection', () => {
     const user = userEvent.setup();
     render(<ContactSection />);
     await user.type(screen.getByRole('textbox', { name: 'Como podemos te chamar?' }), 'Ana');
-    await user.click(screen.getByRole('button', { name: /Continuar/ }));
-    await user.type(screen.getByRole('textbox', { name: 'Qual seu número?' }), '11999038780');
     await user.click(screen.getByRole('button', { name: /Continuar/ }));
     await user.click(screen.getByRole('button', { name: 'Pular' }));
     await user.type(screen.getByRole('textbox', { name: 'Me conta rapidinho' }), 'Preciso de um site.');

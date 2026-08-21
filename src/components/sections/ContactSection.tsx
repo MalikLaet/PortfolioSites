@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { EMAIL, WHATSAPP_DISPLAY, WHATSAPP_URL } from '@/data/site';
-import { isValidPhone, maskPhone } from '@/lib/phone';
 import { buildLeadLink, buildPreviewLines, type LeadFields } from '@/lib/whatsapp';
 import {
   ArrowLeftIcon,
@@ -12,12 +11,11 @@ import {
 import { Reveal } from '@/components/ui/Reveal';
 import styles from './ContactSection.module.css';
 
-const EMPTY_FIELDS: LeadFields = { name: '', phone: '', business: '', message: '' };
+const EMPTY_FIELDS: LeadFields = { name: '', business: '', message: '' };
 
 function validationMessage(step: number, fields: LeadFields): string {
   if (step === 0 && !fields.name.trim()) return 'Me conta seu nome antes de continuar.';
-  if (step === 1 && !isValidPhone(fields.phone)) return 'Falta um número válido de WhatsApp.';
-  if (step === 3 && !fields.message.trim()) return 'Escreve rapidinho o que você precisa.';
+  if (step === 2 && !fields.message.trim()) return 'Escreve rapidinho o que você precisa.';
   return '';
 }
 
@@ -51,7 +49,7 @@ export function ContactSection(): React.JSX.Element {
   };
 
   const submit = () => {
-    const message = validationMessage(3, fields);
+    const message = validationMessage(2, fields);
     if (message) {
       showError(message);
       return;
@@ -68,7 +66,7 @@ export function ContactSection(): React.JSX.Element {
     }
     setError('');
     setErrorStep(null);
-    if (step === 3) submit();
+    if (step === 2) submit();
     else {
       shouldFocusField.current = true;
       setStep((current) => current + 1);
@@ -128,10 +126,10 @@ export function ContactSection(): React.JSX.Element {
             <form onSubmit={(event) => { event.preventDefault(); advance(); }} noValidate>
               <div className={styles.formHeader}>
                 <strong>Conte mais sobre o seu projeto</strong>
-                <span>Passo {step + 1}/4</span>
+                <span>Passo {step + 1}/3</span>
               </div>
               <div className={styles.progress} aria-hidden="true">
-                <span style={{ width: `${((step + 1) / 4) * 100}%` }} />
+                <span style={{ width: `${((step + 1) / 3) * 100}%` }} />
               </div>
 
               <div className={styles.preview} aria-live="polite">
@@ -163,42 +161,28 @@ export function ContactSection(): React.JSX.Element {
                     />
                   </div>
                   <div className={styles.fieldPanel} aria-hidden={step !== 1}>
-                    <label htmlFor="lead-phone"><span aria-hidden="true">02 · WhatsApp</span>Qual seu número?</label>
-                    <input
-                      id="lead-phone"
-                      ref={(element) => { fieldRefs.current[1] = element; }}
-                      value={fields.phone}
-                      onChange={(event) => updateField('phone', maskPhone(event.target.value))}
-                      onKeyDown={onFieldKeyDown}
-                      autoComplete="tel"
-                      inputMode="tel"
-                      placeholder="(11) 99999-9999"
-                      tabIndex={step === 1 ? 0 : -1}
-                    />
-                  </div>
-                  <div className={styles.fieldPanel} aria-hidden={step !== 2}>
-                    <label htmlFor="lead-business"><span aria-hidden="true">03 · Negócio</span>O que você vende ou faz?</label>
+                    <label htmlFor="lead-business"><span aria-hidden="true">02 · Negócio</span>O que você vende ou faz?</label>
                     <input
                       id="lead-business"
-                      ref={(element) => { fieldRefs.current[2] = element; }}
+                      ref={(element) => { fieldRefs.current[1] = element; }}
                       value={fields.business}
                       onChange={(event) => updateField('business', event.target.value)}
                       onKeyDown={onFieldKeyDown}
                       placeholder="Ex.: clínica, oficina, consultoria"
-                      tabIndex={step === 2 ? 0 : -1}
+                      tabIndex={step === 1 ? 0 : -1}
                     />
                   </div>
-                  <div className={styles.fieldPanel} aria-hidden={step !== 3}>
-                    <label htmlFor="lead-message"><span aria-hidden="true">04 · O que você precisa</span>Me conta rapidinho</label>
+                  <div className={styles.fieldPanel} aria-hidden={step !== 2}>
+                    <label htmlFor="lead-message"><span aria-hidden="true">03 · O que você precisa</span>Me conta rapidinho</label>
                     <textarea
                       id="lead-message"
-                      ref={(element) => { fieldRefs.current[3] = element; }}
+                      ref={(element) => { fieldRefs.current[2] = element; }}
                       value={fields.message}
                       onChange={(event) => updateField('message', event.target.value)}
                       onKeyDown={onFieldKeyDown}
                       placeholder="O que você quer melhorar ou construir?"
                       rows={3}
-                      tabIndex={step === 3 ? 0 : -1}
+                      tabIndex={step === 2 ? 0 : -1}
                     />
                   </div>
                 </div>
@@ -215,9 +199,9 @@ export function ContactSection(): React.JSX.Element {
                   </button>
                 ) : <span />}
                 <div>
-                  {step === 2 ? <button className={styles.skip} type="button" onClick={advance}>Pular</button> : null}
+                  {step === 1 ? <button className={styles.skip} type="button" onClick={advance}>Pular</button> : null}
                   <button className={styles.next} type="submit" data-fab-target>
-                    {step === 3 ? <><WhatsAppIcon size={18} color="var(--whatsapp)" /> Enviar pelo WhatsApp</> : <>Continuar <ArrowRightIcon /></>}
+                    {step === 2 ? <><WhatsAppIcon size={18} color="var(--whatsapp)" /> Enviar pelo WhatsApp</> : <>Continuar <ArrowRightIcon /></>}
                   </button>
                 </div>
               </div>

@@ -3,7 +3,6 @@ import { buildLeadLink, buildLeadMessage, buildPreviewLines, type LeadFields } f
 
 const base: LeadFields = {
   name: 'Ana',
-  phone: '(11) 99903-8780',
   business: 'Barbearia',
   message: 'Preciso de um site.',
 };
@@ -14,7 +13,6 @@ describe('buildLeadMessage', () => {
       'Olá! Vim pelo site.\n' +
         '\n' +
         '*Nome:* Ana\n' +
-        '*WhatsApp:* (11) 99903-8780\n' +
         '*Negócio:* Barbearia\n' +
         '\n' +
         '*Mensagem:*\n' +
@@ -25,7 +23,7 @@ describe('buildLeadMessage', () => {
   it('omite a linha de negócio quando o passo foi pulado', () => {
     const message = buildLeadMessage({ ...base, business: '   ' });
     expect(message).not.toContain('Negócio');
-    expect(message).toContain('*WhatsApp:* (11) 99903-8780\n\n*Mensagem:*');
+    expect(message).toContain('*Nome:* Ana\n\n*Mensagem:*');
   });
 
   it('remove espaço sobrando nas pontas dos campos', () => {
@@ -53,28 +51,26 @@ describe('buildLeadLink', () => {
 
 describe('buildPreviewLines', () => {
   it('não mostra nada antes de qualquer preenchimento', () => {
-    const empty: LeadFields = { name: '', phone: '', business: '', message: '' };
+    const empty: LeadFields = { name: '', business: '', message: '' };
     expect(buildPreviewLines(empty, 0)).toEqual([]);
   });
 
   it('mostra só o que já foi preenchido até o passo atual', () => {
     expect(buildPreviewLines(base, 0)).toEqual(['Nome: Ana']);
-    expect(buildPreviewLines(base, 1)).toEqual(['Nome: Ana', 'WhatsApp: (11) 99903-8780']);
+    expect(buildPreviewLines(base, 1)).toEqual(['Nome: Ana', 'Negócio: Barbearia']);
   });
 
   it('inclui todos os campos no último passo', () => {
-    expect(buildPreviewLines(base, 3)).toEqual([
+    expect(buildPreviewLines(base, 2)).toEqual([
       'Nome: Ana',
-      'WhatsApp: (11) 99903-8780',
       'Negócio: Barbearia',
       'Mensagem: Preciso de um site.',
     ]);
   });
 
   it('pula campo em branco mesmo com o passo já alcançado', () => {
-    expect(buildPreviewLines({ ...base, business: '' }, 3)).toEqual([
+    expect(buildPreviewLines({ ...base, business: '' }, 2)).toEqual([
       'Nome: Ana',
-      'WhatsApp: (11) 99903-8780',
       'Mensagem: Preciso de um site.',
     ]);
   });

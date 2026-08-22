@@ -44,7 +44,7 @@ describe('Hero', () => {
     );
     expect(screen.getByRole('link', { name: /Falar no WhatsApp/ })).toHaveAttribute(
       'href',
-      expect.stringContaining('wa.me/5511999038780'),
+      expect.stringContaining('wa.me/5511925780617'),
     );
   });
 

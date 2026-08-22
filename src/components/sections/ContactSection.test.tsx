@@ -72,7 +72,7 @@ describe('ContactSection', () => {
     await user.click(screen.getByRole('button', { name: /Enviar pelo WhatsApp/ }));
 
     expect(open).toHaveBeenCalledWith(
-      expect.stringContaining('https://wa.me/5511999038780?text='),
+      expect.stringContaining('https://wa.me/5511925780617?text='),
       '_blank',
       'noopener,noreferrer',
     );

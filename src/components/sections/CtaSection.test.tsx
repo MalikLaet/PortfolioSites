@@ -9,7 +9,7 @@ describe('CtaSection', () => {
     expect(screen.getByRole('heading', { name: /Em 10 minutos você descobre/ })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Falar no WhatsApp agora/ })).toHaveAttribute(
       'href',
-      expect.stringContaining('wa.me/5511999038780'),
+      expect.stringContaining('wa.me/5511925780617'),
     );
   });
 });

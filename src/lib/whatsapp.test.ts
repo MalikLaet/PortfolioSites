@@ -36,7 +36,7 @@ describe('buildLeadMessage', () => {
 describe('buildLeadLink', () => {
   it('aponta para o número do handoff com o texto codificado', () => {
     const link = buildLeadLink(base);
-    expect(link.startsWith('https://wa.me/5511999038780?text=')).toBe(true);
+    expect(link.startsWith('https://wa.me/5511925780617?text=')).toBe(true);
 
     const text = decodeURIComponent(link.split('?text=')[1] ?? '');
     expect(text).toBe(buildLeadMessage(base));

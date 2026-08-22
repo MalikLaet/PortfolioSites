@@ -60,7 +60,7 @@ implementar uma interação.
 - Nada de escassez inventada (datas fixas, contagem de vagas) — foi removido de propósito.
 - Voz: primeira pessoa do plural ("nós", "montamos", "a gente"). Sem jargão de marketing,
   sem emoji.
-- Contato exato: WhatsApp `+55 11 99903-8780` → `https://wa.me/5511999038780`,
+- Contato exato: WhatsApp `+55 11 92578-0617` → `https://wa.me/5511925780617`,
   e-mail `zenite.enterprise@gmail.com`, local exibido "São Paulo".
 
 ---

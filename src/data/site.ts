@@ -4,8 +4,8 @@
  * Os valores de contato são os do handoff e devem ser usados exatamente assim.
  */
 
-export const WHATSAPP_NUMBER = '5511999038780';
-export const WHATSAPP_DISPLAY = '(11) 99903-8780';
+export const WHATSAPP_NUMBER = '5511925780617';
+export const WHATSAPP_DISPLAY = '(11) 92578-0617';
 export const EMAIL = 'zenite.enterprise@gmail.com';
 export const LOCATION = 'São Paulo';
 export const TIMEZONE = 'America/Sao_Paulo';

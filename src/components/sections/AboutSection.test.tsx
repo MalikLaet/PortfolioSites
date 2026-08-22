@@ -31,7 +31,7 @@ describe('AboutSection', () => {
     render(<AboutSection />);
     expect(screen.getByRole('link', { name: 'Falar com a gente' })).toHaveAttribute(
       'href',
-      expect.stringContaining('wa.me/5511999038780'),
+      expect.stringContaining('wa.me/5511925780617'),
     );
   });
 });

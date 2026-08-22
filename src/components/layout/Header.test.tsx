@@ -40,7 +40,7 @@ describe('Header', () => {
     }
     expect(screen.getByRole('link', { name: 'Começar um projeto' })).toHaveAttribute(
       'href',
-      expect.stringContaining('wa.me/5511999038780'),
+      expect.stringContaining('wa.me/5511925780617'),
     );
   });
 
